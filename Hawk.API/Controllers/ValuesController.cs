@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Hawk.Repository;
 
 namespace Hawk.API.Controllers
 {
@@ -10,6 +11,13 @@ namespace Hawk.API.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        public readonly HawkContext _context;
+
+        public ValuesController(HawkContext _context)
+        {
+            _context = context;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
