@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alunos\\Desktop\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Alunos\\Downloads\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj",
       "projectName": "Hawk.Domain",
-      "projectPath": "C:\\Users\\Alunos\\Desktop\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj",
+      "projectPath": "C:\\Users\\Alunos\\Downloads\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj",
       "packagesPath": "C:\\Users\\Alunos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alunos\\Desktop\\Hawk\\Hawk.Domain\\obj\\",
+      "outputPath": "C:\\Users\\Alunos\\Downloads\\Hawk\\Hawk.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
