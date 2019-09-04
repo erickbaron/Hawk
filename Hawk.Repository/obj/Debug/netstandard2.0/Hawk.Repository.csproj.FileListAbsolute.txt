@@ -1,0 +1,12 @@
+C:\Users\Alunos\Desktop\Hawk\Hawk.Repository\bin\Debug\netstandard2.0\Hawk.Repository.deps.json
+C:\Users\Alunos\Desktop\Hawk\Hawk.Repository\bin\Debug\netstandard2.0\Hawk.Repository.dll
+C:\Users\Alunos\Desktop\Hawk\Hawk.Repository\bin\Debug\netstandard2.0\Hawk.Repository.pdb
+C:\Users\Alunos\Desktop\Hawk\Hawk.Repository\bin\Debug\netstandard2.0\Hawk.Domain.dll
+C:\Users\Alunos\Desktop\Hawk\Hawk.Repository\bin\Debug\netstandard2.0\Hawk.Domain.pdb
+C:\Users\Alunos\Desktop\Hawk\Hawk.Repository\obj\Debug\netstandard2.0\Hawk.Repository.csprojAssemblyReference.cache
+C:\Users\Alunos\Desktop\Hawk\Hawk.Repository\obj\Debug\netstandard2.0\Hawk.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Alunos\Desktop\Hawk\Hawk.Repository\obj\Debug\netstandard2.0\Hawk.Repository.AssemblyInfoInputs.cache
+C:\Users\Alunos\Desktop\Hawk\Hawk.Repository\obj\Debug\netstandard2.0\Hawk.Repository.AssemblyInfo.cs
+C:\Users\Alunos\Desktop\Hawk\Hawk.Repository\obj\Debug\netstandard2.0\Hawk.Repository.csproj.CopyComplete
+C:\Users\Alunos\Desktop\Hawk\Hawk.Repository\obj\Debug\netstandard2.0\Hawk.Repository.dll
+C:\Users\Alunos\Desktop\Hawk\Hawk.Repository\obj\Debug\netstandard2.0\Hawk.Repository.pdb
