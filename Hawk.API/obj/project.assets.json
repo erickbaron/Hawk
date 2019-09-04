@@ -12119,11 +12119,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alunos\\Desktop\\Hawk\\Hawk.API\\Hawk.API.csproj",
+      "projectUniqueName": "C:\\Users\\Alunos\\Downloads\\Hawk\\Hawk.API\\Hawk.API.csproj",
       "projectName": "Hawk.API",
-      "projectPath": "C:\\Users\\Alunos\\Desktop\\Hawk\\Hawk.API\\Hawk.API.csproj",
+      "projectPath": "C:\\Users\\Alunos\\Downloads\\Hawk\\Hawk.API\\Hawk.API.csproj",
       "packagesPath": "C:\\Users\\Alunos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alunos\\Desktop\\Hawk\\Hawk.API\\obj\\",
+      "outputPath": "C:\\Users\\Alunos\\Downloads\\Hawk\\Hawk.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12142,11 +12142,11 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\Alunos\\Desktop\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj": {
-              "projectPath": "C:\\Users\\Alunos\\Desktop\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj"
+            "C:\\Users\\Alunos\\Downloads\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj": {
+              "projectPath": "C:\\Users\\Alunos\\Downloads\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj"
             },
-            "C:\\Users\\Alunos\\Desktop\\Hawk\\Hawk.Repository\\Hawk.Repository.csproj": {
-              "projectPath": "C:\\Users\\Alunos\\Desktop\\Hawk\\Hawk.Repository\\Hawk.Repository.csproj"
+            "C:\\Users\\Alunos\\Downloads\\Hawk\\Hawk.Repository\\Hawk.Repository.csproj": {
+              "projectPath": "C:\\Users\\Alunos\\Downloads\\Hawk\\Hawk.Repository\\Hawk.Repository.csproj"
             }
           }
         }
