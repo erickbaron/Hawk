@@ -25,3 +25,12 @@ C:\Users\vitor\Documents\GitHub\Hawk\Hawk.Domain\obj\Debug\netstandard2.0\Hawk.D
 C:\Users\vitor\Documents\GitHub\Hawk\Hawk.Domain\obj\Debug\netstandard2.0\Hawk.Domain.AssemblyInfo.cs
 C:\Users\vitor\Documents\GitHub\Hawk\Hawk.Domain\obj\Debug\netstandard2.0\Hawk.Domain.dll
 C:\Users\vitor\Documents\GitHub\Hawk\Hawk.Domain\obj\Debug\netstandard2.0\Hawk.Domain.pdb
+C:\Users\Alunos\Desktop\Nova pasta\Hawk\Hawk.Domain\bin\Debug\netstandard2.0\Hawk.Domain.deps.json
+C:\Users\Alunos\Desktop\Nova pasta\Hawk\Hawk.Domain\bin\Debug\netstandard2.0\Hawk.Domain.dll
+C:\Users\Alunos\Desktop\Nova pasta\Hawk\Hawk.Domain\bin\Debug\netstandard2.0\Hawk.Domain.pdb
+C:\Users\Alunos\Desktop\Nova pasta\Hawk\Hawk.Domain\obj\Debug\netstandard2.0\Hawk.Domain.csprojAssemblyReference.cache
+C:\Users\Alunos\Desktop\Nova pasta\Hawk\Hawk.Domain\obj\Debug\netstandard2.0\Hawk.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Alunos\Desktop\Nova pasta\Hawk\Hawk.Domain\obj\Debug\netstandard2.0\Hawk.Domain.AssemblyInfoInputs.cache
+C:\Users\Alunos\Desktop\Nova pasta\Hawk\Hawk.Domain\obj\Debug\netstandard2.0\Hawk.Domain.AssemblyInfo.cs
+C:\Users\Alunos\Desktop\Nova pasta\Hawk\Hawk.Domain\obj\Debug\netstandard2.0\Hawk.Domain.dll
+C:\Users\Alunos\Desktop\Nova pasta\Hawk\Hawk.Domain\obj\Debug\netstandard2.0\Hawk.Domain.pdb
