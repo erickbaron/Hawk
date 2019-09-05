@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Hawk.API.Controllers
 {
-    [Route("api/empresas")]
+    [Route("api/enderecosempresas")]
     [ApiController]
-    public class EmpresaController : Controller
+    public class EnderecoEmpresaController : Controller
     {
-        private IHawkRepository<Empresa> repository;
+        private readonly IHawkRepository<EnderecoEmpresa> repository;
 
-        public EmpresaController(IHawkRepository<Empresa> repository)
+        public EnderecoEmpresaController(IHawkRepository<EnderecoEmpresa> repository)
         {
             this.repository = repository;
         }
@@ -32,16 +32,16 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public JsonResult Adicionar(Empresa empresa)
+        public JsonResult Adicionar(EnderecoEmpresa enderecoEmpresa)
         {
-            var id = repository.Add(empresa);
+            var id = repository.Add(enderecoEmpresa);
             return Json(new { id });
         }
 
         [HttpPut, Route("update")]
-        public JsonResult Update(Empresa empresa)
+        public JsonResult Update(EnderecoEmpresa enderecoEmpresa)
         {
-            var alterou = repository.Update(empresa);
+            var alterou = repository.Update(enderecoEmpresa);
             return Json(new { status = alterou });
         }
 

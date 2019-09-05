@@ -7,20 +7,18 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Hawk.API.Controllers
-{
-    [Route("api/empresas")]
-    [ApiController]
-    public class EmpresaController : Controller
+{[Route("api/itenscompras")]
+    public class ItemCompraController : Controller
     {
-        private IHawkRepository<Empresa> repository;
+        private readonly IHawkRepository<ItemCompra> repository;
 
-        public EmpresaController(IHawkRepository<Empresa> repository)
+        public ItemCompraController(IHawkRepository<ItemCompra> repository)
         {
             this.repository = repository;
         }
 
         [HttpGet, Route("obtertodos")]
-        public JsonResult ObterTodos()
+        public JsonResult ObterTods()
         {
             return Json(repository.ObterTodos());
         }
@@ -32,16 +30,16 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public JsonResult Adicionar(Empresa empresa)
+        public JsonResult Adicionar(ItemCompra itemCompra)
         {
-            var id = repository.Add(empresa);
+            var id = repository.Add(itemCompra);
             return Json(new { id });
         }
 
         [HttpPut, Route("update")]
-        public JsonResult Update(Empresa empresa)
+        public JsonResult Update(ItemCompra itemCompra)
         {
-            var alterou = repository.Update(empresa);
+            var alterou = repository.Update(itemCompra);
             return Json(new { status = alterou });
         }
 
