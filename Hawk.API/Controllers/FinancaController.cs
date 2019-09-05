@@ -8,23 +8,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Hawk.API.Controllers
 {
-    [Route("api/enderecosClientes")]
-    [ApiController]
-    public class EnderecoClienteController : Controller
+    public class FinancaController : Controller
     {
-        private IHawkRepository<EnderecoCliente> repository;
+        private readonly IHawkRepository<Financa> repository;
 
-        public EnderecoClienteController(IHawkRepository<EnderecoCliente> repository)
+        public FinancaController(IHawkRepository<Financa> repository)
         {
             this.repository = repository;
         }
-
 
         [HttpGet, Route("obtertodos")]
         public JsonResult ObterTodos()
         {
             return Json(repository.ObterTodos());
         }
+
 
         [HttpGet, Route("obterpeloid")]
         public JsonResult ObterPeloId(int id)
@@ -33,16 +31,17 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public JsonResult Adicionar(EnderecoCliente enderecoCliente)
+        public JsonResult Adicionar(Financa financa)
         {
-            var id = repository.Add(enderecoCliente);
+            var id = repository.Add(financa);
             return Json(new { id });
         }
 
         [HttpPut, Route("update")]
-        public JsonResult Update(EnderecoCliente enderecoCliente)
+        public JsonResult Update(Financa financa)
         {
-            var alterou = repository.Update(enderecoCliente);
+
+            var alterou = repository.Update(financa);
             return Json(new { status = alterou });
         }
 
@@ -52,6 +51,5 @@ namespace Hawk.API.Controllers
             var apagou = repository.Delete(id);
             return Json(new { status = apagou });
         }
-
     }
 }
