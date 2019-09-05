@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Hawk.Domain.Identity
 {
-    public class User : IdentityUser<int>
+    public class User /*: IdentityUser<int>*/
     {
         [Column(TypeName = "nvarchar(150)")]
         public string FullName { get; set; }

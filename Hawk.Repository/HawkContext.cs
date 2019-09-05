@@ -1,13 +1,16 @@
 using Hawk.Domain.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
+
 using Hawk.Domain;
 using Hawk.Domain.Identity;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Hawk.Repository
 {
-    public class HawkContext : IdentityDbContext<User, Role, int, IdentityUserClaim<int>, UserRole, IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>
+    //public class HawkContext : IdentityDbContext<User, Role, int, IdentityUserClaim<int>, UserRole, IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>
+    public class HawkContext : DbContext
     {
         public HawkContext(DbContextOptions<HawkContext> options) : base(options) { }
 
@@ -30,24 +33,31 @@ namespace Hawk.Repository
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
+            /*  modelBuilder.Entity<UserRole>(userRole =>
+              {
+                  userRole.HasKey(ur => new { ur.UserId, ur.RoleId });
+
+                  userRole.HasOne(ur => ur.Role)
+                      .WithMany(r => r.UserRoles)
+                      .HasForeignKey(ur => ur.RoleId)
+                      .IsRequired();
+
+                  userRole.HasOne(ur => ur.User)
+                      .WithMany(r => r.UserRoles)
+                      .HasForeignKey(ur => ur.UserId)
+                      .IsRequired();
+              }
+              );*/
+            var cascadeFKs = modelBuilder.Model.GetEntityTypes()
+                 .SelectMany(t => t.GetForeignKeys())
+                 .Where(fk => !fk.IsOwnership && fk.DeleteBehavior == DeleteBehavior.Cascade);
+
+            foreach (var fk in cascadeFKs)
+                fk.DeleteBehavior = DeleteBehavior.Restrict;
+
+            modelBuilder.Seed();
+
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<UserRole>(userRole =>
-            {
-                userRole.HasKey(ur => new { ur.UserId, ur.RoleId });
-
-                userRole.HasOne(ur => ur.Role)
-                    .WithMany(r => r.UserRoles)
-                    .HasForeignKey(ur => ur.RoleId)
-                    .IsRequired();
-
-                userRole.HasOne(ur => ur.User)
-                    .WithMany(r => r.UserRoles)
-                    .HasForeignKey(ur => ur.UserId)
-                    .IsRequired();
-            }
-            );
-
         }
     }
 }

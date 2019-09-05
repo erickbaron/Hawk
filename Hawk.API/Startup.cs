@@ -34,7 +34,7 @@ namespace Hawk.API
         {
             services.AddAutoMapper();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddDbContext<HawkContext>(opt => opt.UseSqlite(Configuration.GetConnectionString("BancoDadosHawk")));
+            services.AddDbContext<HawkContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("BancoDadosHawk")));
 
             IdentityBuilder builder = services.AddIdentityCore<User>(options =>
             {

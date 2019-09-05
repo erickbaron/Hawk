@@ -48,8 +48,8 @@ namespace Hawk.API.Controllers
         [HttpDelete, Route("delete")]
         public JsonResult Delete(int id)
         {
-            var apagou = repository.Delete(id)
-
+            var apagou = repository.Delete(id);
+            return null;
         }
     }
 }
