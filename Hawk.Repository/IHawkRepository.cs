@@ -1,22 +1,20 @@
 using Hawk.Domain;
+using System.Collections.Generic;
+
 namespace Hawk.Repository
 {
-    public interface IHawkRepository
+    public interface IHawkRepository<T>
     {
-        //GERAL
-         void Add<T> (T entity) where T : class;
+        
+        int Add(T entity);
 
-         void Update<T> (T entity) where T : class;
+        bool Update(T entity);
 
-         void Delete<T> (T entity) where T : class;
+        bool Delete(int id);
 
-         Task<bool> SaveChangesAsync();
+        List<T> ObterTodos();
 
-         //CARTÃO
-         Task<Cartao> GetCartaoAsyncById(int ClienteId);
-
-         //ENDEREÇO
-         Task<EnderecoCliente> GetEnderecoAsyncById(int ClienteId);
+        T ObterPeloId(int id);
     }
 
 }

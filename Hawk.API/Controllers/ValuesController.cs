@@ -11,11 +11,11 @@ namespace Hawk.API.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        public readonly HawkContext _context;
+        public readonly HawkContext context;
 
-        public ValuesController(HawkContext _context)
+        public ValuesController(HawkContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         // GET api/values

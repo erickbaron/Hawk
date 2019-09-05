@@ -1,3 +1,4 @@
+using Hawk.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hawk.Repository
@@ -10,7 +11,7 @@ namespace Hawk.Repository
             public DbSet<AvaliacaoEmpresa> AvaliacoesEmpresas { get; set; }
             public DbSet<AvaliacaoProduto> AvaliacoesProdutos { get; set; }
             public DbSet<Cartao> Cartoes { get; set; }
-            public DbSet<Categorias> Categorias { get; set; }
+            public DbSet<Categoria> Categorias { get; set; }
             public DbSet<Cliente> Clientes { get; set; }
             public DbSet<Compra> Compras { get; set; }
             public DbSet<Empresa> Empresas { get; set; }
