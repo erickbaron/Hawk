@@ -32,14 +32,14 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public ActionResult Adicionar(Empresa empresa)
+        public JsonResult Adicionar(Empresa empresa)
         {
             var id = repository.Add(empresa);
             return Json(new { id });
         }
 
         [HttpPut, Route("update")]
-        public ActionResult Update(Empresa empresa)
+        public JsonResult Update(Empresa empresa)
         {
             var alterou = repository.Update(empresa);
             return Json(new { status = alterou });
