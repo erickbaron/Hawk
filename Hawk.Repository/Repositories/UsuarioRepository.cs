@@ -31,12 +31,12 @@ namespace Hawk.Repository.Repositories
 
         public Usuario ObterPeloId(int id)
         {
-            return context.Usuarios.FirstOrDefault(t => t.RegistroAtivo && t.Id == id);
+            return null;
         }
 
         public List<Usuario> ObterTodos()
         {
-            return context.Usuarios.Where(t => t.RegistroAtivo).ToList();
+            return null;
         }
 
         public bool Update(Usuario entity)
