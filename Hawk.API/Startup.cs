@@ -36,6 +36,18 @@ namespace Hawk.API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<HawkContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("BancoDadosHawk")));
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllHeaders",
+                    x =>
+                    {
+                        x.AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod()
+                            .AllowCredentials();
+                    });
+            });
+
             IdentityBuilder builder = services.AddIdentityCore<User>(options =>
             {
                 options.Password.RequireDigit = false;
@@ -48,6 +60,7 @@ namespace Hawk.API
             services.AddScoped(typeof(IHawkRepository<Cliente>), typeof(ClienteRepository));
             services.AddScoped(typeof(IHawkRepository<Categoria>), typeof(CategoriaRepository));
 
+    
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,7 +75,7 @@ namespace Hawk.API
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            app.UseCors("AllowAllHeaders");
             app.UseHttpsRedirection();
             app.UseMvc();
         }
