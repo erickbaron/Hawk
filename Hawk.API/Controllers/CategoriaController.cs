@@ -1,24 +1,23 @@
-﻿using System;
+﻿using Hawk.Domain.Entities;
+using Hawk.Repository;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Hawk.Domain.Entities;
-using Hawk.Repository;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Hawk.API.Controllers
 {
-    [Route("api/enderecosClientes")]
+    [Route("api/categorias")]
     [ApiController]
-    public class EnderecoClienteController : Controller
+    public class CategoriaController : Controller
     {
-        private IHawkRepository<EnderecoCliente> repository;
+        private IHawkRepository<Categoria> repository;
 
-        public EnderecoClienteController(IHawkRepository<EnderecoCliente> repository)
+        public CategoriaController(IHawkRepository<Categoria> repository)
         {
             this.repository = repository;
         }
-
 
         [HttpGet, Route("obtertodos")]
         public JsonResult ObterTodos()
@@ -33,16 +32,16 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public JsonResult Adicionar(EnderecoCliente enderecoCliente)
+        public JsonResult Adicionar(Categoria categoria)
         {
-            var id = repository.Add(enderecoCliente);
+            var id = repository.Add(categoria);
             return Json(new { id });
         }
 
         [HttpPut, Route("update")]
-        public JsonResult Update(EnderecoCliente enderecoCliente)
+        public JsonResult Update(Categoria categoria)
         {
-            var alterou = repository.Update(enderecoCliente);
+            var alterou = repository.Update(categoria);
             return Json(new { status = alterou });
         }
 
@@ -52,6 +51,5 @@ namespace Hawk.API.Controllers
             var apagou = repository.Delete(id);
             return Json(new { status = apagou });
         }
-
     }
 }

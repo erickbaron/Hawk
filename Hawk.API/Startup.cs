@@ -46,6 +46,7 @@ namespace Hawk.API
             });
 
             services.AddScoped(typeof(IHawkRepository<Cliente>), typeof(ClienteRepository));
+            services.AddScoped(typeof(IHawkRepository<Categoria>), typeof(CategoriaRepository));
 
         }
 
