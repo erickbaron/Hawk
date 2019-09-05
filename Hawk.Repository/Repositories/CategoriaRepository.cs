@@ -33,7 +33,7 @@ namespace Hawk.Repository.Repositories
 
         public Categoria ObterPeloId(int id)
         {
-            return context.Categorias.FirstOrDefault(t => t.RegistroAtivo && t.Id == id);
+             return context.Categorias.FirstOrDefault(t => t.RegistroAtivo && t.Id == id);
         }
 
         public List<Categoria> ObterTodos()
