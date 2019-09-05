@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Hawk.API.Controllers
 {
-    [Route("api/empresas")]
+    [Route("api/categorias")]
     [ApiController]
-    public class EmpresaController : Controller
+    public class CategoriaController : Controller
     {
-        private IHawkRepository<Empresa> repository;
+        private IHawkRepository<Categoria> repository;
 
-        public EmpresaController(IHawkRepository<Empresa> repository)
+        public CategoriaController(IHawkRepository<Categoria> repository)
         {
             this.repository = repository;
         }
@@ -32,16 +32,16 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public ActionResult Adicionar(Empresa empresa)
+        public ActionResult Adicionar(Categoria categoria)
         {
-            var id = repository.Add(empresa);
+            var id = repository.Add(categoria);
             return Json(new { id });
         }
 
         [HttpPut, Route("update")]
-        public ActionResult Update(Empresa empresa)
+        public ActionResult Update(Categoria categoria)
         {
-            var alterou = repository.Update(empresa);
+            var alterou = repository.Update(categoria);
             return Json(new { status = alterou });
         }
 
