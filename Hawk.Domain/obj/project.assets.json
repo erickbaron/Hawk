@@ -1744,7 +1744,7 @@
       ]
     },
     "Microsoft.Data.Sqlite.Core/2.2.6": {
-      "sha512": "VczZfKgH8jFGJy4t74bcuNIhKSG8YEAPj3JOoIRqJ1jXX83ZYF9ddbZ1e71vz+gqfBwwOJmxafX/xnqln7rVDw==",
+      "sha512": "JuHLktt4mb5jSTKr+lq4OeuG8tUcCdk/9Gg9kX955+BNcIpSrDqLTcktBOyOIWWUrqBp1zjEbd+/u/9rF57H1w==",
       "type": "package",
       "path": "microsoft.data.sqlite.core/2.2.6",
       "files": [
@@ -1772,7 +1772,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore/2.2.6": {
-      "sha512": "7cLwWblCIjpC200r7SPg3kjESJDNRfP4klvLoFgt29hQBhfH0blpIYsYhCHI9J8GFGkdCxmRAWMb4DmtKXiUWg==",
+      "sha512": "vmrMrjiCO7FkuFJwt/MHl6pk6cSXPtB1miPMtn0KTO7WqwaQ2WQ4gWpC/m753PzVriH2X2kIadWrd9SJb7KVww==",
       "type": "package",
       "path": "microsoft.entityframeworkcore/2.2.6",
       "files": [
@@ -1785,7 +1785,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Abstractions/2.2.6": {
-      "sha512": "CcsuF1dZlMBAHRT5hqQ5ifLcPYzYFqVtfTBS0yiMH+2GbEkK9KQxjnVxg8YmcD1uCB6ju2fNEE93Mjuo12vgzA==",
+      "sha512": "4CrelpMMLszWqi0gFEYPhbsinXCQ2Vw6rA190IIwKY7THge/ckOwj6QIQKOu3Lmxj4khpzs+b6QADbpRRnOIaQ==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.abstractions/2.2.6",
       "files": [
@@ -1798,7 +1798,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Analyzers/2.2.6": {
-      "sha512": "NIkxHROzflTpujsOf9Tk3prKoutLCH5pC4mh9TFx9PD6Z6tLCFiO2u11RWGeWE3yyyh39D5TP2nmscsaZ6s7hA==",
+      "sha512": "BpNllkfZABCvMAaIL/pSLxTYYZQqiVesSG6xQpvelrlEfC0s9PS217Sq5Apn/zYW8ALtGoVEY12TblHrZ4SRRA==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.analyzers/2.2.6",
       "files": [
@@ -1810,7 +1810,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Relational/2.2.6": {
-      "sha512": "FfUEx3vpporpFID+xK3ZMfLwqx22R0oPOs3Yi0WbspUdkuUQd4gE//Dl3UPYBMgA+gdsc/7vvaQeHksrnvEZXA==",
+      "sha512": "AlB4Gg1nplg6fwieCLixphmYkhwM1SSHecE43oDizAjFUSs7vlL5mlwf620X4SB037pVg+naxhBEtF53TGa6yQ==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.relational/2.2.6",
       "files": [
@@ -1823,7 +1823,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Sqlite/2.2.6": {
-      "sha512": "RgVXCdVYViCNT6DxSAkndkk8gmzAFUKakfyZ9BA4PGBlciCqDmQkUJ+NdavBjr1wdDfCyXghOoMW+rf3chTosw==",
+      "sha512": "U4ifHn7YJsj31waXLbXwR/HMdQnp/v+bBGw5VfSRqVtO10npQa3LBOXWZTaocXgJBoIX0ADI2ZkfjX+hb0CnJA==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.sqlite/2.2.6",
       "files": [
@@ -1835,7 +1835,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Sqlite.Core/2.2.6": {
-      "sha512": "6wTUW8gZBRHhd1Xg+o0IJo1P2bI3/uvEuPVAZhrUhi3cL1k6R/p26zjYL1TNkSsVXmjY45pxTCJ5qx5UrUcG2g==",
+      "sha512": "FRwNvIjcoDaMGExrrGb02ULgY0dhkk70OuY7Bc61wK4rOVHweLiCAaJJ3y3s9w604lM1lBcTWmEilFincRJRhw==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.sqlite.core/2.2.6",
       "files": [
@@ -2359,7 +2359,7 @@
       ]
     },
     "SQLitePCLRaw.bundle_green/1.1.12": {
-      "sha512": "xbscpnvFQy5JNqcNC5djEVJMANSWuZ/SYFG8eCDLZ81e6lMaBuBPfi5dsm8bnCFmYlealei3eDha+/StW7a8og==",
+      "sha512": "U5lZv+E0JBCG5uQngaRgyIAlbzIwRczb0m46XJfLGXovtfVOaMNRY/oGyKAJjdexVrfqLRd+JyopGMySpAZRGQ==",
       "type": "package",
       "path": "sqlitepclraw.bundle_green/1.1.12",
       "files": [
@@ -2406,7 +2406,7 @@
       ]
     },
     "SQLitePCLRaw.core/1.1.12": {
-      "sha512": "B43HNCk0NmwLgHEqLSRdcsYKFJeqnv8+XWLXl/g2ZrP7htmlPi2JpurZvqnYyVsBsRpaQfLPxhMBo8Na/29mIw==",
+      "sha512": "S4hr+tE275ran5jyKFW/FYPG6Bz6nsHUp9H8chqKxzk21PxJadLd9LnvLe6LMRP/IqY5+LOIIDQF3m/2iDlZ7Q==",
       "type": "package",
       "path": "sqlitepclraw.core/1.1.12",
       "files": [
@@ -3392,7 +3392,7 @@
       ]
     },
     "System.Numerics.Vectors/4.4.0": {
-      "sha512": "gdRrUJs1RrjW3JB5p82hYjA67xoeFLvh0SdSIWjTiN8qExlbFt/RtXwVYNc5BukJ/f9OKzQQS6gakzbJeHTqHg==",
+      "sha512": "UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ==",
       "type": "package",
       "path": "system.numerics.vectors/4.4.0",
       "files": [
@@ -4369,7 +4369,7 @@
       ]
     },
     "System.Security.Cryptography.Cng/4.4.0": {
-      "sha512": "07fZJgFAgCati1lQEbO67EMEhm+fPenFqiSjwCwFssnmYQrLGA48lqiWilGLbuwb+nmflfodj1jgIQYI4g7LXA==",
+      "sha512": "3d/d+7sdNpfYfqJFzuE/o6Pl/reaMbH7rlUMNvtm4+XVYHY32tdFa45yjB3vhb6q0YY+IV8GUuiBPRsBFP3yaw==",
       "type": "package",
       "path": "system.security.cryptography.cng/4.4.0",
       "files": [
@@ -5067,23 +5067,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vitor\\.nuget\\packages\\": {},
+    "C:\\Users\\Alunos\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vitor\\Documents\\GitHub\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj",
+      "projectUniqueName": "T:\\Documentos\\GitHub\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj",
       "projectName": "Hawk.Domain",
-      "projectPath": "C:\\Users\\vitor\\Documents\\GitHub\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj",
-      "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vitor\\Documents\\GitHub\\Hawk\\Hawk.Domain\\obj\\",
+      "projectPath": "T:\\Documentos\\GitHub\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj",
+      "packagesPath": "C:\\Users\\Alunos\\.nuget\\packages\\",
+      "outputPath": "T:\\Documentos\\GitHub\\Hawk\\Hawk.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Alunos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

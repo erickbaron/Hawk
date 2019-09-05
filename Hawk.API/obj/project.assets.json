@@ -4943,7 +4943,7 @@
   },
   "libraries": {
     "AutoMapper/7.0.0": {
-      "sha512": "MeIYLy92u/XK+gH3ARrH/R9u7vaWDMqO59dA3WRA8dWzZ5NsmYi0TKnk7tXkEXBeF5ek8S0dr3jZynSa1IvY9w==",
+      "sha512": "+aSJPxOhi03Il8jsOia46N9u627+Ub7fwFdrz5qT6LKdwbgfK+t3ZaKQ6yTi5uhudIDwQNOxNcMNk6L/WCpgng==",
       "type": "package",
       "path": "automapper/7.0.0",
       "files": [
@@ -4960,7 +4960,7 @@
       ]
     },
     "AutoMapper.Extensions.Microsoft.DependencyInjection/4.0.0": {
-      "sha512": "M2gSgmXLR9t53oigzBfz+8m69cg3BLo6mDf8/bL6VJgxIvvBIP5aHOLKaSF7srMvWp0m0yTCCUtyY0eWI1B5Gw==",
+      "sha512": "ovgV98XPxdeKlQvLK0Nb6K9OfEE1V2favLG7xpV0v6R6uI3JAGKk5WyIuCQLT5lZVkQQ9BqHCvgHwip6KCYzNA==",
       "type": "package",
       "path": "automapper.extensions.microsoft.dependencyinjection/4.0.0",
       "files": [
@@ -6316,7 +6316,7 @@
       ]
     },
     "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
-      "sha512": "4JcQJNDSyGXtz9ccBzSBmcPmKg7GiL4LYvtv+YG8C9waNP/xhwuvIycSQOF4a0V+J73JwUopA503O7vb8p5ZUQ==",
+      "sha512": "EJWaxi2bI47iEZen/nZkJEDZCrP9Oj3PJtMwBv34Z0ZvvdSkpgsdqlHSud8d5vC53LnCXLfBLewfqHcILDVSDw==",
       "type": "package",
       "path": "microsoft.codeanalysis.csharp.workspaces/2.8.0",
       "files": [
@@ -6345,7 +6345,7 @@
       ]
     },
     "Microsoft.CodeAnalysis.Workspaces.Common/2.8.0": {
-      "sha512": "AqCiNju6UZy9Sd8HKzxGbpbZf+P8gWpojfvs9hIRfwstqFMZ6OJXf69EUvqJ5C4rWrcf08F7G8WII74KBEFImQ==",
+      "sha512": "tJlJ99SD8bHBAXShOG/pXQ1K118cnsF01obEf9aAtdgLbw3yEPahZ7qvWeGMjrheUhvOsSkv/wTKYg9euKa8MQ==",
       "type": "package",
       "path": "microsoft.codeanalysis.workspaces.common/2.8.0",
       "files": [
@@ -6433,7 +6433,7 @@
       ]
     },
     "Microsoft.Data.Sqlite.Core/2.2.6": {
-      "sha512": "VczZfKgH8jFGJy4t74bcuNIhKSG8YEAPj3JOoIRqJ1jXX83ZYF9ddbZ1e71vz+gqfBwwOJmxafX/xnqln7rVDw==",
+      "sha512": "JuHLktt4mb5jSTKr+lq4OeuG8tUcCdk/9Gg9kX955+BNcIpSrDqLTcktBOyOIWWUrqBp1zjEbd+/u/9rF57H1w==",
       "type": "package",
       "path": "microsoft.data.sqlite.core/2.2.6",
       "files": [
@@ -6461,7 +6461,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore/2.2.6": {
-      "sha512": "7cLwWblCIjpC200r7SPg3kjESJDNRfP4klvLoFgt29hQBhfH0blpIYsYhCHI9J8GFGkdCxmRAWMb4DmtKXiUWg==",
+      "sha512": "vmrMrjiCO7FkuFJwt/MHl6pk6cSXPtB1miPMtn0KTO7WqwaQ2WQ4gWpC/m753PzVriH2X2kIadWrd9SJb7KVww==",
       "type": "package",
       "path": "microsoft.entityframeworkcore/2.2.6",
       "files": [
@@ -6474,7 +6474,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Abstractions/2.2.6": {
-      "sha512": "CcsuF1dZlMBAHRT5hqQ5ifLcPYzYFqVtfTBS0yiMH+2GbEkK9KQxjnVxg8YmcD1uCB6ju2fNEE93Mjuo12vgzA==",
+      "sha512": "4CrelpMMLszWqi0gFEYPhbsinXCQ2Vw6rA190IIwKY7THge/ckOwj6QIQKOu3Lmxj4khpzs+b6QADbpRRnOIaQ==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.abstractions/2.2.6",
       "files": [
@@ -6487,7 +6487,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Analyzers/2.2.6": {
-      "sha512": "NIkxHROzflTpujsOf9Tk3prKoutLCH5pC4mh9TFx9PD6Z6tLCFiO2u11RWGeWE3yyyh39D5TP2nmscsaZ6s7hA==",
+      "sha512": "BpNllkfZABCvMAaIL/pSLxTYYZQqiVesSG6xQpvelrlEfC0s9PS217Sq5Apn/zYW8ALtGoVEY12TblHrZ4SRRA==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.analyzers/2.2.6",
       "files": [
@@ -6529,7 +6529,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Relational/2.2.6": {
-      "sha512": "FfUEx3vpporpFID+xK3ZMfLwqx22R0oPOs3Yi0WbspUdkuUQd4gE//Dl3UPYBMgA+gdsc/7vvaQeHksrnvEZXA==",
+      "sha512": "AlB4Gg1nplg6fwieCLixphmYkhwM1SSHecE43oDizAjFUSs7vlL5mlwf620X4SB037pVg+naxhBEtF53TGa6yQ==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.relational/2.2.6",
       "files": [
@@ -6542,7 +6542,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Sqlite/2.2.6": {
-      "sha512": "RgVXCdVYViCNT6DxSAkndkk8gmzAFUKakfyZ9BA4PGBlciCqDmQkUJ+NdavBjr1wdDfCyXghOoMW+rf3chTosw==",
+      "sha512": "U4ifHn7YJsj31waXLbXwR/HMdQnp/v+bBGw5VfSRqVtO10npQa3LBOXWZTaocXgJBoIX0ADI2ZkfjX+hb0CnJA==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.sqlite/2.2.6",
       "files": [
@@ -6554,7 +6554,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Sqlite.Core/2.2.6": {
-      "sha512": "6wTUW8gZBRHhd1Xg+o0IJo1P2bI3/uvEuPVAZhrUhi3cL1k6R/p26zjYL1TNkSsVXmjY45pxTCJ5qx5UrUcG2g==",
+      "sha512": "FRwNvIjcoDaMGExrrGb02ULgY0dhkk70OuY7Bc61wK4rOVHweLiCAaJJ3y3s9w604lM1lBcTWmEilFincRJRhw==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.sqlite.core/2.2.6",
       "files": [
@@ -7769,7 +7769,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/2.2.3": {
-      "sha512": "vQ+SS/Uiqwj5QN63fC9vSX4A8FMne8mXytF4eZXaEJWbhvsficfdWSsnwSt/cMZWmU/NziyMZ64P+CSiFHiRAA==",
+      "sha512": "wc71c9HWTeXy9/w9O4Yr2LKmdJjVyIoJ/XQX8/6uma4EAVU25RLtUWlvhA0gpgFw9Kf1TkCv70x+CbKnRw/d8Q==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration/2.2.3",
       "files": [
@@ -7782,7 +7782,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/2.2.3": {
-      "sha512": "45mPSkpo/yPDN/1lC45c/P/1jzn2XPEdU0WGqhh8WH06/5zXyt6dHMEFAYedTGb4E61tOGDlrwOcGuxqvQ4DIw==",
+      "sha512": "wXlpxDfRD5aPypa0p0UE97tkRQvAz9D9FfA2GITzr+LlGIpybyGnxkwGVp0Vha1Ibr0kJG0HdnqfeHME/WuAcQ==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.contracts/2.2.3",
       "files": [
@@ -7795,7 +7795,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Core/2.2.3": {
-      "sha512": "SPMf2FoO8aHE5iG1TXUht+V7mT6VTPqwyywMHETWOxM0sUEaVd35soQJYzpvJdZtviW/3KgM1qvUCpRYyQS8oQ==",
+      "sha512": "APdPavBUYcGPBaW4rjxBVRePWmg0ZzhIRymOzvLFWUtzfvJKw1+8PaCzsH7Uvl+felm0L1UVQwBx1Do0R7j7Xg==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.core/2.2.3",
       "files": [
@@ -7808,7 +7808,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Design/2.2.3": {
-      "sha512": "+R86lv7N5WmHi/5n7zOHqILNO81SXVo5YQZq74q1uz/GVHbDCY3lMhITFPuq8NwerJn+EDv/SfJzvD+wH7RXnw==",
+      "sha512": "xH50cYOU+infRq4KikBuu2qeXcwW4tE0D5TDfKLuLrEtDm90aXI+0qygPsqyISf+lOW7L7rQ64BH/dRYkK3c3Q==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.design/2.2.3",
       "files": [
@@ -7831,7 +7831,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore/2.2.3": {
-      "sha512": "f9hviZy8zUCOlZD26rXq/GVBR5lVoDfH7rOBFlaPK0VqlvS0vR2rY4iEQao3OjxSnpBJSWrCoACFq6tSiRLOkg==",
+      "sha512": "N9S7TeFZjXzNY9OVbz4OFw9cM9oEeMaCnuLFhetNioy/wPwZbgglrctAEYxfDbvocQ17YCAVR2EMRbYHNDHyVg==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.entityframeworkcore/2.2.3",
       "files": [
@@ -7845,7 +7845,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Templating/2.2.3": {
-      "sha512": "5Tn3jTr7WZQQCPs42Im1tBXUwjgKvP1MlX8VJRzXLYECDv9S7Ucx02ucAx12NV0ViJuIpbMcnRafbGcgQ2rENQ==",
+      "sha512": "sW2lHnOoL1xFnSm/2zSedeUoQPlbhPfWjSuUYsxYUj/N5QmLmH98ZLaqP26k6Om/heR6Gux/veXI96yM1Parow==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.templating/2.2.3",
       "files": [
@@ -7858,7 +7858,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Utils/2.2.3": {
-      "sha512": "FbaNspRH4532EtTraeiSvdum56/l3jgGWHdMKktoDsAnwqjWtok2I0SyvNtdWyX5mdJHi3/MyMsU5jDJVYxT4Q==",
+      "sha512": "/r/y+XpOpbCwN/M/HopjfGTDRlmixTd4G6HG6FaBkD/YF3T1u+4WMRVtuB6zz7aw571HmX+6UokEa6HJSwkPDA==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.utils/2.2.3",
       "files": [
@@ -7871,7 +7871,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc/2.2.3": {
-      "sha512": "AkANFfnAaW+ahOA2QzY7KZTz/oUXl9ahRkPdCQhguFyf1TPEXKD7dVKmWEcCOgAfq/s7ScoDm3ydxW31QRAADQ==",
+      "sha512": "0gVuA4KUCHFM4M/9SjG+7j7BzZ7SW/BufF97Q78i2VV8JBbQXc/5Rf6YUG1VGW2fwSEOl9+S26utEGS+86GGGw==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegenerators.mvc/2.2.3",
       "files": [
@@ -8369,7 +8369,7 @@
       ]
     },
     "NuGet.Frameworks/4.7.0": {
-      "sha512": "KuqDbPzjOWbUM6gPMbkvdhlQ10roQAoMM7mNZ8hcY/fH+9J4Zc+qT8dLWoNzGyr0OrxQVdZdbSjy/fxwoICgGg==",
+      "sha512": "qbXaB76XYUVLocLBs8Z9TS/ERGK2wm797feO+0JEPFvT7o7MRadOR77mqaSD4J1k8G+DlZQyq+MlkCuxrkr3ag==",
       "type": "package",
       "path": "nuget.frameworks/4.7.0",
       "files": [
@@ -8676,7 +8676,7 @@
       ]
     },
     "SQLitePCLRaw.bundle_green/1.1.12": {
-      "sha512": "xbscpnvFQy5JNqcNC5djEVJMANSWuZ/SYFG8eCDLZ81e6lMaBuBPfi5dsm8bnCFmYlealei3eDha+/StW7a8og==",
+      "sha512": "U5lZv+E0JBCG5uQngaRgyIAlbzIwRczb0m46XJfLGXovtfVOaMNRY/oGyKAJjdexVrfqLRd+JyopGMySpAZRGQ==",
       "type": "package",
       "path": "sqlitepclraw.bundle_green/1.1.12",
       "files": [
@@ -8723,7 +8723,7 @@
       ]
     },
     "SQLitePCLRaw.core/1.1.12": {
-      "sha512": "B43HNCk0NmwLgHEqLSRdcsYKFJeqnv8+XWLXl/g2ZrP7htmlPi2JpurZvqnYyVsBsRpaQfLPxhMBo8Na/29mIw==",
+      "sha512": "S4hr+tE275ran5jyKFW/FYPG6Bz6nsHUp9H8chqKxzk21PxJadLd9LnvLe6LMRP/IqY5+LOIIDQF3m/2iDlZ7Q==",
       "type": "package",
       "path": "sqlitepclraw.core/1.1.12",
       "files": [
@@ -8749,7 +8749,7 @@
       ]
     },
     "SQLitePCLRaw.lib.e_sqlite3.linux/1.1.12": {
-      "sha512": "c/SFtlLETx3LYsj/IRFvvaf0ji0IwrXVz3aTLlcH5S/cRW/TCcgVVJssUIgLv8hsmS2iZZy139hbLU/x2eysLA==",
+      "sha512": "Tn/YE1VxWtHa4MQ9KC//ptIw6cLAUh+xXSdpX7MyGINmb4/igqyx0IOEq5WeH/+cuI/EnDtdWAOn98eMQnKsTQ==",
       "type": "package",
       "path": "sqlitepclraw.lib.e_sqlite3.linux/1.1.12",
       "files": [
@@ -8771,7 +8771,7 @@
       ]
     },
     "SQLitePCLRaw.lib.e_sqlite3.osx/1.1.12": {
-      "sha512": "imLE78LaSu0jdg1p+b8irnMlpMNmAtZ0heXN5Zj2KpF53H8hIVlKnQC1gf9UKxrLvLiGPteaoil80vtDhNWKuA==",
+      "sha512": "qfl1ljn6NOQDyM2i9JDZc6xekHoC+Fqe4GzuhWFCS6siI7lLInw09HHSZRqyimV36vjdQYnyBBFKSn53rSOYkA==",
       "type": "package",
       "path": "sqlitepclraw.lib.e_sqlite3.osx/1.1.12",
       "files": [
@@ -8789,7 +8789,7 @@
       ]
     },
     "SQLitePCLRaw.lib.e_sqlite3.v110_xp/1.1.12": {
-      "sha512": "diHgQFQWktc58Ekptk8/hOe7E336M4rU/HMVKLY2QcKWLKK8X3eKYvURYuRBdRcwIDL6p4TCkihEyelj9rAp+w==",
+      "sha512": "YfmaVhcEyAGU6BZ7NQiYYfCHKsCYjldwsafiFKArzqeM8MHuhfqft1Fjdv7ncukXrvKsHXhCrzJzKEMwPXiSSg==",
       "type": "package",
       "path": "sqlitepclraw.lib.e_sqlite3.v110_xp/1.1.12",
       "files": [
@@ -8807,7 +8807,7 @@
       ]
     },
     "SQLitePCLRaw.provider.e_sqlite3.netstandard11/1.1.12": {
-      "sha512": "GQzL515Ar3BvV2Yx7fXnkszB1j9rKWSWtvXWmq6/ZJ8ueWgLWWF+DbwA2Ux0JobXyhSvVqSmajrck1vhA2cxXw==",
+      "sha512": "qjz6Ad1Q5hiI8imCiG5Mpa/w8E8+rAk3SRJdX54uEOo5nPywiN1H0jmMZO+ID0nPibQA3yjlAHt5/GcLW9Iftg==",
       "type": "package",
       "path": "sqlitepclraw.provider.e_sqlite3.netstandard11/1.1.12",
       "files": [
@@ -13381,23 +13381,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vitor\\.nuget\\packages\\": {},
+    "C:\\Users\\Alunos\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vitor\\Documents\\GitHub\\Hawk\\Hawk.API\\Hawk.API.csproj",
+      "projectUniqueName": "T:\\Documentos\\GitHub\\Hawk\\Hawk.API\\Hawk.API.csproj",
       "projectName": "Hawk.API",
-      "projectPath": "C:\\Users\\vitor\\Documents\\GitHub\\Hawk\\Hawk.API\\Hawk.API.csproj",
-      "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vitor\\Documents\\GitHub\\Hawk\\Hawk.API\\obj\\",
+      "projectPath": "T:\\Documentos\\GitHub\\Hawk\\Hawk.API\\Hawk.API.csproj",
+      "packagesPath": "C:\\Users\\Alunos\\.nuget\\packages\\",
+      "outputPath": "T:\\Documentos\\GitHub\\Hawk\\Hawk.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Alunos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13410,11 +13410,11 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\vitor\\Documents\\GitHub\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj": {
-              "projectPath": "C:\\Users\\vitor\\Documents\\GitHub\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj"
+            "T:\\Documentos\\GitHub\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj": {
+              "projectPath": "T:\\Documentos\\GitHub\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj"
             },
-            "C:\\Users\\vitor\\Documents\\GitHub\\Hawk\\Hawk.Repository\\Hawk.Repository.csproj": {
-              "projectPath": "C:\\Users\\vitor\\Documents\\GitHub\\Hawk\\Hawk.Repository\\Hawk.Repository.csproj"
+            "T:\\Documentos\\GitHub\\Hawk\\Hawk.Repository\\Hawk.Repository.csproj": {
+              "projectPath": "T:\\Documentos\\GitHub\\Hawk\\Hawk.Repository\\Hawk.Repository.csproj"
             }
           }
         }

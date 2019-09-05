@@ -34,3 +34,15 @@ C:\Users\vitor\Documents\GitHub\Hawk\Hawk.Repository\bin\Debug\netstandard2.0\Ha
 C:\Users\vitor\Documents\GitHub\Hawk\Hawk.Repository\bin\Debug\netstandard2.0\Hawk.Domain.dll
 C:\Users\vitor\Documents\GitHub\Hawk\Hawk.Repository\bin\Debug\netstandard2.0\Hawk.Domain.pdb
 C:\Users\vitor\Documents\GitHub\Hawk\Hawk.Repository\obj\Debug\netstandard2.0\Hawk.Repository.csproj.CopyComplete
+T:\Documentos\GitHub\Hawk\Hawk.Repository\bin\Debug\netstandard2.0\Hawk.Repository.deps.json
+T:\Documentos\GitHub\Hawk\Hawk.Repository\bin\Debug\netstandard2.0\Hawk.Repository.dll
+T:\Documentos\GitHub\Hawk\Hawk.Repository\bin\Debug\netstandard2.0\Hawk.Repository.pdb
+T:\Documentos\GitHub\Hawk\Hawk.Repository\bin\Debug\netstandard2.0\Hawk.Domain.dll
+T:\Documentos\GitHub\Hawk\Hawk.Repository\bin\Debug\netstandard2.0\Hawk.Domain.pdb
+T:\Documentos\GitHub\Hawk\Hawk.Repository\obj\Debug\netstandard2.0\Hawk.Repository.csprojAssemblyReference.cache
+T:\Documentos\GitHub\Hawk\Hawk.Repository\obj\Debug\netstandard2.0\Hawk.Repository.csproj.CoreCompileInputs.cache
+T:\Documentos\GitHub\Hawk\Hawk.Repository\obj\Debug\netstandard2.0\Hawk.Repository.AssemblyInfoInputs.cache
+T:\Documentos\GitHub\Hawk\Hawk.Repository\obj\Debug\netstandard2.0\Hawk.Repository.AssemblyInfo.cs
+T:\Documentos\GitHub\Hawk\Hawk.Repository\obj\Debug\netstandard2.0\Hawk.Repository.csproj.CopyComplete
+T:\Documentos\GitHub\Hawk\Hawk.Repository\obj\Debug\netstandard2.0\Hawk.Repository.dll
+T:\Documentos\GitHub\Hawk\Hawk.Repository\obj\Debug\netstandard2.0\Hawk.Repository.pdb
