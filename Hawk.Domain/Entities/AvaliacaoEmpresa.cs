@@ -5,7 +5,7 @@ namespace Hawk.Domain.Entities
 {
     public class AvaliacaoEmpresa
     {
-        public int Id { get; set; }
+        public int AvaliaaEmprasaId { get; set; }
         public string Comentario { get; set; }
         [Column(TypeName ="decimal(2,1)")]
         public decimal Nota { get; set; }
