@@ -8,13 +8,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Hawk.API.Controllers
 {
-    [Route("api/financas")]
+    [Route("api/compras")]
     [ApiController]
-    public class FinancaController : Controller
+    public class CompraController : Controller
     {
-        private readonly IHawkRepository<Financa> repository;
+        private readonly IHawkRepository<Compra> repository;
 
-        public FinancaController(IHawkRepository<Financa> repository)
+        public CompraController(IHawkRepository<Compra> repository)
         {
             this.repository = repository;
         }
@@ -25,7 +25,6 @@ namespace Hawk.API.Controllers
             return Json(repository.ObterTodos());
         }
 
-
         [HttpGet, Route("obterpeloid")]
         public JsonResult ObterPeloId(int id)
         {
@@ -33,17 +32,17 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public JsonResult Adicionar(Financa financa)
+        public JsonResult Adicionar(Compra compra)
         {
-            var id = repository.Add(financa);
+            var id = repository.Add(compra);
             return Json(new { id });
         }
 
         [HttpPut, Route("update")]
-        public JsonResult Update(Financa financa)
+        public JsonResult Update(Compra compra)
         {
 
-            var alterou = repository.Update(financa);
+            var alterou = repository.Update(compra);
             return Json(new { status = alterou });
         }
 
@@ -53,5 +52,6 @@ namespace Hawk.API.Controllers
             var apagou = repository.Delete(id);
             return Json(new { status = apagou });
         }
+
     }
 }
