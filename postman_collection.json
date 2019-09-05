@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "8ba47ed1-92c5-44b9-a660-00ce8f896aae",
+		"name": "Hawk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Categoria",
+			"item": [
+				{
+					"name": "Categoria - ObterTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44330/api/categorias/obtertodos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44330",
+							"path": [
+								"api",
+								"categorias",
+								"obtertodos"
+							]
+						},
+						"description": "\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Categoria - ObterPeloId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44330/api/categorias/obterpeloid?Id=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44330",
+							"path": [
+								"api",
+								"categorias",
+								"obterpeloid"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categoria - Inserir",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\": \"Peixe\"\n}"
+						},
+						"url": {
+							"raw": "https://localhost:44330/api/categorias/add",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44330",
+							"path": [
+								"api",
+								"categorias",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categoria - Alterar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\" : 1, \n\t\"nome\": \"Eletrodomesticos\"\n}"
+						},
+						"url": {
+							"raw": "https://localhost:44330/api/categorias/update",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44330",
+							"path": [
+								"api",
+								"categorias",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categoria - Apagar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:44330/api/categorias/delete?id=2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44330",
+							"path": [
+								"api",
+								"categorias",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cidade",
+			"item": [
+				{
+					"name": "Cidade - ObterTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44345/api/cidade/obtertodos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44345",
+							"path": [
+								"api",
+								"cidade",
+								"obtertodos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login - Inserir",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"kjdsf@bgos.com\",\n\t\"Senha\": \"sadsad\",\n\t\"nome\": \"hdasuh\",\n\t\"registro_ativo\": true\n}"
+						},
+						"url": {
+							"raw": "https://localhost:44345/api/login/inserir",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44345",
+							"path": [
+								"api",
+								"login",
+								"inserir"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - ObterTodos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:44345/api/login/obtertodos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44345",
+							"path": [
+								"api",
+								"login",
+								"obtertodos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cliente",
+			"item": []
+		}
+	]
+}
