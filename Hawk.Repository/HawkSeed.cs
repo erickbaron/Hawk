@@ -130,7 +130,7 @@ namespace Hawk.Repository
                     Complemento = " ",
                     RegistroAtivo = true,
 
-                    Cliente = 2
+                    ClienteId = 2
                 });
             #endregion
 
@@ -224,7 +224,7 @@ namespace Hawk.Repository
                     Id = 1,
                     Quantidade = 2,
                     Entrada = true,
-                    DataEntrada = "2010-10-10",
+                    DataEntrada =  new DateTime(2012, 10, 12),
 
                     EmpresaId = 1,
                     ProdutoId = 1
@@ -234,7 +234,7 @@ namespace Hawk.Repository
                     Id = 2,
                     Quantidade = 32,
                     Entrada = false,
-                    DataEntrada = "2010-10-10",
+                    DataEntrada = new DateTime(2012, 10, 12),
 
                     EmpresaId = 2,
                     ProdutoId = 2
@@ -319,7 +319,7 @@ namespace Hawk.Repository
                     Id = 1,
                    Nome = "irineu",
                    Cpf = "59315617061",
-                   DataNascimento = 2011.02.12,
+                   DataNascimento= new DateTime(2012, 10, 12),
                    Telefone = "2036466360",
                    RegistroAtivo = true,
 
@@ -328,15 +328,70 @@ namespace Hawk.Repository
                 },
                 new Cliente()
                 {
+                    Id = 2,
                     Nome = "jose",
                     Cpf = "59315639061",
-                    DataNascimento = 2011.02.12,
+                    DataNascimento = new DateTime(2012, 10, 12),
                     Telefone = "2012466360",
                     RegistroAtivo = true,
 
                     UsuarioId = 1,
                 });
             #endregion
+
+            #region valiliaçãoProduto
+            modelBuilder.Entity<AvaliacaoProduto>().HasData(
+                new AvaliacaoProduto()
+                {
+                    Id = 1,
+                    Comentario = "abfkjgadkfgakf",
+                    Nota = 5,
+                    RegistroAtivo = true,
+                     
+                    ProdutoId =1
+                },
+                new AvaliacaoProduto()
+                {
+                    Id = 2,
+                    Comentario = "fçaksdçmakd",
+                    Nota = 5,
+                    RegistroAtivo = true,
+
+                    ProdutoId = 1
+                });
+            #endregion
+
+            #region cartão
+            modelBuilder.Entity<Cartao>().HasData(
+                new Cartao()
+                {
+                    Id = 1,
+                    Numero= "123576123",
+                    NomeProprietario = "jose",
+                    DataVencimento = new DateTime (2010,12,12),
+                    Cvc = "123",
+                    RegistroAtivo =true,
+
+                    ClienteId = 1
+
+                    
+                },
+                new Cartao()
+                {
+                    Id = 2,
+                    Numero = "12357343",
+                    NomeProprietario = "joao",
+                    DataVencimento = new DateTime(2012, 10, 12),
+                    Cvc = "123",
+                    RegistroAtivo = true,
+
+                    ClienteId = 1
+                });
+            #endregion
+
+
+
+
         }
     }
 }
