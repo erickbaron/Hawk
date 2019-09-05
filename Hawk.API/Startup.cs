@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Hawk.Domain.Entities;
 using Hawk.Repository;
 using Hawk.Repository.Repositories;
@@ -29,8 +30,18 @@ namespace Hawk.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddDbContext<HawkContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("BancoDadosHawk")));
+            services.AddDbContext<HawkContext>(opt => opt.UseSqlite(Configuration.GetConnectionString("BancoDadosHawk")));
+
+            IdentityBuilder builder = services.AddIdentityCore<User>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 4;
+            });
 
             services.AddScoped(typeof(IHawkRepository<Cliente>), typeof(ClienteRepository));
 
