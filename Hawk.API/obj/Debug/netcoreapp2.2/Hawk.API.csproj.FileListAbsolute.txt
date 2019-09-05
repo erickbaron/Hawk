@@ -36,3 +36,22 @@ C:\Users\erick\Desktop\Nova pasta\Hawk\Hawk.API\obj\Debug\netcoreapp2.2\Hawk.API
 C:\Users\erick\Desktop\Nova pasta\Hawk\Hawk.API\obj\Debug\netcoreapp2.2\Hawk.API.csproj.CopyComplete
 C:\Users\erick\Desktop\Nova pasta\Hawk\Hawk.API\obj\Debug\netcoreapp2.2\Hawk.API.dll
 C:\Users\erick\Desktop\Nova pasta\Hawk\Hawk.API\obj\Debug\netcoreapp2.2\Hawk.API.pdb
+T:\Documentos\GitHub\Hawk\Hawk.API\bin\Debug\netcoreapp2.2\Hawk.API.deps.json
+T:\Documentos\GitHub\Hawk\Hawk.API\bin\Debug\netcoreapp2.2\Hawk.API.runtimeconfig.json
+T:\Documentos\GitHub\Hawk\Hawk.API\bin\Debug\netcoreapp2.2\Hawk.API.runtimeconfig.dev.json
+T:\Documentos\GitHub\Hawk\Hawk.API\bin\Debug\netcoreapp2.2\Hawk.API.dll
+T:\Documentos\GitHub\Hawk\Hawk.API\bin\Debug\netcoreapp2.2\Hawk.API.pdb
+T:\Documentos\GitHub\Hawk\Hawk.API\bin\Debug\netcoreapp2.2\Hawk.Domain.dll
+T:\Documentos\GitHub\Hawk\Hawk.API\bin\Debug\netcoreapp2.2\Hawk.Repository.dll
+T:\Documentos\GitHub\Hawk\Hawk.API\bin\Debug\netcoreapp2.2\Hawk.Domain.pdb
+T:\Documentos\GitHub\Hawk\Hawk.API\bin\Debug\netcoreapp2.2\Hawk.Repository.pdb
+T:\Documentos\GitHub\Hawk\Hawk.API\obj\Debug\netcoreapp2.2\Hawk.API.csprojAssemblyReference.cache
+T:\Documentos\GitHub\Hawk\Hawk.API\obj\Debug\netcoreapp2.2\Hawk.API.csproj.CoreCompileInputs.cache
+T:\Documentos\GitHub\Hawk\Hawk.API\obj\Debug\netcoreapp2.2\Hawk.API.RazorAssemblyInfo.cache
+T:\Documentos\GitHub\Hawk\Hawk.API\obj\Debug\netcoreapp2.2\Hawk.API.RazorAssemblyInfo.cs
+T:\Documentos\GitHub\Hawk\Hawk.API\obj\Debug\netcoreapp2.2\Hawk.API.AssemblyInfoInputs.cache
+T:\Documentos\GitHub\Hawk\Hawk.API\obj\Debug\netcoreapp2.2\Hawk.API.AssemblyInfo.cs
+T:\Documentos\GitHub\Hawk\Hawk.API\obj\Debug\netcoreapp2.2\Hawk.API.RazorTargetAssemblyInfo.cache
+T:\Documentos\GitHub\Hawk\Hawk.API\obj\Debug\netcoreapp2.2\Hawk.API.csproj.CopyComplete
+T:\Documentos\GitHub\Hawk\Hawk.API\obj\Debug\netcoreapp2.2\Hawk.API.dll
+T:\Documentos\GitHub\Hawk\Hawk.API\obj\Debug\netcoreapp2.2\Hawk.API.pdb

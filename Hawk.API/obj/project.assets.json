@@ -13323,23 +13323,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\erick\\.nuget\\packages\\": {},
+    "C:\\Users\\Alunos\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\erick\\Desktop\\Nova pasta\\Hawk\\Hawk.API\\Hawk.API.csproj",
+      "projectUniqueName": "T:\\Documentos\\GitHub\\Hawk\\Hawk.API\\Hawk.API.csproj",
       "projectName": "Hawk.API",
-      "projectPath": "C:\\Users\\erick\\Desktop\\Nova pasta\\Hawk\\Hawk.API\\Hawk.API.csproj",
-      "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\erick\\Desktop\\Nova pasta\\Hawk\\Hawk.API\\obj\\",
+      "projectPath": "T:\\Documentos\\GitHub\\Hawk\\Hawk.API\\Hawk.API.csproj",
+      "packagesPath": "C:\\Users\\Alunos\\.nuget\\packages\\",
+      "outputPath": "T:\\Documentos\\GitHub\\Hawk\\Hawk.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\erick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Alunos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13352,11 +13352,11 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\erick\\Desktop\\Nova pasta\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj": {
-              "projectPath": "C:\\Users\\erick\\Desktop\\Nova pasta\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj"
+            "T:\\Documentos\\GitHub\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj": {
+              "projectPath": "T:\\Documentos\\GitHub\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj"
             },
-            "C:\\Users\\erick\\Desktop\\Nova pasta\\Hawk\\Hawk.Repository\\Hawk.Repository.csproj": {
-              "projectPath": "C:\\Users\\erick\\Desktop\\Nova pasta\\Hawk\\Hawk.Repository\\Hawk.Repository.csproj"
+            "T:\\Documentos\\GitHub\\Hawk\\Hawk.Repository\\Hawk.Repository.csproj": {
+              "projectPath": "T:\\Documentos\\GitHub\\Hawk\\Hawk.Repository\\Hawk.Repository.csproj"
             }
           }
         }
