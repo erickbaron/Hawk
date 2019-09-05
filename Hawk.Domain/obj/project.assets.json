@@ -4033,23 +4033,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\erick\\.nuget\\packages\\": {},
+    "C:\\Users\\Alunos\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\erick\\Desktop\\Nova pasta\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Alunos\\Downloads\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj",
       "projectName": "Hawk.Domain",
-      "projectPath": "C:\\Users\\erick\\Desktop\\Nova pasta\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj",
-      "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\erick\\Desktop\\Nova pasta\\Hawk\\Hawk.Domain\\obj\\",
+      "projectPath": "C:\\Users\\Alunos\\Downloads\\Hawk\\Hawk.Domain\\Hawk.Domain.csproj",
+      "packagesPath": "C:\\Users\\Alunos\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Alunos\\Downloads\\Hawk\\Hawk.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\erick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Alunos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
