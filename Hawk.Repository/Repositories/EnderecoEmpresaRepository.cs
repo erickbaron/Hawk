@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Hawk.Repository.Repositories
 {
-    class EnderecoEmpresaRepository : IHawkRepository<EnderecoEmpresa>
+    public class EnderecoEmpresaRepository : IHawkRepository<EnderecoEmpresa>
     {
         private readonly HawkContext context;
 

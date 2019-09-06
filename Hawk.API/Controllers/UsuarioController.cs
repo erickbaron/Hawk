@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace Hawk.API.Controllers
 {
+    [Route("api/usuarios")]
+    [ApiController]
     public class UsuarioController : Controller
     {
         private IHawkRepository<Usuario> repository;
@@ -15,6 +17,18 @@ namespace Hawk.API.Controllers
         public UsuarioController(IHawkRepository<Usuario> repository)
         {
             this.repository = repository;
+        }
+
+        [HttpGet, Route("obtertodos")]
+        public JsonResult ObterTodos()
+        {
+            return Json(repository.ObterTodos());
+        }
+
+        [HttpGet, Route("obterpeloid")]
+        public JsonResult ObterPeloId(int id)
+        {
+            return Json(repository.ObterPeloId(id));
         }
 
         [HttpPost, Route("add")]

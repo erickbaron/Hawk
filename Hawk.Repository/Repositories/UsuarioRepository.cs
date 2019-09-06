@@ -36,7 +36,7 @@ namespace Hawk.Repository.Repositories
 
         public List<Usuario> ObterTodos()
         {
-            return null;
+            return context.Usuarios.Where(t => t.RegistroAtivo).ToList();
         }
 
         public bool Update(Usuario entity)

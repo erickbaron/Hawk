@@ -57,8 +57,21 @@ namespace Hawk.API
                 options.Password.RequiredLength = 4;
             });
 
-            services.AddScoped(typeof(IHawkRepository<Cliente>), typeof(ClienteRepository));
+            services.AddScoped(typeof(IHawkRepository<AvaliacaoEmpresa>), typeof(AvaliacaoEmpresaRepository));
+            services.AddScoped(typeof(IHawkRepository<AvaliacaoProduto>), typeof(AvaliacaoProdutoRepository));
+            services.AddScoped(typeof(IHawkRepository<Cartao>), typeof(CartaoRepository));
             services.AddScoped(typeof(IHawkRepository<Categoria>), typeof(CategoriaRepository));
+            services.AddScoped(typeof(IHawkRepository<Cliente>), typeof(ClienteRepository));
+            services.AddScoped(typeof(IHawkRepository<Compra>), typeof(CompraRepository));
+            services.AddScoped(typeof(IHawkRepository<Empresa>), typeof(EmpresaRepository));
+            services.AddScoped(typeof(IHawkRepository<EnderecoCliente>), typeof(EnderecoClienteRepository));
+            services.AddScoped(typeof(IHawkRepository<EnderecoEmpresa>), typeof(EnderecoEmpresaRepository));
+            services.AddScoped(typeof(IHawkRepository<Estoque>), typeof(EstoqueRepository));
+            services.AddScoped(typeof(IHawkRepository<Financa>), typeof(FinancaRepository));
+            services.AddScoped(typeof(IHawkRepository<ItemCompra>), typeof(ItemCompraRepository));
+            services.AddScoped(typeof(IHawkRepository<ProdutoFavorito>), typeof(ProdutoFavoritoRepository));
+            services.AddScoped(typeof(IHawkRepository<Produto>), typeof(ProdutoRepository));
+            services.AddScoped(typeof(IHawkRepository<Usuario>), typeof(UsuarioRepository));
 
     
         }
