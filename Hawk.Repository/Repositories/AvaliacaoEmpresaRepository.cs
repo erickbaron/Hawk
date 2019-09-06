@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Hawk.Repository.Repositories
 {
-    class AvaliacaoEmpresaRepository : IHawkRepository<AvaliacaoEmpresa>
+    public class AvaliacaoEmpresaRepository : IHawkRepository<AvaliacaoEmpresa>
     {
         private readonly HawkContext context;
 

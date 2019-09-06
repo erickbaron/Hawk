@@ -1,11 +1,12 @@
 ﻿using Hawk.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Hawk.Repository.Repositories
 {
-    class ProdutoFavoritoRepository : IHawkRepository<ProdutoFavorito>
+    public class ProdutoFavoritoRepository : IHawkRepository<ProdutoFavorito>
     {
         private readonly HawkContext context;
 
@@ -14,29 +15,38 @@ namespace Hawk.Repository.Repositories
             this.context = context;
         }
 
+
         public int Add(ProdutoFavorito entity)
         {
-            throw new NotImplementedException();
+            entity.RegistroAtivo = true;
+            context.ProdutosFavoritos.Add(entity);
+            context.SaveChanges();
+            return entity.Id;
         }
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var produtoFavorito = context.ProdutosFavoritos.FirstOrDefault(t => t.Id == id);
+            produtoFavorito.RegistroAtivo = false;
+            context.ProdutosFavoritos.Update(produtoFavorito);
+            return context.SaveChanges() > 0;
         }
 
         public ProdutoFavorito ObterPeloId(int id)
         {
-            throw new NotImplementedException();
+            return context.ProdutosFavoritos.FirstOrDefault(t => t.RegistroAtivo && t.Id == id);
         }
 
         public List<ProdutoFavorito> ObterTodos()
         {
-            throw new NotImplementedException();
+            return context.ProdutosFavoritos.Where(t => t.RegistroAtivo).ToList();
         }
 
         public bool Update(ProdutoFavorito entity)
         {
-            throw new NotImplementedException();
+            entity.RegistroAtivo = true;
+            context.ProdutosFavoritos.Update(entity);
+            return context.SaveChanges() > 0;
         }
     }
 }

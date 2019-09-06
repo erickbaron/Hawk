@@ -6,7 +6,7 @@ namespace Hawk.Repository.Repositories
 {
     public class CartaoRepository : IHawkRepository<Cartao>
     {
-        private HawkContext context;
+        private readonly HawkContext context;
 
         public CartaoRepository(HawkContext context)
         {

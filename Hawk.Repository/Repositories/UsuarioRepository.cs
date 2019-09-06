@@ -31,7 +31,7 @@ namespace Hawk.Repository.Repositories
 
         public Usuario ObterPeloId(int id)
         {
-            return context.Usuarios.FirstOrDefault(t => t.RegistroAtivo && t.Id == id);
+            return null;
         }
 
         public List<Usuario> ObterTodos()
