@@ -227,7 +227,9 @@ namespace Hawk.Repository
                     DataEntrada =  new DateTime(2012, 10, 12),
 
                     EmpresaId = 1,
-                    ProdutoId = 1
+                    ProdutoId = 1,
+                    RegistroAtivo = true
+        
                 },
                 new Estoque ()
                 {
@@ -237,7 +239,8 @@ namespace Hawk.Repository
                     DataEntrada = new DateTime(2012, 10, 12),
 
                     EmpresaId = 2,
-                    ProdutoId = 2
+                    ProdutoId = 2,
+                    RegistroAtivo = true
 
                 });
                 #endregion
@@ -321,8 +324,8 @@ namespace Hawk.Repository
                    Cpf = "59315617061",
                    DataNascimento= new DateTime(2012, 10, 12),
                    Telefone = "2036466360",
-                   RegistroAtivo = true,
 
+                   RegistroAtivo = true,
                    UsuarioId = 1,
 
                 },
