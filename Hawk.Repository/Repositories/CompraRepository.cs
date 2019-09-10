@@ -8,7 +8,9 @@ namespace Hawk.Repository.Repositories
 {
     public class CompraRepository : IHawkRepository<Compra>
     {
-        private readonly HawkContext context; 
+
+        private readonly HawkContext context;
+
 
         public CompraRepository(HawkContext context)
         {

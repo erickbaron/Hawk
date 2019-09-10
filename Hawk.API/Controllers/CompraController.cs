@@ -8,9 +8,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Hawk.API.Controllers
 {
+
+    [Route("api/compras")]
+    [ApiController]
     public class CompraController : Controller
     {
-        private IHawkRepository<Compra> repository;
+        private readonly IHawkRepository<Compra> repository;
+
 
         public CompraController(IHawkRepository<Compra> repository)
         {
@@ -39,6 +43,7 @@ namespace Hawk.API.Controllers
         [HttpPut, Route("update")]
         public JsonResult Update(Compra compra)
         {
+
             var alterou = repository.Update(compra);
             return Json(new { status = alterou });
         }
@@ -51,3 +56,4 @@ namespace Hawk.API.Controllers
         }
     }
 }
+
