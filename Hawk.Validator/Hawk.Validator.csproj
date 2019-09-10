@@ -490,20 +490,6 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Hawk.API\Hawk.API.csproj">
-      <Project>{a26aed2f-1474-437d-bd48-bfee7e219724}</Project>
-      <Name>Hawk.API</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Hawk.Domain\Hawk.Domain.csproj">
-      <Project>{dac99764-c647-4559-84a8-b4aed0d2d551}</Project>
-      <Name>Hawk.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Hawk.Repository\Hawk.Repository.csproj">
-      <Project>{8e31b7e9-253e-45a6-b2c1-6eeab5b5c696}</Project>
-      <Name>Hawk.Repository</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
