@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Hawk.API.Controllers
 {
+    [Route("api/produtosfavoritos")]
+    [ApiController]
+
     public class ProdutoFavoritoController : Controller
     {
         private IHawkRepository<ProdutoFavorito> repository;
