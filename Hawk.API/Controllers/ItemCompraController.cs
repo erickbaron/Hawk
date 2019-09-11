@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Hawk.API.Controllers
 {[Route("api/itenscompras")]
+[ApiController]
     public class ItemCompraController : Controller
     {
         private readonly IHawkRepository<ItemCompra> repository;
