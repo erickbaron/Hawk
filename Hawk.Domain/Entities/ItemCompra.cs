@@ -14,7 +14,5 @@ namespace Hawk.Domain.Entities
         public Produto Produto { get; set; }
         public int ProdutoId { get; set; }
 
-        public Compra Compra {get; set; }
-        public int CompraId {get; set; }
     }
 }
