@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hawk.API", "Hawk.API\Hawk.API.csproj", "{A26AED2F-1474-437D-BD48-BFEE7E219724}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hawk.Repository", "Hawk.Repository\Hawk.Repository.csproj", "{8E31B7E9-253E-45A6-B2C1-6EEAB5B5C696}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hawk.Repository", "Hawk.Repository\Hawk.Repository.csproj", "{8E31B7E9-253E-45A6-B2C1-6EEAB5B5C696}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hawk.Domain", "Hawk.Domain\Hawk.Domain.csproj", "{DAC99764-C647-4559-84A8-B4AED0D2D551}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hawk.Domain", "Hawk.Domain\Hawk.Domain.csproj", "{DAC99764-C647-4559-84A8-B4AED0D2D551}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
