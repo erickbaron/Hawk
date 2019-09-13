@@ -229,7 +229,7 @@ namespace Hawk.Repository
                     EmpresaId = 1,
                     ProdutoId = 1,
                     RegistroAtivo = true
-        
+
                 },
                 new Estoque ()
                 {
@@ -241,6 +241,7 @@ namespace Hawk.Repository
                     EmpresaId = 2,
                     ProdutoId = 2,
                     RegistroAtivo = true
+
 
                 });
                 #endregion
