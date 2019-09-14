@@ -279,6 +279,7 @@ namespace Hawk.Repository
                     RegistroAtivo = true,
 
                     ProdutoId = 1,
+                    CompraId = 1
                 },
                 new ItemCompra()
                 {
@@ -287,6 +288,7 @@ namespace Hawk.Repository
                     RegistroAtivo = true,
 
                     ProdutoId = 2,
+                    CompraId = 2
                 });
             #endregion
 
@@ -307,26 +309,6 @@ namespace Hawk.Repository
 
                     ProdutoId = 2,
                     ClienteId = 2
-                });
-            #endregion
-
-            #region carrinho
-            modelBuilder.Entity<Carrinho>().HasData(
-                new Carrinho()
-                {
-                    Id = 1,
-                    RegistroAtivo = true,
-
-                    ItemCompraId = 1,
-                    
-                },
-                new Carrinho()
-                {
-                    Id = 2,
-                    RegistroAtivo = true,
-
-                    ItemCompraId = 2,
-                    
                 });
             #endregion
 

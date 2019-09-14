@@ -15,7 +15,7 @@ namespace Hawk.Domain.Entities
         public Cliente Cliente { get; set; }
         public int ClienteId { get; set; }
 
-        public Carrinho Carrinho{ get; set; }
+        public Carrinho Carrinho { get; set; }
         public int CarrinhoId { get; set; }
     }
 }
