@@ -1,5 +1,6 @@
 ﻿using Hawk.Domain.Entities;
 using Hawk.Repository;
+using Hawk.Validator;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -32,17 +33,45 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public JsonResult Adicionar(Usuario usuario)
+        public ActionResult Add(Usuario usuario)
         {
-            var id = repository.Add(usuario);
-            return Json(new { id });
+            var validator = new UsuarioValidator();
+            var result = validator.Validate(usuario);
+
+            if (!result.IsValid)
+            {
+                var errors = new Dictionary<string, string>();
+                foreach (var error in result.Errors)
+                {
+                    string message = error.ErrorMessage;
+                    string property = error.PropertyName;
+                    errors.Add(property, message);
+                }
+                return BadRequest(Json(errors));
+            }
+
+            return Json(new { id = repository.Add(usuario) });
         }
 
         [HttpPut, Route("update")]
-        public JsonResult Update(Usuario usuario)
+        public ActionResult Update (Usuario usuario)
         {
-            var alterou = repository.Update(usuario);
-            return Json(new { status = alterou });
+            var validator = new UsuarioValidator();
+            var result = validator.Validate(usuario);
+
+            if (!result.IsValid)
+            {
+                var errors = new Dictionary<string, string>();
+                foreach (var error in result.Errors)
+                {
+                    string message = error.ErrorMessage;
+                    string property = error.PropertyName;
+                    errors.Add(property, message);
+                }
+                return BadRequest(Json(errors));
+            }
+
+            return Json(new { status = repository.Update(usuario) });
         }
 
         [HttpDelete, Route("delete")]

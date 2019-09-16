@@ -4,6 +4,7 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.4.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
@@ -14,5 +15,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Hawk.Domain\Hawk.Domain.csproj" />
     <ProjectReference Include="..\Hawk.Repository\Hawk.Repository.csproj" />
+    <ProjectReference Include="..\Hawk.Validator\Hawk.Validator.csproj" />
   </ItemGroup>
 </Project>
