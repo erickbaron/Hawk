@@ -16,11 +16,11 @@ namespace Hawk.Validator
                 .NotEmpty()
                 .WithMessage("Informe seu nome ")
                 .Length(3, 100)
-                .WithMessage("O nome deve ter entre {MinLength} e {MaxLength} caracteres");
+                .WithMessage("O nome deve ter entre 3 e 100 caracteres");
 
             RuleFor(x => x.Email)
                 .NotEmpty()
-                .WithMessage("Informe seu nome ")
+                .WithMessage("Informe seu email ")
                 .EmailAddress()
                 .WithMessage("Informe um email válido");
 

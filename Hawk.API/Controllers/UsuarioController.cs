@@ -35,7 +35,7 @@ namespace Hawk.API.Controllers
         [HttpPost, Route("add")]
         public ActionResult Add(Usuario usuario)
         {
-            var validator = new UsuarioValidator();
+            UsuarioValidator validator = new UsuarioValidator();
             var result = validator.Validate(usuario);
 
             if (!result.IsValid)
@@ -56,7 +56,7 @@ namespace Hawk.API.Controllers
         [HttpPut, Route("update")]
         public ActionResult Update (Usuario usuario)
         {
-            var validator = new UsuarioValidator();
+            UsuarioValidator validator = new UsuarioValidator();
             var result = validator.Validate(usuario);
 
             if (!result.IsValid)
