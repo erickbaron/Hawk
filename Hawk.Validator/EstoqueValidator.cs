@@ -18,14 +18,6 @@ namespace Hawk.Validator
                 .NotEmpty()
                 .WithMessage("Informe a quantidae");
 
-            RuleFor(x => x.DataEntrada)
-                .NotEmpty()
-                .WithMessage("Informe uma Data de Entrada");
-
-            RuleFor(x => x.Entrada)
-                .NotEmpty()
-                .WithMessage("Informe se é entrada ou saída de produtos");
-
         }
     }
 }

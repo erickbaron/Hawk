@@ -19,6 +19,8 @@ namespace Hawk.Repository.Repositories
         public int Add(Estoque entity)
         {
             entity.RegistroAtivo = true;
+            entity.Entrada = "Entrada";
+            entity.DataEntrada = DateTime.Now;
             context.Estoques.Add(entity);
             context.SaveChanges();
             return entity.Id;
