@@ -9,7 +9,7 @@ namespace Hawk.Domain.Entities
         [Column(TypeName = "decimal(8,2)")]
         public decimal ValorTotal { get; set; }
         [Column(TypeName = "decimal(8,2)")]
-        public decimal Desconto { get; set; }
+        public decimal? Desconto { get; set; }
         public bool RegistroAtivo { get; set; }
         
         public Cliente Cliente { get; set; }

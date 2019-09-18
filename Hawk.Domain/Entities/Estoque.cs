@@ -7,7 +7,7 @@ namespace Hawk.Domain.Entities
     {
         public int Id { get; set; }
         public int Quantidade { get; set; }
-        public bool Entrada { get; set; }
+        public string Entrada { get; set; }
         public DateTime DataEntrada { get; set; }
         public bool RegistroAtivo { get; set; }
 

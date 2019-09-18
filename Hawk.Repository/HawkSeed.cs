@@ -223,7 +223,7 @@ namespace Hawk.Repository
                 {
                     Id = 1,
                     Quantidade = 2,
-                    Entrada = true,
+                    Entrada = "entrada",
                     DataEntrada =  new DateTime(2012, 10, 12),
 
                     EmpresaId = 1,
@@ -233,7 +233,7 @@ namespace Hawk.Repository
                 {
                     Id = 2,
                     Quantidade = 32,
-                    Entrada = false,
+                    Entrada = "saida",
                     DataEntrada = new DateTime(2012, 10, 12),
 
                     EmpresaId = 2,

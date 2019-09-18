@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hawk.Validator;
 
 namespace Hawk.API.Controllers
 {
@@ -32,17 +33,45 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public JsonResult Adicionar(EnderecoEmpresa enderecoEmpresa)
+        public ActionResult Adicionar(EnderecoEmpresa enderecoEmpresa)
         {
-            var id = repository.Add(enderecoEmpresa);
-            return Json(new { id });
+            EnderecoEmpresaValidator validator = new EnderecoEmpresaValidator();
+            var result = validator.Validate(enderecoEmpresa);
+
+            if (!result.IsValid)
+            {
+                var errors = new Dictionary<string, string>();
+                foreach (var error in result.Errors)
+                {
+                    string message = error.ErrorMessage;
+                    string property = error.PropertyName;
+                    errors.Add(property, message);
+                }
+                return BadRequest(Json(errors));
+            }
+
+            return Json(new { id = repository.Add(enderecoEmpresa) });
         }
 
         [HttpPut, Route("update")]
-        public JsonResult Update(EnderecoEmpresa enderecoEmpresa)
+        public ActionResult Update(EnderecoEmpresa enderecoEmpresa)
         {
-            var alterou = repository.Update(enderecoEmpresa);
-            return Json(new { status = alterou });
+            EnderecoEmpresaValidator validator = new EnderecoEmpresaValidator();
+            var result = validator.Validate(enderecoEmpresa);
+
+            if (!result.IsValid)
+            {
+                var errors = new Dictionary<string, string>();
+                foreach (var error in result.Errors)
+                {
+                    string message = error.ErrorMessage;
+                    string property = error.PropertyName;
+                    errors.Add(property, message);
+                }
+                return BadRequest(Json(errors));
+            }
+
+            return Json(new { id = repository.Update(enderecoEmpresa) });
         }
 
         [HttpDelete, Route("delete")]

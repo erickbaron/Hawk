@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Hawk.Domain.Entities;
 using Hawk.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Hawk.Validator;
 
 namespace Hawk.API.Controllers
 {

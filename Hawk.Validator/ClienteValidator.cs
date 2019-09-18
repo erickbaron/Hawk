@@ -28,7 +28,7 @@ namespace Hawk.Validator
 
             RuleFor(x => x.Telefone)
                 .NotEmpty()
-                .WithMessage("Informe seu seu telefone ")
+                .WithMessage("Informe seu telefone ")
                 .Length(10)
                 .WithMessage("Informe um Telefone válido");
 
