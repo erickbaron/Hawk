@@ -61,6 +61,7 @@ namespace Hawk.API
 
             services.AddScoped(typeof(IHawkRepository<AvaliacaoEmpresa>), typeof(AvaliacaoEmpresaRepository));
             services.AddScoped(typeof(IHawkRepository<AvaliacaoProduto>), typeof(AvaliacaoProdutoRepository));
+            services.AddScoped(typeof(IHawkRepository<Carrinho>), typeof(CarrinhoRepository));
             services.AddScoped(typeof(IHawkRepository<Cartao>), typeof(CartaoRepository));
             services.AddScoped(typeof(IHawkRepository<Categoria>), typeof(CategoriaRepository));
             services.AddScoped(typeof(IHawkRepository<Cliente>), typeof(ClienteRepository));
