@@ -2,7 +2,7 @@ using System.Linq;
 using AutoMapper;
 using Hawk.API.Dtos;
 using Hawk.Domain;
-using Hawk.Domain.Identity;
+using Hawk.Domain.Entities;
 
 namespace Hawk.API.Helpers
 {
