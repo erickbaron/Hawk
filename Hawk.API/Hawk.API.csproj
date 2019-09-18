@@ -14,5 +14,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Hawk.Domain\Hawk.Domain.csproj" />
     <ProjectReference Include="..\Hawk.Repository\Hawk.Repository.csproj" />
+    <ProjectReference Include="..\Hawk.Validator\Hawk.Validator.csproj" />
   </ItemGroup>
 </Project>

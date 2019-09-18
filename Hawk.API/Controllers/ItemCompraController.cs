@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hawk.Validator;
 
 namespace Hawk.API.Controllers
 {[Route("api/itenscompras")]
@@ -31,17 +32,45 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public JsonResult Adicionar(ItemCompra itemCompra)
+        public ActionResult Adicionar(ItemCompra itemCompra)
         {
-            var id = repository.Add(itemCompra);
-            return Json(new { id });
+            ItemCompraValidator validator = new ItemCompraValidator();
+            var result = validator.Validate(itemCompra);
+
+            if (!result.IsValid)
+            {
+                var errors = new Dictionary<string, string>();
+                foreach (var error in result.Errors)
+                {
+                    string message = error.ErrorMessage;
+                    string property = error.PropertyName;
+                    errors.Add(property, message);
+                }
+                return BadRequest(Json(errors));
+            }
+
+            return Json(new { id = repository.Add(itemCompra) });
         }
 
         [HttpPut, Route("update")]
-        public JsonResult Update(ItemCompra itemCompra)
+        public ActionResult Update(ItemCompra itemCompra)
         {
-            var alterou = repository.Update(itemCompra);
-            return Json(new { status = alterou });
+            ItemCompraValidator validator = new ItemCompraValidator();
+            var result = validator.Validate(itemCompra);
+
+            if (!result.IsValid)
+            {
+                var errors = new Dictionary<string, string>();
+                foreach (var error in result.Errors)
+                {
+                    string message = error.ErrorMessage;
+                    string property = error.PropertyName;
+                    errors.Add(property, message);
+                }
+                return BadRequest(Json(errors));
+            }
+
+            return Json(new { id = repository.Update(itemCompra) });
         }
 
         [HttpDelete, Route("delete")]

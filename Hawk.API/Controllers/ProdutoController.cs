@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Hawk.Domain.Entities;
 using Hawk.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Hawk.Validator;
 
 namespace Hawk.API.Controllers
 {
@@ -34,17 +35,45 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public JsonResult Adicionar(Produto produto)
+        public ActionResult Adicionar(Produto produto)
         {
-            var id = repository.Add(produto);
-            return Json(new { id });
+            ProdutoValidator validator = new ProdutoValidator();
+            var result = validator.Validate(produto);
+
+            if (!result.IsValid)
+            {
+                var errors = new Dictionary<string, string>();
+                foreach (var error in result.Errors)
+                {
+                    string message = error.ErrorMessage;
+                    string property = error.PropertyName;
+                    errors.Add(property, message);
+                }
+                return BadRequest(Json(errors));
+            }
+
+            return Json(new { id = repository.Add(produto) });
         }
 
         [HttpPut, Route("update")]
-        public JsonResult Update(Produto produto)
+        public ActionResult Update(Produto produto)
         {
-            var alterou = repository.Update(produto);
-            return Json(new { status = alterou });
+            ProdutoValidator validator = new ProdutoValidator();
+            var result = validator.Validate(produto);
+
+            if (!result.IsValid)
+            {
+                var errors = new Dictionary<string, string>();
+                foreach (var error in result.Errors)
+                {
+                    string message = error.ErrorMessage;
+                    string property = error.PropertyName;
+                    errors.Add(property, message);
+                }
+                return BadRequest(Json(errors));
+            }
+
+            return Json(new { id = repository.Update(produto) });
         }
 
         [HttpDelete, Route("delete")]

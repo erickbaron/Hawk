@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Hawk.Domain.Entities;
 using Hawk.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Hawk.Validator;
 
 namespace Hawk.API.Controllers
 {
@@ -33,17 +34,45 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public JsonResult Adicionar(EnderecoCliente enderecoCliente)
+        public ActionResult Adicionar(EnderecoCliente enderecoCliente)
         {
-            var id = repository.Add(enderecoCliente);
-            return Json(new { id });
+            EnderecoClienteValidator validator = new EnderecoClienteValidator();
+            var result = validator.Validate(enderecoCliente);
+
+            if (!result.IsValid)
+            {
+                var errors = new Dictionary<string, string>();
+                foreach (var error in result.Errors)
+                {
+                    string message = error.ErrorMessage;
+                    string property = error.PropertyName;
+                    errors.Add(property, message);
+                }
+                return BadRequest(Json(errors));
+            }
+
+            return Json(new { id = repository.Add(enderecoCliente) });
         }
 
         [HttpPut, Route("update")]
-        public JsonResult Update(EnderecoCliente enderecoCliente)
+        public ActionResult Update(EnderecoCliente enderecoCliente)
         {
-            var alterou = repository.Update(enderecoCliente);
-            return Json(new { status = alterou });
+            EnderecoClienteValidator validator = new EnderecoClienteValidator();
+            var result = validator.Validate(enderecoCliente);
+
+            if (!result.IsValid)
+            {
+                var errors = new Dictionary<string, string>();
+                foreach (var error in result.Errors)
+                {
+                    string message = error.ErrorMessage;
+                    string property = error.PropertyName;
+                    errors.Add(property, message);
+                }
+                return BadRequest(Json(errors));
+            }
+
+            return Json(new { id = repository.Update(enderecoCliente) });
         }
 
         [HttpDelete, Route("delete")]

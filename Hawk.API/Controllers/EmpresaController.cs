@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hawk.Validator;
 
 namespace Hawk.API.Controllers
 {
@@ -32,17 +33,45 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public JsonResult Adicionar(Empresa empresa)
+        public ActionResult Adicionar(Empresa empresa)
         {
-            var id = repository.Add(empresa);
-            return Json(new { id });
+            EmpresaValidator validator = new EmpresaValidator();
+            var result = validator.Validate(empresa);
+
+            if (!result.IsValid)
+            {
+                var errors = new Dictionary<string, string>();
+                foreach (var error in result.Errors)
+                {
+                    string message = error.ErrorMessage;
+                    string property = error.PropertyName;
+                    errors.Add(property, message);
+                }
+                return BadRequest(Json(errors));
+            }
+
+            return Json(new { id = repository.Add(empresa) });
         }
 
         [HttpPut, Route("update")]
-        public JsonResult Update(Empresa empresa)
+        public ActionResult Update(Empresa empresa)
         {
-            var alterou = repository.Update(empresa);
-            return Json(new { status = alterou });
+            EmpresaValidator validator = new EmpresaValidator();
+            var result = validator.Validate(empresa);
+
+            if (!result.IsValid)
+            {
+                var errors = new Dictionary<string, string>();
+                foreach (var error in result.Errors)
+                {
+                    string message = error.ErrorMessage;
+                    string property = error.PropertyName;
+                    errors.Add(property, message);
+                }
+                return BadRequest(Json(errors));
+            }
+
+            return Json(new { id = repository.Add(empresa) });
         }
 
         [HttpDelete, Route("delete")]

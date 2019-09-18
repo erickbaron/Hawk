@@ -17,6 +17,7 @@ namespace Hawk.Repository
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<AvaliacaoEmpresa> AvaliacoesEmpresas { get; set; }
         public DbSet<AvaliacaoProduto> AvaliacoesProdutos { get; set; }
+        public DbSet<Carrinho> Carrinhos { get; set; }
         public DbSet<Cartao> Cartoes { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Cliente> Clientes { get; set; }

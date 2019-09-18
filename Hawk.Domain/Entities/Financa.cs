@@ -5,6 +5,7 @@ namespace Hawk.Domain.Entities
     public class Financa
     {
         public int Id { get; set; }
+        public string Mes { get; set; }
         [Column(TypeName = "decimal(8,2)")]
         public decimal ValorCusto { get; set; }
         [Column(TypeName = "decimal(8,2)")]

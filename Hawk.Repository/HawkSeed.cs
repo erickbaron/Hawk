@@ -223,7 +223,7 @@ namespace Hawk.Repository
                 {
                     Id = 1,
                     Quantidade = 2,
-                    Entrada = true,
+                    Entrada = "entrada",
                     DataEntrada =  new DateTime(2012, 10, 12),
 
                     EmpresaId = 1,
@@ -235,7 +235,7 @@ namespace Hawk.Repository
                 {
                     Id = 2,
                     Quantidade = 32,
-                    Entrada = false,
+                    Entrada = "saida",
                     DataEntrada = new DateTime(2012, 10, 12),
 
                     EmpresaId = 2,
@@ -278,20 +278,17 @@ namespace Hawk.Repository
                 new ItemCompra()
                 {
                     Id = 1,
-                    ValorItem = 2,
                     RegistroAtivo = true,
 
                     ProdutoId = 1,
-                    CompraId = 1
+                     
                 },
                 new ItemCompra()
                 {
                     Id = 2,
-                    ValorItem = 1123,
                     RegistroAtivo = true,
 
                     ProdutoId = 2,
-                    CompraId = 2
                 });
             #endregion
 
@@ -312,6 +309,26 @@ namespace Hawk.Repository
 
                     ProdutoId = 2,
                     ClienteId = 2
+                });
+            #endregion
+
+
+            #region Carrinho
+            modelBuilder.Entity<Carrinho>().HasData(
+                new Carrinho()
+                {
+                    Id = 1,
+                    RegistroAtivo = true,
+
+                    ItemCompraId = 1,
+                },
+                new Carrinho()
+                {
+                    Id = 2,
+                    RegistroAtivo = true,
+
+                    ItemCompraId = 2,
+                     
                 });
             #endregion
 
