@@ -13,8 +13,8 @@ namespace Hawk.Validator
             RuleFor(x => x.Comentario)
                 .NotEmpty()
                 .WithMessage("Informe seu Comentário")
-                .Length(3, 100)
-                .WithMessage("O nome deve ter entre 0 e 1000 caracteres");
+                .Length(3, 1000)
+                .WithMessage("O comentário deve ter entre 0 e 1000 caracteres");
 
             RuleFor(x => x.Nota)
                 .NotEmpty()

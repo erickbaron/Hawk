@@ -203,7 +203,8 @@ namespace Hawk.Repository
                     Desconto = 0,
                     RegistroAtivo = true,
 
-                    ClienteId= 1
+                    ClienteId= 1,
+                    CarrinhoId= 1
                 },
                 new Compra()
                 {
@@ -212,7 +213,8 @@ namespace Hawk.Repository
                     Desconto = 2,
                     RegistroAtivo = true,
 
-                    ClienteId = 2
+                    ClienteId = 2,
+                    CarrinhoId = 1
 
                 });
             #endregion
@@ -319,15 +321,15 @@ namespace Hawk.Repository
                 {
                     Id = 1,
                     RegistroAtivo = true,
-
+                    Quantidade = 2,
                     ItemCompraId = 1,
                 },
                 new Carrinho()
                 {
                     Id = 2,
                     RegistroAtivo = true,
-
-                    ItemCompraId = 2,
+                    Quantidade = 2,
+                    ItemCompraId = 1,
                      
                 });
             #endregion
