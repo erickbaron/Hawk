@@ -26,7 +26,7 @@ namespace Hawk.Validator
                 .NotEmpty()
                 .WithMessage("Informe o Estado")
                 .Length(3, 100)
-                .WithMessage("Informe uma Estado válida");
+                .WithMessage("Informe um Estado válida");
             
         }
     }
