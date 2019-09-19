@@ -611,6 +611,8 @@ namespace Hawk.Repository.Migrations
 
                     b.Property<int>("EmpresaId");
 
+                    b.Property<string>("ImagemURL");
+
                     b.Property<int>("Largura");
 
                     b.Property<string>("Nome");
@@ -645,6 +647,7 @@ namespace Hawk.Repository.Migrations
                             Comprimento = 3,
                             Descricao = "se derubar abre uma cratera",
                             EmpresaId = 1,
+                            ImagemURL = "download.jpg",
                             Largura = 2,
                             Nome = "nokia tijolao",
                             Peso = 10m,

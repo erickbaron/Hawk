@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Hawk.Repository.Migrations
 {
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -201,6 +201,7 @@ namespace Hawk.Repository.Migrations
                     Peso = table.Column<decimal>(type: "decimal(8,2)", nullable: false),
                     Promocao = table.Column<bool>(nullable: false),
                     RegistroAtivo = table.Column<bool>(nullable: false),
+                    ImagemURL = table.Column<string>(nullable: true),
                     EmpresaId = table.Column<int>(nullable: false),
                     CategoriaId = table.Column<int>(nullable: false)
                 },
@@ -475,11 +476,11 @@ namespace Hawk.Repository.Migrations
 
             migrationBuilder.InsertData(
                 table: "Produtos",
-                columns: new[] { "Id", "Altura", "CategoriaId", "Comprimento", "Descricao", "EmpresaId", "Largura", "Nome", "Peso", "Promocao", "RegistroAtivo", "ValorCusto", "ValorVenda" },
+                columns: new[] { "Id", "Altura", "CategoriaId", "Comprimento", "Descricao", "EmpresaId", "ImagemURL", "Largura", "Nome", "Peso", "Promocao", "RegistroAtivo", "ValorCusto", "ValorVenda" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, 3, "se derubar abre uma cratera", 1, 2, "nokia tijolao", 10m, false, true, 2m, 10m },
-                    { 2, 2, 2, 2, "o kiko sempre quis uma ", 2, 2, "bola quadrada", 10m, false, true, 3m, 100m }
+                    { 1, 1, 1, 3, "se derubar abre uma cratera", 1, "download.jpg", 2, "nokia tijolao", 10m, false, true, 2m, 10m },
+                    { 2, 2, 2, 2, "o kiko sempre quis uma ", 2, null, 2, "bola quadrada", 10m, false, true, 3m, 100m }
                 });
 
             migrationBuilder.InsertData(
@@ -496,8 +497,8 @@ namespace Hawk.Repository.Migrations
                 columns: new[] { "Id", "DataEntrada", "EmpresaId", "Entrada", "ProdutoId", "Quantidade", "RegistroAtivo" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "entrada", 1, 2, false },
-                    { 2, new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, "saida", 2, 32, false }
+                    { 1, new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "entrada", 1, 2, true },
+                    { 2, new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, "saida", 2, 32, true }
                 });
 
             migrationBuilder.InsertData(

@@ -17,4 +17,7 @@
     <ProjectReference Include="..\Hawk.Repository\Hawk.Repository.csproj" />
     <ProjectReference Include="..\Hawk.Validator\Hawk.Validator.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
 </Project>

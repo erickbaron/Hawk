@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hawk.Repository", "Hawk.Rep
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hawk.Domain", "Hawk.Domain\Hawk.Domain.csproj", "{DAC99764-C647-4559-84A8-B4AED0D2D551}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hawk.Validator", "Hawk.Validator\Hawk.Validator.csproj", "{7EE47E20-2286-471A-AE61-2A5C37825910}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hawk.Validator", "Hawk.Validator\Hawk.Validator.csproj", "{7EE47E20-2286-471A-AE61-2A5C37825910}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

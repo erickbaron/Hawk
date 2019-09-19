@@ -92,6 +92,7 @@ namespace Hawk.API
                 app.UseHsts();
             }
             app.UseCors("AllowAllHeaders");
+            app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseMvc();
         }
