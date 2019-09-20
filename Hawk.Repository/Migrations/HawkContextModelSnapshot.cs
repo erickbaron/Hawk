@@ -611,7 +611,7 @@ namespace Hawk.Repository.Migrations
 
                     b.Property<int>("EmpresaId");
 
-                    b.Property<string>("    ");
+                    b.Property<string>("ImagemURL");
 
                     b.Property<int>("Largura");
 

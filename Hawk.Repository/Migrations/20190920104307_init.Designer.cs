@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hawk.Repository.Migrations
 {
     [DbContext(typeof(HawkContext))]
-    [Migration("20190919114211_init")]
+    [Migration("20190920104307_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -613,6 +613,8 @@ namespace Hawk.Repository.Migrations
 
                     b.Property<int>("EmpresaId");
 
+                    b.Property<string>("ImagemURL");
+
                     b.Property<int>("Largura");
 
                     b.Property<string>("Nome");
@@ -647,6 +649,7 @@ namespace Hawk.Repository.Migrations
                             Comprimento = 3,
                             Descricao = "se derubar abre uma cratera",
                             EmpresaId = 1,
+                            ImagemURL = "download.jpg",
                             Largura = 2,
                             Nome = "nokia tijolao",
                             Peso = 10m,
@@ -663,6 +666,7 @@ namespace Hawk.Repository.Migrations
                             Comprimento = 2,
                             Descricao = "o kiko sempre quis uma ",
                             EmpresaId = 2,
+                            ImagemURL = "download.jpg",
                             Largura = 2,
                             Nome = "bola quadrada",
                             Peso = 10m,

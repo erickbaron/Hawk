@@ -522,12 +522,12 @@ namespace Hawk.Repository.Migrations
             migrationBuilder.InsertData(
                 table: "Carrinhos",
                 columns: new[] { "Id", "ItemCompraId", "Quantidade", "RegistroAtivo" },
-                values: new object[] { 1, 1, 1, true });
+                values: new object[] { 1, 1, 2, true });
 
             migrationBuilder.InsertData(
                 table: "Carrinhos",
                 columns: new[] { "Id", "ItemCompraId", "Quantidade", "RegistroAtivo" },
-                values: new object[] { 2, 2, 1, true });
+                values: new object[] { 2, 1, 2, true });
 
             migrationBuilder.InsertData(
                 table: "Compras",
