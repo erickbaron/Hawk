@@ -174,6 +174,7 @@ namespace Hawk.Repository
                     Comprimento = 3,
                     Peso = 10,
                     Promocao = false,
+                    ImagemURL = "download.jpg",
                     RegistroAtivo = true,
 
                     EmpresaId = 1,
@@ -191,6 +192,8 @@ namespace Hawk.Repository
                     Comprimento = 2,
                     Peso = 10,
                     Promocao = false,
+                    ImagemURL = "download.jpg",
+
                     RegistroAtivo = true,
 
                     EmpresaId = 2,
@@ -207,7 +210,9 @@ namespace Hawk.Repository
                     Desconto = 0,
                     RegistroAtivo = true,
 
-                    ClienteId = 1
+
+                    ClienteId= 1,
+                    CarrinhoId= 1
                 },
                 new Compra()
                 {
@@ -216,7 +221,8 @@ namespace Hawk.Repository
                     Desconto = 2,
                     RegistroAtivo = true,
 
-                    ClienteId = 2
+                    ClienteId = 2,
+                    CarrinhoId = 1
 
                 });
             #endregion
@@ -227,8 +233,9 @@ namespace Hawk.Repository
                 {
                     Id = 1,
                     Quantidade = 2,
-                    Entrada = true,
-                    DataEntrada = new DateTime(2012, 10, 12),
+
+                    Entrada = "entrada",
+                    DataEntrada =  new DateTime(2012, 10, 12),
 
                     EmpresaId = 1,
                     ProdutoId = 1,
@@ -239,7 +246,7 @@ namespace Hawk.Repository
                 {
                     Id = 2,
                     Quantidade = 32,
-                    Entrada = false,
+                    Entrada = "saida",
                     DataEntrada = new DateTime(2012, 10, 12),
 
                     EmpresaId = 2,
@@ -283,20 +290,17 @@ namespace Hawk.Repository
                 new ItemCompra()
                 {
                     Id = 1,
-                    ValorItem = 2,
                     RegistroAtivo = true,
 
                     ProdutoId = 1,
-                    CompraId = 1
+                     
                 },
                 new ItemCompra()
                 {
                     Id = 2,
-                    ValorItem = 1123,
                     RegistroAtivo = true,
 
                     ProdutoId = 2,
-                    CompraId = 2
                 });
             #endregion
 
@@ -317,6 +321,28 @@ namespace Hawk.Repository
 
                     ProdutoId = 2,
                     ClienteId = 2
+                });
+            #endregion
+
+
+            #region Carrinho
+            modelBuilder.Entity<Carrinho>().HasData(
+                new Carrinho()
+                {
+                    Id = 1,
+                    RegistroAtivo = true,
+
+                    Quantidade = 2,
+                    ItemCompraId = 1,
+                },
+                new Carrinho()
+                {
+                    Id = 2,
+                    RegistroAtivo = true,
+
+                    Quantidade = 2,
+                    ItemCompraId = 1,
+                     
                 });
             #endregion
 
