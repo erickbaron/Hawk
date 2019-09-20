@@ -9,6 +9,9 @@ using Hawk.Validator;
 
 namespace Hawk.API.Controllers
 {
+    [Route("api/compras")]
+    [ApiController]
+
     public class CompraController : Controller
     {
         private IHawkRepository<Compra> repository;

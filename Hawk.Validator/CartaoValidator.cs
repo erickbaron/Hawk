@@ -21,7 +21,7 @@ namespace Hawk.Validator
                 .WithMessage("Informe o CVC do cartao")
                 .Length(3)
                 .WithMessage("Informe um CVC válido");
-
+                
             RuleFor(x => x.DataVencimento)
                 .NotEmpty()
                 .WithMessage("Informe uma Data de Vencimento");
@@ -29,7 +29,7 @@ namespace Hawk.Validator
             RuleFor(x => x.Numero)
                 .NotEmpty()
                 .WithMessage("Informe o numero do cartão")
-                .Length(16)
+                .CreditCard()
                 .WithMessage("Informe um cartão válido");
 
         }

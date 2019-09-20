@@ -12,6 +12,7 @@ namespace Hawk.API.Controllers
 {
     [Route("api/carrinhos")]
     [ApiController]
+
     public class CarrinhoController : Controller
     {
         private IHawkRepository<Carrinho> repository;

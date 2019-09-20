@@ -11,6 +11,7 @@ namespace Hawk.API.Controllers
 {
     [Route("api/estoques")]
     [ApiController]
+
     public class EstoqueController : Controller
     {
         private IHawkRepository<Estoque> repository;

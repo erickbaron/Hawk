@@ -9,6 +9,9 @@ using Hawk.Validator;
 
 namespace Hawk.API.Controllers
 {
+    [Route("api/produtosfavoritos")]
+    [ApiController]
+
     public class ProdutoFavoritoController : Controller
     {
         private IHawkRepository<ProdutoFavorito> repository;

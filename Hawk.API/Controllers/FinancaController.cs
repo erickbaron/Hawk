@@ -11,6 +11,7 @@ namespace Hawk.API.Controllers
 {
     [Route("api/financas")]
     [ApiController]
+
     public class FinancaController : Controller
     {
         private readonly IHawkRepository<Financa> repository;

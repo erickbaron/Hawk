@@ -28,7 +28,7 @@ namespace Hawk.Validator
                 .NotEmpty()
                 .WithMessage("Informe uma senha")
                 .Length(6, 18)
-                .WithMessage("Senha deve ter 6 e 18 caracteres");
+                .WithMessage("Senha deve conter entre 6 e 18 caracteres");
 
         }
     }

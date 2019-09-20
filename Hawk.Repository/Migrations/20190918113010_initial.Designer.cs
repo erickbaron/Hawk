@@ -4,14 +4,16 @@ using Hawk.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Hawk.Repository.Migrations
 {
     [DbContext(typeof(HawkContext))]
-    partial class HawkContextModelSnapshot : ModelSnapshot
+    [Migration("20190918113010_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -122,14 +124,14 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 1,
                             ItemCompraId = 1,
-                            Quantidade = 2,
+                            Quantidade = 0,
                             RegistroAtivo = true
                         },
                         new
                         {
                             Id = 2,
-                            ItemCompraId = 1,
-                            Quantidade = 2,
+                            ItemCompraId = 2,
+                            Quantidade = 0,
                             RegistroAtivo = true
                         });
                 });
@@ -611,8 +613,6 @@ namespace Hawk.Repository.Migrations
 
                     b.Property<int>("EmpresaId");
 
-                    b.Property<string>("    ");
-
                     b.Property<int>("Largura");
 
                     b.Property<string>("Nome");
@@ -647,7 +647,6 @@ namespace Hawk.Repository.Migrations
                             Comprimento = 3,
                             Descricao = "se derubar abre uma cratera",
                             EmpresaId = 1,
-                            ImagemURL = "download.jpg",
                             Largura = 2,
                             Nome = "nokia tijolao",
                             Peso = 10m,
@@ -664,7 +663,6 @@ namespace Hawk.Repository.Migrations
                             Comprimento = 2,
                             Descricao = "o kiko sempre quis uma ",
                             EmpresaId = 2,
-                            ImagemURL = "download.jpg",
                             Largura = 2,
                             Nome = "bola quadrada",
                             Peso = 10m,
