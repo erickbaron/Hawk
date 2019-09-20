@@ -4,10 +4,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Hawk.Repository.Migrations
 {
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "dbo");
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -21,33 +24,6 @@ namespace Hawk.Repository.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetRoles", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetUsers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    UserName = table.Column<string>(maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
-                    Email = table.Column<string>(maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(nullable: false),
-                    PasswordHash = table.Column<string>(nullable: true),
-                    SecurityStamp = table.Column<string>(nullable: true),
-                    ConcurrencyStamp = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<string>(nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
-                    LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false),
-                    FullName = table.Column<string>(type: "varchar(150)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -65,20 +41,31 @@ namespace Hawk.Repository.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Usuarios",
+                name: "AspNetUsers",
+                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    Senha = table.Column<string>(nullable: true),
-                    Administrador = table.Column<bool>(nullable: false),
-                    RegistroAtivo = table.Column<bool>(nullable: false)
+                    NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
+                    Email = table.Column<string>(maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(nullable: false),
+                    SecurityStamp = table.Column<string>(nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
+                    LockoutEnabled = table.Column<bool>(nullable: false),
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    nome = table.Column<string>(maxLength: 256, nullable: true),
+                    senha = table.Column<string>(nullable: true),
+                    registro_ativo = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Usuarios", x => x.Id);
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -118,6 +105,7 @@ namespace Hawk.Repository.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserClaims_AspNetUsers_UserId",
                         column: x => x.UserId,
+                        principalSchema: "dbo",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -138,6 +126,7 @@ namespace Hawk.Repository.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserLogins_AspNetUsers_UserId",
                         column: x => x.UserId,
+                        principalSchema: "dbo",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -170,12 +159,14 @@ namespace Hawk.Repository.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
+                        principalSchema: "dbo",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId1",
                         column: x => x.UserId1,
+                        principalSchema: "dbo",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -196,6 +187,7 @@ namespace Hawk.Repository.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserTokens_AspNetUsers_UserId",
                         column: x => x.UserId,
+                        principalSchema: "dbo",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -218,9 +210,10 @@ namespace Hawk.Repository.Migrations
                 {
                     table.PrimaryKey("PK_Clientes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Clientes_Usuarios_UsuarioId",
+                        name: "FK_Clientes_AspNetUsers_UsuarioId",
                         column: x => x.UsuarioId,
-                        principalTable: "Usuarios",
+                        principalSchema: "dbo",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -242,9 +235,10 @@ namespace Hawk.Repository.Migrations
                 {
                     table.PrimaryKey("PK_Empresas", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Empresas_Usuarios_UsuarioId",
+                        name: "FK_Empresas_AspNetUsers_UsuarioId",
                         column: x => x.UsuarioId,
-                        principalTable: "Usuarios",
+                        principalSchema: "dbo",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -552,12 +546,13 @@ namespace Hawk.Repository.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Usuarios",
-                columns: new[] { "Id", "Administrador", "Email", "Nome", "RegistroAtivo", "Senha" },
+                schema: "dbo",
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "senha", "PhoneNumber", "PhoneNumberConfirmed", "registro_ativo", "SecurityStamp", "TwoFactorEnabled", "nome" },
                 values: new object[,]
                 {
-                    { 1, false, "erickbaron@gmail.com", "Erick", true, "1234" },
-                    { 2, true, "Jozinho@gmail.com", "Joao", true, "4321" }
+                    { 1, 0, "17891b72-c21b-42d5-bb76-7906e5c8a36c", "erick@gmail.com", false, false, null, "ERICK@GMAIL.COM", "Erick", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Erick" },
+                    { 2, 0, "8c029371-8ee9-4322-9411-71f2a684a678", "joao@gmail.com", false, false, null, "JOAO@GMAIL.COM", "Joao", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Joao" }
                 });
 
             migrationBuilder.InsertData(
@@ -566,7 +561,7 @@ namespace Hawk.Repository.Migrations
                 values: new object[,]
                 {
                     { 1, "59315617061", new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "irineu", true, "2036466360", 1 },
-                    { 2, "59315639061", new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "jose", true, "2012466360", 1 }
+                    { 2, "59315639061", new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "jose", true, "2012466360", 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -715,18 +710,6 @@ namespace Hawk.Repository.Migrations
                 column: "UserId1");
 
             migrationBuilder.CreateIndex(
-                name: "EmailIndex",
-                table: "AspNetUsers",
-                column: "NormalizedEmail");
-
-            migrationBuilder.CreateIndex(
-                name: "UserNameIndex",
-                table: "AspNetUsers",
-                column: "NormalizedUserName",
-                unique: true,
-                filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_AvaliacoesEmpresas_EmpresaId",
                 table: "AvaliacoesEmpresas",
                 column: "EmpresaId");
@@ -815,6 +798,20 @@ namespace Hawk.Repository.Migrations
                 name: "IX_ProdutosFavoritos_ProdutoId",
                 table: "ProdutosFavoritos",
                 column: "ProdutoId");
+
+            migrationBuilder.CreateIndex(
+                name: "EmailIndex",
+                schema: "dbo",
+                table: "AspNetUsers",
+                column: "NormalizedEmail");
+
+            migrationBuilder.CreateIndex(
+                name: "UserNameIndex",
+                schema: "dbo",
+                table: "AspNetUsers",
+                column: "NormalizedUserName",
+                unique: true,
+                filter: "[NormalizedUserName] IS NOT NULL");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -865,9 +862,6 @@ namespace Hawk.Repository.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
                 name: "Compras");
 
             migrationBuilder.DropTable(
@@ -883,7 +877,8 @@ namespace Hawk.Repository.Migrations
                 name: "Empresas");
 
             migrationBuilder.DropTable(
-                name: "Usuarios");
+                name: "AspNetUsers",
+                schema: "dbo");
         }
     }
 }
