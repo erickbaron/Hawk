@@ -11,16 +11,13 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Hawk.API.Dtos;
-using Hawk.Domain.Entities;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using Hawk.Validator;
-
 namespace ProAgil.WebAPI.Controllers
 {
     [Route("api/usuario")]
