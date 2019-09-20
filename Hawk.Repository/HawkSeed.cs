@@ -170,7 +170,7 @@ namespace Hawk.Repository
                     Comprimento = 3,
                     Peso = 10,
                     Promocao = false,
-                    ImagemURL = "../hawk/Hawk.API/wwwroot/download.jpg",
+                    ImagemURL = "download.jpg",
                     RegistroAtivo = true,
 
                     EmpresaId = 1,
@@ -188,6 +188,8 @@ namespace Hawk.Repository
                     Comprimento = 2,
                     Peso = 10,
                     Promocao = false,
+                    ImagemURL = "download.jpg",
+
                     RegistroAtivo = true,
 
                     EmpresaId = 2,

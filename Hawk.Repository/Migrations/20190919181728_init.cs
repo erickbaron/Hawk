@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Hawk.Repository.Migrations
 {
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -480,7 +480,7 @@ namespace Hawk.Repository.Migrations
                 values: new object[,]
                 {
                     { 1, 1, 1, 3, "se derubar abre uma cratera", 1, "download.jpg", 2, "nokia tijolao", 10m, false, true, 2m, 10m },
-                    { 2, 2, 2, 2, "o kiko sempre quis uma ", 2, null, 2, "bola quadrada", 10m, false, true, 3m, 100m }
+                    { 2, 2, 2, 2, "o kiko sempre quis uma ", 2, "download.jpg", 2, "bola quadrada", 10m, false, true, 3m, 100m }
                 });
 
             migrationBuilder.InsertData(

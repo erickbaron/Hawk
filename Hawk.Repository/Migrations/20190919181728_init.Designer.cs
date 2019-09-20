@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hawk.Repository.Migrations
 {
     [DbContext(typeof(HawkContext))]
-    [Migration("20190919132838_Init")]
-    partial class Init
+    [Migration("20190919181728_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -666,6 +666,7 @@ namespace Hawk.Repository.Migrations
                             Comprimento = 2,
                             Descricao = "o kiko sempre quis uma ",
                             EmpresaId = 2,
+                            ImagemURL = "download.jpg",
                             Largura = 2,
                             Nome = "bola quadrada",
                             Peso = 10m,

@@ -18,6 +18,7 @@ namespace Hawk.Repository.Repositories
         public int Add(Carrinho entity)
         {
             entity.RegistroAtivo = true;
+            entity.Quantidade = 1;
             context.Carrinhos.Add(entity);
             context.SaveChanges();
             return entity.Id;

@@ -611,7 +611,7 @@ namespace Hawk.Repository.Migrations
 
                     b.Property<int>("EmpresaId");
 
-                    b.Property<string>("ImagemURL");
+                    b.Property<string>("    ");
 
                     b.Property<int>("Largura");
 
@@ -664,6 +664,7 @@ namespace Hawk.Repository.Migrations
                             Comprimento = 2,
                             Descricao = "o kiko sempre quis uma ",
                             EmpresaId = 2,
+                            ImagemURL = "download.jpg",
                             Largura = 2,
                             Nome = "bola quadrada",
                             Peso = 10m,
