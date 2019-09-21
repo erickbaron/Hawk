@@ -1,9 +1,4 @@
-
-﻿using Hawk.Domain.Entities;
-using Hawk.Repository;
-using Hawk.Validator;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -19,7 +14,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using Hawk.Validator;
 
 namespace ProAgil.WebAPI.Controllers
 {
@@ -62,7 +56,6 @@ namespace ProAgil.WebAPI.Controllers
                 user.Email = userDto.Email;
                 user.RegistroAtivo = true;
                 var result = await _userManager.CreateAsync(user, userDto.Senha);
-
 
                 var userToReturn = new UserDto();
                 userToReturn.Nome = user.UserName;
@@ -110,7 +103,6 @@ namespace ProAgil.WebAPI.Controllers
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Banco Dados Falhou {ex.Message}");
             }
-
         }
 
         private async Task<string> GenerateJWToken(Usuario user)

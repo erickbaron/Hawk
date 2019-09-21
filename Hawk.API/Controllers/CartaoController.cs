@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Hawk.Validator;
 
 namespace Hawk.API.Controllers
 {
@@ -33,45 +32,17 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public ActionResult Adicionar(Cartao cartao)
+        public JsonResult Adicionar(Cartao cartao)
         {
-            CartaoValidator validator = new CartaoValidator();
-            var result = validator.Validate(cartao);
-
-            if (!result.IsValid)
-            {
-                var errors = new Dictionary<string, string>();
-                foreach (var error in result.Errors)
-                {
-                    string message = error.ErrorMessage;
-                    string property = error.PropertyName;
-                    errors.Add(property, message);
-                }
-                return BadRequest(Json(errors));
-            }
-
-            return Json(new { id = repository.Add(cartao) });
+            var id = repository.Add(cartao);
+            return Json(new { id });
         }
 
         [HttpPut, Route("update")]
-        public ActionResult Update(Cartao cartao)
+        public JsonResult Update(Cartao cartao)
         {
-            CartaoValidator validator = new CartaoValidator();
-            var result = validator.Validate(cartao);
-
-            if (!result.IsValid)
-            {
-                var errors = new Dictionary<string, string>();
-                foreach (var error in result.Errors)
-                {
-                    string message = error.ErrorMessage;
-                    string property = error.PropertyName;
-                    errors.Add(property, message);
-                }
-                return BadRequest(Json(errors));
-            }
-
-            return Json(new { id = repository.Update(cartao) });
+            var alterou = repository.Update(cartao);
+            return Json(new { status = alterou });
         }
 
         [HttpDelete, Route("delete")]

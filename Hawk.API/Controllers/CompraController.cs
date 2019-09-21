@@ -5,14 +5,12 @@ using System.Threading.Tasks;
 using Hawk.Domain.Entities;
 using Hawk.Repository;
 using Microsoft.AspNetCore.Mvc;
-using Hawk.Validator;
 
 namespace Hawk.API.Controllers
 {
+
     [Route("api/compras")]
     [ApiController]
-
-
     public class CompraController : Controller
     {
         private readonly IHawkRepository<Compra> repository;
@@ -36,47 +34,18 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public ActionResult Adicionar(Compra compra)
+        public JsonResult Adicionar(Compra compra)
         {
-            CompraValidator validator = new CompraValidator();
-            var result = validator.Validate(compra);
-
-            if (!result.IsValid)
-            {
-                var errors = new Dictionary<string, string>();
-                foreach (var error in result.Errors)
-                {
-                    string message = error.ErrorMessage;
-                    string property = error.PropertyName;
-                    errors.Add(property, message);
-                }
-                return BadRequest(Json(errors));
-            }
-
-            return Json(new { id = repository.Add(compra) });
+            var id = repository.Add(compra);
+            return Json(new { id });
         }
 
         [HttpPut, Route("update")]
-        public ActionResult Update(Compra compra)
+        public JsonResult Update(Compra compra)
         {
 
-            CompraValidator validator = new CompraValidator();
-            var result = validator.Validate(compra);
-
-            if (!result.IsValid)
-            {
-                var errors = new Dictionary<string, string>();
-                foreach (var error in result.Errors)
-                {
-                    string message = error.ErrorMessage;
-                    string property = error.PropertyName;
-                    errors.Add(property, message);
-                }
-                return BadRequest(Json(errors));
-            }
-
-            return Json(new { id = repository.Update(compra) });
-
+            var alterou = repository.Update(compra);
+            return Json(new { status = alterou });
         }
 
         [HttpDelete, Route("delete")]

@@ -1,4 +1,4 @@
-﻿ 
+﻿
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Hawk.Domain.Entities
@@ -9,13 +9,10 @@ namespace Hawk.Domain.Entities
         [Column(TypeName = "decimal(8,2)")]
         public decimal ValorTotal { get; set; }
         [Column(TypeName = "decimal(8,2)")]
-        public decimal? Desconto { get; set; }
+        public decimal Desconto { get; set; }
         public bool RegistroAtivo { get; set; }
         
         public Cliente Cliente { get; set; }
         public int ClienteId { get; set; }
-
-        public Carrinho Carrinho { get; set; }
-        public int CarrinhoId { get; set; }
     }
 }

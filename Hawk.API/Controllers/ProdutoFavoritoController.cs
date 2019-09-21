@@ -5,13 +5,9 @@ using System.Threading.Tasks;
 using Hawk.Domain.Entities;
 using Hawk.Repository;
 using Microsoft.AspNetCore.Mvc;
-using Hawk.Validator;
 
 namespace Hawk.API.Controllers
 {
-    [Route("api/produtosfavoritos")]
-    [ApiController]
-
     public class ProdutoFavoritoController : Controller
     {
         private IHawkRepository<ProdutoFavorito> repository;
@@ -34,45 +30,17 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public ActionResult Adicionar(ProdutoFavorito produtoFavorito)
+        public JsonResult Adicionar(ProdutoFavorito produtoFavorito)
         {
-            ProdutoFavoritoValidator validator = new ProdutoFavoritoValidator();
-            var result = validator.Validate(produtoFavorito);
-
-            if (!result.IsValid)
-            {
-                var errors = new Dictionary<string, string>();
-                foreach (var error in result.Errors)
-                {
-                    string message = error.ErrorMessage;
-                    string property = error.PropertyName;
-                    errors.Add(property, message);
-                }
-                return BadRequest(Json(errors));
-            }
-
-            return Json(new { id = repository.Add(produtoFavorito) });
+            var id = repository.Add(produtoFavorito);
+            return Json(new { id });
         }
 
         [HttpPut, Route("update")]
-        public ActionResult Update(ProdutoFavorito produtoFavorito)
+        public JsonResult Update(ProdutoFavorito produtoFavorito)
         {
-            ProdutoFavoritoValidator validator = new ProdutoFavoritoValidator();
-            var result = validator.Validate(produtoFavorito);
-
-            if (!result.IsValid)
-            {
-                var errors = new Dictionary<string, string>();
-                foreach (var error in result.Errors)
-                {
-                    string message = error.ErrorMessage;
-                    string property = error.PropertyName;
-                    errors.Add(property, message);
-                }
-                return BadRequest(Json(errors));
-            }
-
-            return Json(new { id = repository.Update(produtoFavorito) });
+            var alterou = repository.Update(produtoFavorito);
+            return Json(new { status = alterou });
         }
 
         [HttpDelete, Route("delete")]

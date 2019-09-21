@@ -1,6 +1,5 @@
 ﻿using Hawk.Domain.Entities;
 using Hawk.Repository;
-using Hawk.Validator;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -35,45 +34,18 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public ActionResult Adicionar(Cliente cliente)
+        public JsonResult Adicionar(Cliente cliente)
         {
-            ClienteValidator validator = new ClienteValidator();
-            var result = validator.Validate(cliente);
-
-            if (!result.IsValid)
-            {
-                var errors = new Dictionary<string, string>();
-                foreach (var error in result.Errors)
-                {
-                    string message = error.ErrorMessage;
-                    string property = error.PropertyName;
-                    errors.Add(property, message);
-                }
-                return BadRequest(Json(errors));
-            }
-
-            return Json(new { id = repository.Add(cliente) });
+            var id = repository.Add(cliente);
+            return Json(new { id });
         }
 
         [HttpPut, Route("update")]
-        public ActionResult Update(Cliente cliente)
+        public JsonResult Update(Cliente cliente)
         {
-            ClienteValidator validator = new ClienteValidator();
-            var result = validator.Validate(cliente);
 
-            if (!result.IsValid)
-            {
-                var errors = new Dictionary<string, string>();
-                foreach (var error in result.Errors)
-                {
-                    string message = error.ErrorMessage;
-                    string property = error.PropertyName;
-                    errors.Add(property, message);
-                }
-                return BadRequest(Json(errors));
-            }
-
-            return Json(new { id = repository.Update(cliente) });
+            var alterou = repository.Update(cliente);
+            return Json(new { status = alterou });
         }
 
         [HttpDelete, Route("delete")]

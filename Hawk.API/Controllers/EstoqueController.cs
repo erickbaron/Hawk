@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Hawk.Domain.Entities;
 using Hawk.Repository;
 using Microsoft.AspNetCore.Mvc;
-using Hawk.Validator;
 
 namespace Hawk.API.Controllers
 {
@@ -13,7 +12,6 @@ namespace Hawk.API.Controllers
     [Route("api/estoques")]
 
     [ApiController]
-
     public class EstoqueController : Controller
     {
         private IHawkRepository<Estoque> repository;
@@ -36,45 +34,17 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public ActionResult Adicionar(Estoque estoque)
+        public JsonResult Adicionar(Estoque estoque)
         {
-            EstoqueValidator validator = new EstoqueValidator();
-            var result = validator.Validate(estoque);
-
-            if (!result.IsValid)
-            {
-                var errors = new Dictionary<string, string>();
-                foreach (var error in result.Errors)
-                {
-                    string message = error.ErrorMessage;
-                    string property = error.PropertyName;
-                    errors.Add(property, message);
-                }
-                return BadRequest(Json(errors));
-            }
-
-            return Json(new { id = repository.Add(estoque) });
+            var id = repository.Add(estoque);
+            return Json(new { id });
         }
 
         [HttpPut, Route("update")]
-        public ActionResult Update(Estoque estoque)
+        public JsonResult Update(Estoque estoque)
         {
-            EstoqueValidator validator = new EstoqueValidator();
-            var result = validator.Validate(estoque);
-
-            if (!result.IsValid)
-            {
-                var errors = new Dictionary<string, string>();
-                foreach (var error in result.Errors)
-                {
-                    string message = error.ErrorMessage;
-                    string property = error.PropertyName;
-                    errors.Add(property, message);
-                }
-                return BadRequest(Json(errors));
-            }
-
-            return Json(new { id = repository.Update(estoque) });
+            var alterou = repository.Update(estoque);
+            return Json(new { status = alterou });
         }
 
         [HttpDelete, Route("delete")]
