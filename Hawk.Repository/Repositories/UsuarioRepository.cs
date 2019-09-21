@@ -1,6 +1,9 @@
+using Hawk.Domain.Entities;
+using Hawk.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Hawk.Domain.Entities;
+using System.Text;
 
 namespace Hawk.Repository.Repositories
 {
@@ -13,37 +16,43 @@ namespace Hawk.Repository.Repositories
             this.context = context;
         }
 
-        public int Add(Usuario entity)
+
+        public int Add(Usuario obj)
         {
-            entity.RegistroAtivo = true;
-            context.Usuarios.Add(entity);
+            obj.RegistroAtivo = true;
+            context.Usuarios.Add(obj);
             context.SaveChanges();
-            return entity.Id;
+            return obj.Id;
+        }
+
+        public bool Update(Usuario obj)
+        {
+            obj.RegistroAtivo = true;
+            context.Usuarios.Update(obj);
+            return context.SaveChanges() == 1;
         }
 
         public bool Delete(int id)
         {
-            var cartao = context.Usuarios.FirstOrDefault(t => t.Id == id);
-            cartao.RegistroAtivo = false;
-            context.Usuarios.Update(cartao);
-            return context.SaveChanges() > 0;
+            var usuario = context.Usuarios.FirstOrDefault(t => t.Id == id);
+            usuario.RegistroAtivo = false;
+            context.Usuarios.Update(usuario);
+            return context.SaveChanges() == 1;
+        }
+
+        public List<Usuario> FiltroParametrizado(int id_param1, int id_param2)
+        {
+            throw new NotImplementedException();
         }
 
         public Usuario ObterPeloId(int id)
         {
-            return null;
+            return context.Usuarios.FirstOrDefault(t => t.RegistroAtivo && t.Id == id);
         }
 
         public List<Usuario> ObterTodos()
         {
             return context.Usuarios.Where(t => t.RegistroAtivo).ToList();
-        }
-
-        public bool Update(Usuario entity)
-        {
-            entity.RegistroAtivo = true;
-            context.Usuarios.Update(entity);
-            return context.SaveChanges() > 0;
         }
     }
 }

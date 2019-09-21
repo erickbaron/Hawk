@@ -12,7 +12,7 @@ namespace Hawk.Validator
         {
             CascadeMode = CascadeMode.StopOnFirstFailure;
 
-            RuleFor(x => x.Nome)
+            RuleFor(x => x.UserName)
                 .NotEmpty()
                 .WithMessage("Informe seu nome ")
                 .Length(3, 100)
@@ -24,7 +24,7 @@ namespace Hawk.Validator
                 .EmailAddress()
                 .WithMessage("Informe um email válido");
 
-            RuleFor(x => x.Senha)
+            RuleFor(x => x.PasswordHash)
                 .NotEmpty()
                 .WithMessage("Informe uma senha")
                 .Length(6, 18)

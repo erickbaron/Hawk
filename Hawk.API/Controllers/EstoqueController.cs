@@ -9,7 +9,9 @@ using Hawk.Validator;
 
 namespace Hawk.API.Controllers
 {
+
     [Route("api/estoques")]
+
     [ApiController]
 
     public class EstoqueController : Controller

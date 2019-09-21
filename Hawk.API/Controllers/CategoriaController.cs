@@ -11,6 +11,7 @@ namespace Hawk.API.Controllers
 {
     [Route("api/categorias")]
     [ApiController]
+    [Authorized]
     public class CategoriaController : Controller
     {
         private IHawkRepository<Categoria> repository;
