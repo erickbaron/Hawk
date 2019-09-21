@@ -17,7 +17,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace ProAgil.WebAPI.Controllers
 {
-    [Route("api/usuario")]
+    [Route("api/[controller]")]
     [ApiController]
     public class UsuarioController : ControllerBase
     {
@@ -38,7 +38,6 @@ namespace ProAgil.WebAPI.Controllers
         }
 
         [HttpGet("GetUser")]
-        [AllowAnonymous]
         public async Task<IActionResult> GetUser()
         {
             return Ok(new UserDto());
