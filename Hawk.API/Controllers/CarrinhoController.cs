@@ -1,21 +1,23 @@
-﻿using Hawk.Domain.Entities;
-using Hawk.Repository;
-using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hawk.Domain.Entities;
+using Hawk.Repository;
+using Microsoft.AspNetCore.Mvc;
 using Hawk.Validator;
+
 
 namespace Hawk.API.Controllers
 {
-    [Route("api/cartoes")]
+    [Route("api/carrinhos")]
     [ApiController]
-    public class CartaoController : Controller
-    {
-        private IHawkRepository<Cartao> repository;
 
-        public CartaoController(IHawkRepository<Cartao> repository)
+    public class CarrinhoController : Controller
+    {
+        private IHawkRepository<Carrinho> repository;
+
+        public CarrinhoController(IHawkRepository<Carrinho> repository)
         {
             this.repository = repository;
         }
@@ -33,10 +35,10 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public ActionResult Adicionar(Cartao cartao)
+        public ActionResult Adicionar(Carrinho carrinho)
         {
-            CartaoValidator validator = new CartaoValidator();
-            var result = validator.Validate(cartao);
+            CarrinhoValidator validator = new CarrinhoValidator();
+            var result = validator.Validate(carrinho);
 
             if (!result.IsValid)
             {
@@ -50,14 +52,14 @@ namespace Hawk.API.Controllers
                 return BadRequest(Json(errors));
             }
 
-            return Json(new { id = repository.Add(cartao) });
+            return Json(new { id = repository.Add(carrinho) });
         }
 
         [HttpPut, Route("update")]
-        public ActionResult Update(Cartao cartao)
+        public ActionResult Update(Carrinho carrinho)
         {
-            CartaoValidator validator = new CartaoValidator();
-            var result = validator.Validate(cartao);
+            CarrinhoValidator validator = new CarrinhoValidator();
+            var result = validator.Validate(carrinho);
 
             if (!result.IsValid)
             {
@@ -71,7 +73,8 @@ namespace Hawk.API.Controllers
                 return BadRequest(Json(errors));
             }
 
-            return Json(new { id = repository.Update(cartao) });
+
+            return Json(new { id = repository.Update(carrinho) });
         }
 
         [HttpDelete, Route("delete")]

@@ -1,15 +1,17 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Hawk.Domain.Entities;
 using Hawk.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Hawk.Validator;
 
 namespace Hawk.API.Controllers
 {
     [Route("api/avaliacoesprodutos")]
     [ApiController]
+
     public class AvaliacaoProdutoController : Controller
     {
         private IHawkRepository<AvaliacaoProduto> repository;
@@ -32,17 +34,45 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public JsonResult Adicionar(AvaliacaoProduto avaliacaoProduto)
+        public ActionResult Adicionar(AvaliacaoProduto avaliacaoProduto)
         {
-            var id = repository.Add(avaliacaoProduto);
-            return Json(new { id });
+            AvaliacaoProdutoValidator validator = new AvaliacaoProdutoValidator();
+            var result = validator.Validate(avaliacaoProduto);
+
+            if (!result.IsValid)
+            {
+                var errors = new Dictionary<string, string>();
+                foreach (var error in result.Errors)
+                {
+                    string message = error.ErrorMessage;
+                    string property = error.PropertyName;
+                    errors.Add(property, message);
+                }
+                return BadRequest(Json(errors));
+            }
+
+            return Json(new { id = repository.Add(avaliacaoProduto) });
         }
 
         [HttpPut, Route("update")]
-        public JsonResult Update(AvaliacaoProduto avaliacaoProduto)
+        public ActionResult Update(AvaliacaoProduto avaliacaoProduto)
         {
-            var alterou = repository.Update(avaliacaoProduto);
-            return Json(new { status = alterou });
+            AvaliacaoProdutoValidator validator = new AvaliacaoProdutoValidator();
+            var result = validator.Validate(avaliacaoProduto);
+
+            if (!result.IsValid)
+            {
+                var errors = new Dictionary<string, string>();
+                foreach (var error in result.Errors)
+                {
+                    string message = error.ErrorMessage;
+                    string property = error.PropertyName;
+                    errors.Add(property, message);
+                }
+                return BadRequest(Json(errors));
+            }
+
+            return Json(new { id = repository.Update(avaliacaoProduto) });
         }
 
         [HttpDelete, Route("delete")]

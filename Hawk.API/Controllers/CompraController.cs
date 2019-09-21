@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using Hawk.Domain.Entities;
 using Hawk.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Hawk.Validator;
 
 namespace Hawk.API.Controllers
 {
-
     [Route("api/compras")]
     [ApiController]
+
+
     public class CompraController : Controller
     {
         private readonly IHawkRepository<Compra> repository;
@@ -34,18 +36,47 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public JsonResult Adicionar(Compra compra)
+        public ActionResult Adicionar(Compra compra)
         {
-            var id = repository.Add(compra);
-            return Json(new { id });
+            CompraValidator validator = new CompraValidator();
+            var result = validator.Validate(compra);
+
+            if (!result.IsValid)
+            {
+                var errors = new Dictionary<string, string>();
+                foreach (var error in result.Errors)
+                {
+                    string message = error.ErrorMessage;
+                    string property = error.PropertyName;
+                    errors.Add(property, message);
+                }
+                return BadRequest(Json(errors));
+            }
+
+            return Json(new { id = repository.Add(compra) });
         }
 
         [HttpPut, Route("update")]
-        public JsonResult Update(Compra compra)
+        public ActionResult Update(Compra compra)
         {
 
-            var alterou = repository.Update(compra);
-            return Json(new { status = alterou });
+            CompraValidator validator = new CompraValidator();
+            var result = validator.Validate(compra);
+
+            if (!result.IsValid)
+            {
+                var errors = new Dictionary<string, string>();
+                foreach (var error in result.Errors)
+                {
+                    string message = error.ErrorMessage;
+                    string property = error.PropertyName;
+                    errors.Add(property, message);
+                }
+                return BadRequest(Json(errors));
+            }
+
+            return Json(new { id = repository.Update(compra) });
+
         }
 
         [HttpDelete, Route("delete")]
