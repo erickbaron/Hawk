@@ -1,141 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
-using Hawk.API.Dtos;
-using Hawk.Domain.Entities;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+﻿using Hawk.Domain.Entities;
+using Hawk.Repository;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ProAgil.WebAPI.Controllers
+namespace Hawk.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/usuarios")]
     [ApiController]
-    public class UsuarioController : ControllerBase
+    public class UsuarioController : Controller
     {
-        private readonly IConfiguration _config;
-        private readonly UserManager<Usuario> _userManager;
-        private readonly SignInManager<Usuario> _signInManager;
-        private readonly IMapper _mapper;
+        private IHawkRepository<Usuario> repository;
 
-        public UsuarioController(IConfiguration config,
-                              UserManager<Usuario> userManager,
-                              SignInManager<Usuario> signInManager,
-                              IMapper mapper)
+        public UsuarioController(IHawkRepository<Usuario> repository)
         {
-            _signInManager = signInManager;
-            _mapper = mapper;
-            _config = config;
-            _userManager = userManager;
+            this.repository = repository;
         }
 
-        [HttpGet("GetUser")]
-        public async Task<IActionResult> GetUser()
+        [HttpGet, Route("obtertodos")]
+        public JsonResult ObterTodos()
         {
-            return Ok(new UserDto());
+            return Json(repository.ObterTodos());
         }
 
-        [HttpPost("add")]
-        [AllowAnonymous]
-        public async Task<IActionResult> Register(UserDto userDto)
+        [HttpGet, Route("obterpeloid")]
+        public JsonResult ObterPeloId(int id)
         {
-            try
-            {
-                var user = new Usuario();
-                user.UserName = userDto.Nome;
-                user.PasswordHash = userDto.Senha;
-                user.Email = userDto.Email;
-                user.RegistroAtivo = true;
-                var result = await _userManager.CreateAsync(user, userDto.Senha);
-
-                var userToReturn = new UserDto();
-                userToReturn.Nome = user.UserName;
-                userToReturn.Email = user.Email;
-                if (result.Succeeded)
-                {
-                    return Created("GetUser", userToReturn);
-                }
-
-                return BadRequest(result.Errors);
-            }
-            catch (System.Exception ex)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Banco Dados Falhou {ex.Message}");
-            }
+            return Json(repository.ObterPeloId(id));
         }
 
-        [HttpPost("Login")]
-        [AllowAnonymous]
-        public async Task<IActionResult> Login(UserLoginDto userLogin)
+        [HttpPost, Route("add")]
+        public JsonResult Adicionar(Usuario usuario)
         {
-            try
-            {
-                var user = await _userManager.FindByEmailAsync(userLogin.Email);
-
-                var result = await _signInManager.CheckPasswordSignInAsync(user, userLogin.Senha, false);
-
-                if (result.Succeeded)
-                {
-                    var appUser = await _userManager.Users
-                        .FirstOrDefaultAsync(u => u.NormalizedEmail == userLogin.Email.ToUpper());
-
-                    var userToReturn = _mapper.Map<UserLoginDto>(appUser);
-
-                    return Ok(new
-                    {
-                        token = GenerateJWToken(appUser).Result,
-                        user = userToReturn
-                    });
-                }
-
-                return Unauthorized();
-            }
-            catch (System.Exception ex)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Banco Dados Falhou {ex.Message}");
-            }
+            var id = repository.Add(usuario);
+            return Json(new { id });
         }
 
-        private async Task<string> GenerateJWToken(Usuario user)
+        [HttpPut, Route("update")]
+        public JsonResult Update(Usuario usuario)
         {
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.UserName)
-            };
+            var alterou = repository.Update(usuario);
+            return Json(new { status = alterou });
+        }
 
-            var roles = await _userManager.GetRolesAsync(user);
-
-            foreach (var role in roles)
-            {
-                claims.Add(new Claim(ClaimTypes.Role, role));
-            }
-
-            var key = new SymmetricSecurityKey(Encoding.ASCII
-                .GetBytes(_config.GetSection("Token").Value));
-
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
-
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddDays(1),
-                SigningCredentials = creds
-            };
-
-            var tokenHandler = new JwtSecurityTokenHandler();
-
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-
-            return tokenHandler.WriteToken(token);
+        [HttpDelete, Route("delete")]
+        public JsonResult Delete(int id)
+        {
+            var apagou = repository.Delete(id);
+            return Json(new { status = apagou });
         }
     }
 }

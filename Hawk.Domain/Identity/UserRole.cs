@@ -5,7 +5,7 @@ namespace Hawk.Domain.Entities
 {
     public class UserRole : IdentityUserRole<int>
     {
-        public Usuario User { get; set; }
+        public User User { get; set; }
         public Role Role { get; set; }
     }
 }
