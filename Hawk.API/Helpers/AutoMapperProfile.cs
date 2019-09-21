@@ -10,8 +10,8 @@ namespace Hawk.API.Helpers
     {
         public AutoMapperProfile()
         {
-            CreateMap<User, UserDto>().ReverseMap();
-            CreateMap<User, UserLoginDto>().ReverseMap();
+            CreateMap<Usuario, UserDto>().ReverseMap();
+            CreateMap<Usuario, UserLoginDto>().ReverseMap();
         }
       
     }

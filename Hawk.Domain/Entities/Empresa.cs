@@ -11,7 +11,7 @@ namespace Hawk.Domain.Entities
         public string Ramo{ get; set; }
         public bool RegistroAtivo { get; set; }
 
-        public Usuario Usuario { get; set; }
+        public Usuario user { get; set; }
         public int UsuarioId { get; set; }
     }
 }

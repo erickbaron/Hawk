@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,7 +52,7 @@ namespace Hawk.API
                             .AllowCredentials();
                     });
             });
-            IdentityBuilder builder = services.AddIdentityCore<User>(options =>
+            IdentityBuilder builder = services.AddIdentityCore<Usuario>(options =>
             {
                 options.Password.RequireDigit = false;
                 options.Password.RequireNonAlphanumeric = false;
@@ -64,21 +65,27 @@ namespace Hawk.API
             builder.AddEntityFrameworkStores<HawkContext>();
             builder.AddRoleValidator<RoleValidator<Role>>();
             builder.AddRoleManager<RoleManager<Role>>();
-            builder.AddSignInManager<SignInManager<User>>();
+            builder.AddSignInManager<SignInManager<Usuario>>();
+
+            var configurationBuilder = new ConfigurationBuilder()
+                .AddConfiguration(Configuration)
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII
-                            .GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
-                        ValidateIssuer = false, 
-                        ValidateAudience = false
-                    };
-                }
-                );
+                  .AddJwtBearer(opt =>
+                  {
+                      opt.TokenValidationParameters = new TokenValidationParameters
+                      {
+                          ValidateIssuerSigningKey = true,
+                          IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII
+                          .GetBytes(Configuration.GetSection("Token").Value)),
+                          ValidateIssuer = false,
+                          ValidateAudience = false,
+                          ValidateLifetime = true,
+                      };
+
+                  });
 
             services.AddMvc(options =>
             {
@@ -92,11 +99,10 @@ namespace Hawk.API
                 Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
 
-            services.AddAutoMapper();
             services.AddCors();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-             
+
             services.AddScoped(typeof(IHawkRepository<AvaliacaoEmpresa>), typeof(AvaliacaoEmpresaRepository));
             services.AddScoped(typeof(IHawkRepository<AvaliacaoProduto>), typeof(AvaliacaoProdutoRepository));
             services.AddScoped(typeof(IHawkRepository<Cartao>), typeof(CartaoRepository));
@@ -113,7 +119,7 @@ namespace Hawk.API
             services.AddScoped(typeof(IHawkRepository<Produto>), typeof(ProdutoRepository));
             services.AddScoped(typeof(IHawkRepository<Usuario>), typeof(UsuarioRepository));
 
-    
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -128,11 +134,10 @@ namespace Hawk.API
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            
+            app.UseAuthentication();
             app.UseCors("AllowAllHeaders");
             app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
 }
- 

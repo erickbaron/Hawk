@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 namespace Hawk.Repository
 {
 
-    public class HawkContext : IdentityDbContext<User, Role, int, IdentityUserClaim<int>, UserRole, IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>
+    public class HawkContext : IdentityDbContext<Usuario, Role, int, IdentityUserClaim<int>, UserRole, IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>
 
     {
         public HawkContext(DbContextOptions<HawkContext> options) : base(options) { }
@@ -31,7 +31,11 @@ namespace Hawk.Repository
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
+            modelBuilder.Entity<Usuario>().ToTable("usuarios", "dbo");
+                //modelBuilder.Entity<Usuario>(user => {
+                //    user.ToTable("usuarios");
+                //    user.Property(p => p.UserName).HasColumnName("nome");
+                //    user.Property(p => p.PasswordHash).HasColumnName("senha");
             modelBuilder.Entity<UserRole>(userRole =>
             {
                 userRole.HasKey(ur => new { ur.UserId, ur.RoleId });
