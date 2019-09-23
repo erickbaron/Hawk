@@ -27,6 +27,8 @@ using System.Linq;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using System.IO;
+using Microsoft.Extensions.FileProviders;
 
 namespace Hawk.API
 {
@@ -144,7 +146,12 @@ namespace Hawk.API
             }
             app.UseAuthentication();
             app.UseCors("AllowAllHeaders");
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                Path.Combine(Directory.GetCurrentDirectory(), "StaticFiles")),
+                RequestPath = "/StaticFiles"
+            });
             app.UseHttpsRedirection();
             app.UseMvc();
         }

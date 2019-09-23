@@ -70,8 +70,8 @@ namespace Hawk.API.Controllers
                 }
                 return BadRequest(Json(errors));
             }
-
-            return Json(new { id = repository.Add(empresa) });
+            var id = repository.Update(empresa);
+            return Json(new { id = id });
         }
 
         [HttpDelete, Route("delete")]
