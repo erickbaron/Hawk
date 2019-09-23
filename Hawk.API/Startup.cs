@@ -18,6 +18,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System.IO;
+using Microsoft.Extensions.FileProviders;
 
 namespace Hawk.API
 {
@@ -77,7 +79,7 @@ namespace Hawk.API
             services.AddScoped(typeof(IHawkRepository<Produto>), typeof(ProdutoRepository));
             services.AddScoped(typeof(IHawkRepository<Usuario>), typeof(UsuarioRepository));
 
-    
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -93,7 +95,12 @@ namespace Hawk.API
                 app.UseHsts();
             }
             app.UseCors("AllowAllHeaders");
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                Path.Combine(Directory.GetCurrentDirectory(), "StaticFiles")),
+                RequestPath = "/StaticFiles"
+            });
             app.UseHttpsRedirection();
             app.UseMvc();
         }
