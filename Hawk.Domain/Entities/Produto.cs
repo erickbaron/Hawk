@@ -21,8 +21,9 @@ namespace Hawk.Domain.Entities
         public bool Promocao { get; set; }
         public bool RegistroAtivo { get; set; }
         //Imagem
-        public string ImagemURL { get; set; }
-        public string Caminho { get; set; }
+        public string NomeArquivo { get; set; }
+        public string NomeHash { get; set; }
+
         public Empresa Empresa { get; set; }
         public int EmpresaId { get; set; }
 
