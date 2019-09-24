@@ -9,6 +9,9 @@ using Hawk.Validator;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using System.Net.Http.Headers;
+using Microsoft.AspNetCore.Hosting;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Hawk.API.Controllers
 {
@@ -18,10 +21,21 @@ namespace Hawk.API.Controllers
     public class ProdutoController : Controller
     {
         private IHawkRepository<Produto> repository;
+        private readonly string nomePasta;
+        private readonly string caminho;
 
-        public ProdutoController(IHawkRepository<Produto> repository)
+        public ProdutoController(IHawkRepository<Produto> repository, IHostingEnvironment env)
         {
             this.repository = repository;
+
+            string wwwroot = env.WebRootPath;
+            this.nomePasta = "StaticFiles";
+            this.caminho = Path.Combine(wwwroot, this.nomePasta);
+
+            if (!Directory.Exists(this.caminho))
+            {
+                Directory.CreateDirectory(this.caminho);
+            }
         }
 
 
@@ -38,7 +52,7 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public ActionResult Adicionar(Produto produto)
+        public ActionResult Adicionar(Produto produto, IFormFile arquivo)
         {
             ProdutoValidator validator = new ProdutoValidator();
             var result = validator.Validate(produto);
@@ -55,9 +69,10 @@ namespace Hawk.API.Controllers
                 return BadRequest(Json(errors));
             }
 
+            
             return Json(new { id = repository.Add(produto) });
         }
-
+        
         [HttpPut, Route("update")]
         public ActionResult Update(Produto produto)
         {
@@ -86,27 +101,38 @@ namespace Hawk.API.Controllers
             return Json(new { status = apagou });
         }
 
-        [HttpPost("upload")]
-        public ActionResult Upload()
+        [HttpPost, Route("upload")]
+        public ActionResult Upload(IFormFile arquivo)
         {
-           
-                var file = Request.Form.Files[0];
-                var folderName = Path.Combine("wwwroot", "images");
-                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
-                if (file.Length > 0)
+            var nomeArquivo = arquivo.FileName;
+            var nomeHash = ObterHashDoNomeDoArquivo(nomeArquivo);
+
+            var caminhoArquivo = Path.Combine(this.caminho, nomeHash);
+            using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
+            {
+                arquivo.CopyTo(stream);
+                this.repository.Add(new Produto()
                 {
-                    var filename = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName;
-                    var fullPath = Path.Combine(pathToSave, filename.Replace("\"", " ").Trim());
+                    NomeArquivo = nomeArquivo,
+                    NomeHash = nomeHash
+                });
+            }
+            return RedirectToAction("Index");
+        }
 
-                    using (var stream = new FileStream(fullPath, FileMode.Create))
-                    {
-                        file.CopyTo(stream);
-                    }
-                }
+        public static string ObterHashDoNomeDoArquivo(string nome)
+        {
+            FileInfo info = new FileInfo(nome);
 
-                return Ok();
-          
+            var crypt = new SHA256Managed();
+            var hash = new StringBuilder();
+            byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(info.Name.Replace(info.Extension, "") + DateTime.Now));
+            foreach (byte theByte in crypto)
+            {
+                hash.Append(theByte.ToString("x2"));
+            }
+            return (hash + info.Extension).ToUpper();
         }
     }
 }

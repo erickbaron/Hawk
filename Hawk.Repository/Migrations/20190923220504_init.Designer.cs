@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hawk.Repository.Migrations
 {
     [DbContext(typeof(HawkContext))]
-    [Migration("20190920104307_init")]
+    [Migration("20190923220504_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -613,11 +613,13 @@ namespace Hawk.Repository.Migrations
 
                     b.Property<int>("EmpresaId");
 
-                    b.Property<string>("ImagemURL");
-
                     b.Property<int>("Largura");
 
                     b.Property<string>("Nome");
+
+                    b.Property<string>("NomeArquivo");
+
+                    b.Property<string>("NomeHash");
 
                     b.Property<decimal>("Peso")
                         .HasColumnType("decimal(8,2)");
@@ -649,9 +651,10 @@ namespace Hawk.Repository.Migrations
                             Comprimento = 3,
                             Descricao = "se derubar abre uma cratera",
                             EmpresaId = 1,
-                            ImagemURL = "download.jpg",
                             Largura = 2,
                             Nome = "nokia tijolao",
+                            NomeArquivo = "imagem.jpg",
+                            NomeHash = "",
                             Peso = 10m,
                             Promocao = false,
                             RegistroAtivo = true,
@@ -666,9 +669,10 @@ namespace Hawk.Repository.Migrations
                             Comprimento = 2,
                             Descricao = "o kiko sempre quis uma ",
                             EmpresaId = 2,
-                            ImagemURL = "download.jpg",
                             Largura = 2,
                             Nome = "bola quadrada",
+                            NomeArquivo = "imagem.jpg",
+                            NomeHash = "",
                             Peso = 10m,
                             Promocao = false,
                             RegistroAtivo = true,

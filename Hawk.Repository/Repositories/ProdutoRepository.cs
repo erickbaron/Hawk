@@ -47,5 +47,10 @@ namespace Hawk.Repository.Repositories
             context.Produtos.Update(entity);
             return context.SaveChanges() > 0;
         }
+
+        public Produto ObterPeloNomeHash(string hash)
+        {
+            return this.context.Produtos.FirstOrDefault(x => x.NomeHash == hash);
+        }
     }
 }

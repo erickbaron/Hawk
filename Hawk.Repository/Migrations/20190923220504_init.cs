@@ -201,7 +201,8 @@ namespace Hawk.Repository.Migrations
                     Peso = table.Column<decimal>(type: "decimal(8,2)", nullable: false),
                     Promocao = table.Column<bool>(nullable: false),
                     RegistroAtivo = table.Column<bool>(nullable: false),
-                    ImagemURL = table.Column<string>(nullable: true),
+                    NomeArquivo = table.Column<string>(nullable: true),
+                    NomeHash = table.Column<string>(nullable: true),
                     EmpresaId = table.Column<int>(nullable: false),
                     CategoriaId = table.Column<int>(nullable: false)
                 },
@@ -476,11 +477,11 @@ namespace Hawk.Repository.Migrations
 
             migrationBuilder.InsertData(
                 table: "Produtos",
-                columns: new[] { "Id", "Altura", "CategoriaId", "Comprimento", "Descricao", "EmpresaId", "ImagemURL", "Largura", "Nome", "Peso", "Promocao", "RegistroAtivo", "ValorCusto", "ValorVenda" },
+                columns: new[] { "Id", "Altura", "CategoriaId", "Comprimento", "Descricao", "EmpresaId", "Largura", "Nome", "NomeArquivo", "NomeHash", "Peso", "Promocao", "RegistroAtivo", "ValorCusto", "ValorVenda" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, 3, "se derubar abre uma cratera", 1, "download.jpg", 2, "nokia tijolao", 10m, false, true, 2m, 10m },
-                    { 2, 2, 2, 2, "o kiko sempre quis uma ", 2, "download.jpg", 2, "bola quadrada", 10m, false, true, 3m, 100m }
+                    { 1, 1, 1, 3, "se derubar abre uma cratera", 1, 2, "nokia tijolao", "imagem.jpg", "", 10m, false, true, 2m, 10m },
+                    { 2, 2, 2, 2, "o kiko sempre quis uma ", 2, 2, "bola quadrada", "imagem.jpg", "", 10m, false, true, 3m, 100m }
                 });
 
             migrationBuilder.InsertData(
