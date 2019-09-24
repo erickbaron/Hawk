@@ -6,11 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Hawk.Validator;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace Hawk.API.Controllers
 {
     [Route("api/enderecosempresas")]
     [ApiController]
+    [AllowAnonymous]
     public class EnderecoEmpresaController : Controller
     {
         private readonly IHawkRepository<EnderecoEmpresa> repository;

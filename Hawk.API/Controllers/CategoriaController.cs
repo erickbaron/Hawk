@@ -6,12 +6,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Hawk.Validator;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace Hawk.API.Controllers
 {
     [Route("api/categorias")]
     [ApiController]
-    [Authorized]
+    //[Authorized]
+    [AllowAnonymous]
+
     public class CategoriaController : Controller
     {
         private IHawkRepository<Categoria> repository;

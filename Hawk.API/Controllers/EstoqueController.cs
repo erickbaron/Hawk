@@ -6,6 +6,8 @@ using Hawk.Domain.Entities;
 using Hawk.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Hawk.Validator;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace Hawk.API.Controllers
 {
@@ -14,6 +16,7 @@ namespace Hawk.API.Controllers
 
     [ApiController]
 
+    [AllowAnonymous]
     public class EstoqueController : Controller
     {
         private IHawkRepository<Estoque> repository;

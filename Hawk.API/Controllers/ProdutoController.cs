@@ -12,11 +12,14 @@ using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Hosting;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace Hawk.API.Controllers
 {
     [Route("api/produtos")]
     [ApiController]
+    [AllowAnonymous]
 
     public class ProdutoController : Controller
     {
@@ -36,6 +39,8 @@ namespace Hawk.API.Controllers
             {
                 Directory.CreateDirectory(this.caminho);
             }
+
+
         }
 
 
@@ -69,7 +74,21 @@ namespace Hawk.API.Controllers
                 return BadRequest(Json(errors));
             }
 
-            
+            var nomeArquivo = arquivo.FileName;
+            var nomeHash = ObterHashDoNomeDoArquivo(nomeArquivo);
+
+            var caminhoArquivo = Path.Combine(this.caminho, nomeHash);
+            using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
+            {
+                arquivo.CopyTo(stream);
+                this.repository.Add(new Produto()
+                {
+                    NomeArquivo = nomeArquivo,
+                    NomeHash = nomeHash
+                });
+            }
+
+
             return Json(new { id = repository.Add(produto) });
         }
         

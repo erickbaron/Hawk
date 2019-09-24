@@ -6,11 +6,14 @@ using Hawk.Domain.Entities;
 using Hawk.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Hawk.Validator;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace Hawk.API.Controllers
 {
     [Route("api/enderecosClientes")]
     [ApiController]
+    [AllowAnonymous]
     public class EnderecoClienteController : Controller
     {
         private IHawkRepository<EnderecoCliente> repository;
