@@ -13,7 +13,6 @@ namespace Hawk.API.Controllers
 {
     [Route("api/carrinhos")]
     [ApiController]
-    [AllowAnonymous]
 
     [AllowAnonymous]
     public class CarrinhoController : Controller

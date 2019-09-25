@@ -18,7 +18,6 @@ namespace Hawk.API.Controllers
     [ApiController]
     [AllowAnonymous]
 
-    [AllowAnonymous]
     public class EstoqueController : Controller
     {
         private IHawkRepository<Estoque> repository;

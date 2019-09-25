@@ -847,7 +847,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "981bb229-7a54-4a33-8a8b-e0213fb77109",
+                            ConcurrencyStamp = "88e29c94-c457-40b7-b077-6ac80b4bf237",
                             Email = "erick@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
@@ -863,7 +863,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9dfdda1d-441d-4037-9dc2-47d3785ae7d4",
+                            ConcurrencyStamp = "6b6dfc46-2122-495f-8c27-35037d162673",
                             Email = "joao@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
