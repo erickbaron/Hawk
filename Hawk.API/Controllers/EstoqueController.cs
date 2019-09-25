@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Hawk.Domain.Entities;
 using Hawk.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Hawk.Validator;
 using Microsoft.AspNetCore.Authorization;
@@ -15,6 +16,7 @@ namespace Hawk.API.Controllers
     [Route("api/estoques")]
 
     [ApiController]
+    [AllowAnonymous]
 
     [AllowAnonymous]
     public class EstoqueController : Controller

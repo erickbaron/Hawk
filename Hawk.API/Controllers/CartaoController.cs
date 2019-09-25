@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using Hawk.Validator;
 using Microsoft.AspNetCore.Authorization;
 
-
 namespace Hawk.API.Controllers
 {
     [Route("api/cartoes")]

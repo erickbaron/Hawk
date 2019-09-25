@@ -9,11 +9,11 @@ using Hawk.Validator;
 using Microsoft.AspNetCore.Authorization;
 
 
-
 namespace Hawk.API.Controllers
 {
     [Route("api/carrinhos")]
     [ApiController]
+    [AllowAnonymous]
 
     [AllowAnonymous]
     public class CarrinhoController : Controller

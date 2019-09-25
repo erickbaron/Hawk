@@ -13,7 +13,6 @@ namespace Hawk.API.Controllers
     [Route("api/avaliacoesempresas")]
     [ApiController]
     [AllowAnonymous]
-
     public class AvaliacaoEmpresaController : Controller
     {
         private IHawkRepository<AvaliacaoEmpresa> repository;

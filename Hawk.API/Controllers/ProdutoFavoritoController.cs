@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using Hawk.Validator;
 using Microsoft.AspNetCore.Authorization;
 
-
 namespace Hawk.API.Controllers
 {
     [Route("api/produtosfavoritos")]

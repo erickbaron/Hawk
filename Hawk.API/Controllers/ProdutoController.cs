@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Hawk.Domain.Entities;
 using Hawk.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Hawk.Validator;
 using Microsoft.AspNetCore.Http;
 using System.IO;
