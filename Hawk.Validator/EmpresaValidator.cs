@@ -28,6 +28,24 @@ namespace Hawk.Validator
                 .Length(11)
                 .WithMessage("Informe um Telefone válido");
 
+            RuleFor(x => x.Cep)
+               .NotEmpty()
+               .WithMessage("Informe o CEP")
+               .Length(8)
+               .WithMessage("O CEP deve ter entre 8 caracteres");
+
+            RuleFor(x => x.Cidade)
+                .NotEmpty()
+                .WithMessage("Informe a cidade")
+                .Length(3, 100)
+                .WithMessage("Informe uma cidade válida");
+
+            RuleFor(x => x.Estado)
+                .NotEmpty()
+                .WithMessage("Informe o Estado")
+                .Length(3, 100)
+                .WithMessage("Informe um Estado válida");
+
             RuleFor(x => x.Cnpj)
                 .NotEmpty()
                 .WithMessage("Informe o CNPJ")

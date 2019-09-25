@@ -310,9 +310,21 @@ namespace Hawk.Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Cep");
+
+                    b.Property<string>("Cidade");
+
                     b.Property<string>("Cnpj");
 
+                    b.Property<string>("Complemento");
+
+                    b.Property<string>("Estado");
+
+                    b.Property<string>("Logradouro");
+
                     b.Property<string>("Nome");
+
+                    b.Property<string>("Numero");
 
                     b.Property<string>("Ramo");
 
@@ -332,8 +344,14 @@ namespace Hawk.Repository.Migrations
                         new
                         {
                             Id = 1,
+                            Cep = "04180112",
+                            Cidade = "Sao Paulo",
                             Cnpj = "81.197.017/0001-82",
+                            Complemento = "Casa",
+                            Estado = "Sao Paulo",
+                            Logradouro = "virando a esquina",
                             Nome = "WEG",
+                            Numero = "1222",
                             Ramo = "lojinha",
                             RegistroAtivo = true,
                             Telefone = "2036466360",
@@ -342,9 +360,15 @@ namespace Hawk.Repository.Migrations
                         new
                         {
                             Id = 2,
+                            Cep = "04180112",
+                            Cidade = "Terezina",
                             Cnpj = "83.757.980/0001-07",
-                            Nome = "Hanes",
-                            Ramo = "comida",
+                            Complemento = "Apartamento",
+                            Estado = "Piaui",
+                            Logradouro = "Rua Piaui",
+                            Nome = "Mercosul",
+                            Numero = "1222",
+                            Ramo = "óculos",
                             RegistroAtivo = true,
                             Telefone = "2036466370",
                             UsuarioId = 2
@@ -440,7 +464,7 @@ namespace Hawk.Repository.Migrations
                             Id = 1,
                             Cep = "04180112",
                             Cidade = "Sao Paulo",
-                            Complemento = " ",
+                            Complemento = "Casa",
                             EmpresaId = 1,
                             Estado = "Sao Paulo",
                             Logradouro = "virando a esquina",
@@ -823,7 +847,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "17891b72-c21b-42d5-bb76-7906e5c8a36c",
+                            ConcurrencyStamp = "981bb229-7a54-4a33-8a8b-e0213fb77109",
                             Email = "erick@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
@@ -839,7 +863,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8c029371-8ee9-4322-9411-71f2a684a678",
+                            ConcurrencyStamp = "9dfdda1d-441d-4037-9dc2-47d3785ae7d4",
                             Email = "joao@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,

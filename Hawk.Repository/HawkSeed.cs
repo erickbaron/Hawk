@@ -61,6 +61,12 @@ namespace Hawk.Repository
                     Cnpj = "81.197.017/0001-82",
                     Telefone = "2036466360",
                     Ramo = "lojinha",
+                    Estado = "Sao Paulo",
+                    Cidade = "Sao Paulo",
+                    Cep = "04180112",
+                    Logradouro = "virando a esquina",
+                    Numero = "1222",
+                    Complemento = "Casa",
                     RegistroAtivo = true,
 
                     UsuarioId = 1
@@ -68,10 +74,16 @@ namespace Hawk.Repository
                 new Empresa()
                 {
                     Id = 2,
-                    Nome = "Hanes",
+                    Nome = "Mercosul",
                     Cnpj = "83.757.980/0001-07",
                     Telefone = "2036466370",
-                    Ramo = "comida",
+                    Ramo = "óculos",
+                    Estado = "Piaui",
+                    Cidade = "Terezina",
+                    Cep = "04180112",
+                    Logradouro = "Rua Piaui",
+                    Numero = "1222",
+                    Complemento = "Apartamento",
                     RegistroAtivo = true,
 
                     UsuarioId = 2
@@ -88,7 +100,7 @@ namespace Hawk.Repository
                     Cep = "04180112",
                     Logradouro = "virando a esquina",
                     Numero = "1222",
-                    Complemento = " ",
+                    Complemento = "Casa",
                     RegistroAtivo = true,
 
                     EmpresaId = 1

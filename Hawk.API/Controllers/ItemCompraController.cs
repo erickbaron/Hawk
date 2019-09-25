@@ -2,14 +2,17 @@
 using Hawk.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Hawk.Validator;
 
 namespace Hawk.API.Controllers
-{[Route("api/itenscompras")]
-[ApiController]
+{
+    [Route("api/itenscompras")]
+    [ApiController]
+    [AllowAnonymous]
     public class ItemCompraController : Controller
     {
         private readonly IHawkRepository<ItemCompra> repository;

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Hawk.Repository.Migrations
 {
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -228,6 +228,12 @@ namespace Hawk.Repository.Migrations
                     Cnpj = table.Column<string>(nullable: true),
                     Telefone = table.Column<string>(nullable: true),
                     Ramo = table.Column<string>(nullable: true),
+                    Estado = table.Column<string>(nullable: true),
+                    Cidade = table.Column<string>(nullable: true),
+                    Cep = table.Column<string>(nullable: true),
+                    Logradouro = table.Column<string>(nullable: true),
+                    Numero = table.Column<string>(nullable: true),
+                    Complemento = table.Column<string>(nullable: true),
                     RegistroAtivo = table.Column<bool>(nullable: false),
                     UsuarioId = table.Column<int>(nullable: false)
                 },
@@ -261,28 +267,6 @@ namespace Hawk.Repository.Migrations
                     table.PrimaryKey("PK_Cartoes", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Cartoes_Clientes_ClienteId",
-                        column: x => x.ClienteId,
-                        principalTable: "Clientes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Compras",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ValorTotal = table.Column<decimal>(type: "decimal(8,2)", nullable: false),
-                    Desconto = table.Column<decimal>(type: "decimal(8,2)", nullable: false),
-                    RegistroAtivo = table.Column<bool>(nullable: false),
-                    ClienteId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Compras", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Compras_Clientes_ClienteId",
                         column: x => x.ClienteId,
                         principalTable: "Clientes",
                         principalColumn: "Id",
@@ -379,6 +363,8 @@ namespace Hawk.Repository.Migrations
                     Peso = table.Column<decimal>(type: "decimal(8,2)", nullable: false),
                     Promocao = table.Column<bool>(nullable: false),
                     RegistroAtivo = table.Column<bool>(nullable: false),
+                    NomeArquivo = table.Column<string>(nullable: true),
+                    NomeHash = table.Column<string>(nullable: true),
                     EmpresaId = table.Column<int>(nullable: false),
                     CategoriaId = table.Column<int>(nullable: false)
                 },
@@ -393,36 +379,6 @@ namespace Hawk.Repository.Migrations
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Produtos_Empresas_EmpresaId",
-                        column: x => x.EmpresaId,
-                        principalTable: "Empresas",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Financas",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ValorCusto = table.Column<decimal>(type: "decimal(8,2)", nullable: false),
-                    ValorVenda = table.Column<decimal>(type: "decimal(8,2)", nullable: false),
-                    Lucro = table.Column<decimal>(type: "decimal(8,2)", nullable: false),
-                    RegistroAtivo = table.Column<bool>(nullable: false),
-                    CompraId = table.Column<int>(nullable: false),
-                    EmpresaId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Financas", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Financas_Compras_CompraId",
-                        column: x => x.CompraId,
-                        principalTable: "Compras",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Financas_Empresas_EmpresaId",
                         column: x => x.EmpresaId,
                         principalTable: "Empresas",
                         principalColumn: "Id",
@@ -458,7 +414,7 @@ namespace Hawk.Repository.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Quantidade = table.Column<int>(nullable: false),
-                    Entrada = table.Column<bool>(nullable: false),
+                    Entrada = table.Column<string>(nullable: true),
                     DataEntrada = table.Column<DateTime>(nullable: false),
                     RegistroAtivo = table.Column<bool>(nullable: false),
                     EmpresaId = table.Column<int>(nullable: false),
@@ -487,20 +443,12 @@ namespace Hawk.Repository.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ValorItem = table.Column<decimal>(type: "decimal(8,2)", nullable: false),
                     RegistroAtivo = table.Column<bool>(nullable: false),
-                    ProdutoId = table.Column<int>(nullable: false),
-                    CompraId = table.Column<int>(nullable: false)
+                    ProdutoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ItensCompras", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ItensCompras_Compras_CompraId",
-                        column: x => x.CompraId,
-                        principalTable: "Compras",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ItensCompras_Produtos_ProdutoId",
                         column: x => x.ProdutoId,
@@ -536,6 +484,87 @@ namespace Hawk.Repository.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Carrinhos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Quantidade = table.Column<int>(nullable: false),
+                    RegistroAtivo = table.Column<bool>(nullable: false),
+                    ItemCompraId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Carrinhos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Carrinhos_ItensCompras_ItemCompraId",
+                        column: x => x.ItemCompraId,
+                        principalTable: "ItensCompras",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Compras",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ValorTotal = table.Column<decimal>(type: "decimal(8,2)", nullable: false),
+                    Desconto = table.Column<decimal>(type: "decimal(8,2)", nullable: true),
+                    RegistroAtivo = table.Column<bool>(nullable: false),
+                    ClienteId = table.Column<int>(nullable: false),
+                    CarrinhoId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Compras", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Compras_Carrinhos_CarrinhoId",
+                        column: x => x.CarrinhoId,
+                        principalTable: "Carrinhos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Compras_Clientes_ClienteId",
+                        column: x => x.ClienteId,
+                        principalTable: "Clientes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Financas",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Mes = table.Column<string>(nullable: true),
+                    ValorCusto = table.Column<decimal>(type: "decimal(8,2)", nullable: false),
+                    ValorVenda = table.Column<decimal>(type: "decimal(8,2)", nullable: false),
+                    Lucro = table.Column<decimal>(type: "decimal(8,2)", nullable: false),
+                    RegistroAtivo = table.Column<bool>(nullable: false),
+                    CompraId = table.Column<int>(nullable: false),
+                    EmpresaId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Financas", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Financas_Compras_CompraId",
+                        column: x => x.CompraId,
+                        principalTable: "Compras",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Financas_Empresas_EmpresaId",
+                        column: x => x.EmpresaId,
+                        principalTable: "Empresas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.InsertData(
                 table: "Categorias",
                 columns: new[] { "Id", "Nome", "RegistroAtivo" },
@@ -551,8 +580,8 @@ namespace Hawk.Repository.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "senha", "PhoneNumber", "PhoneNumberConfirmed", "registro_ativo", "SecurityStamp", "TwoFactorEnabled", "nome" },
                 values: new object[,]
                 {
-                    { 1, 0, "17891b72-c21b-42d5-bb76-7906e5c8a36c", "erick@gmail.com", false, false, null, "ERICK@GMAIL.COM", "Erick", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Erick" },
-                    { 2, 0, "8c029371-8ee9-4322-9411-71f2a684a678", "joao@gmail.com", false, false, null, "JOAO@GMAIL.COM", "Joao", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Joao" }
+                    { 1, 0, "981bb229-7a54-4a33-8a8b-e0213fb77109", "erick@gmail.com", false, false, null, "ERICK@GMAIL.COM", "Erick", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Erick" },
+                    { 2, 0, "9dfdda1d-441d-4037-9dc2-47d3785ae7d4", "joao@gmail.com", false, false, null, "JOAO@GMAIL.COM", "Joao", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Joao" }
                 });
 
             migrationBuilder.InsertData(
@@ -566,11 +595,11 @@ namespace Hawk.Repository.Migrations
 
             migrationBuilder.InsertData(
                 table: "Empresas",
-                columns: new[] { "Id", "Cnpj", "Nome", "Ramo", "RegistroAtivo", "Telefone", "UsuarioId" },
+                columns: new[] { "Id", "Cep", "Cidade", "Cnpj", "Complemento", "Estado", "Logradouro", "Nome", "Numero", "Ramo", "RegistroAtivo", "Telefone", "UsuarioId" },
                 values: new object[,]
                 {
-                    { 1, "81.197.017/0001-82", "WEG", "lojinha", true, "2036466360", 1 },
-                    { 2, "83.757.980/0001-07", "Hanes", "comida", true, "2036466370", 2 }
+                    { 1, "04180112", "Sao Paulo", "81.197.017/0001-82", "Casa", "Sao Paulo", "virando a esquina", "WEG", "1222", "lojinha", true, "2036466360", 1 },
+                    { 2, "04180112", "Terezina", "83.757.980/0001-07", "Apartamento", "Piaui", "Rua Piaui", "Mercosul", "1222", "óculos", true, "2036466370", 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -592,15 +621,6 @@ namespace Hawk.Repository.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Compras",
-                columns: new[] { "Id", "ClienteId", "Desconto", "RegistroAtivo", "ValorTotal" },
-                values: new object[,]
-                {
-                    { 1, 1, 0m, true, 12333m },
-                    { 2, 2, 2m, true, 1433m }
-                });
-
-            migrationBuilder.InsertData(
                 table: "EnderecosClientes",
                 columns: new[] { "Id", "Cep", "Cidade", "ClienteId", "Complemento", "Estado", "Logradouro", "Numero", "RegistroAtivo" },
                 values: new object[,]
@@ -614,17 +634,17 @@ namespace Hawk.Repository.Migrations
                 columns: new[] { "Id", "Cep", "Cidade", "Complemento", "EmpresaId", "Estado", "Logradouro", "Numero", "RegistroAtivo" },
                 values: new object[,]
                 {
-                    { 1, "04180112", "Sao Paulo", " ", 1, "Sao Paulo", "virando a esquina", "1222", true },
+                    { 1, "04180112", "Sao Paulo", "Casa", 1, "Sao Paulo", "virando a esquina", "1222", true },
                     { 2, "04180113", "rio de janeiro", " ", 2, "Rio de janeiro", "Rua principal", "123", true }
                 });
 
             migrationBuilder.InsertData(
                 table: "Produtos",
-                columns: new[] { "Id", "Altura", "CategoriaId", "Comprimento", "Descricao", "EmpresaId", "Largura", "Nome", "Peso", "Promocao", "RegistroAtivo", "ValorCusto", "ValorVenda" },
+                columns: new[] { "Id", "Altura", "CategoriaId", "Comprimento", "Descricao", "EmpresaId", "Largura", "Nome", "NomeArquivo", "NomeHash", "Peso", "Promocao", "RegistroAtivo", "ValorCusto", "ValorVenda" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, 3, "se derubar abre uma cratera", 1, 2, "nokia tijolao", 10m, false, true, 2m, 10m },
-                    { 2, 2, 2, 2, "o kiko sempre quis uma ", 2, 2, "bola quadrada", 10m, false, true, 3m, 100m }
+                    { 1, 1, 1, 3, "se derubar abre uma cratera", 1, 2, "nokia tijolao", "imagem.jpg", "", 10m, false, true, 2m, 10m },
+                    { 2, 2, 2, 2, "o kiko sempre quis uma ", 2, 2, "bola quadrada", "imagem.jpg", "", 10m, false, true, 3m, 100m }
                 });
 
             migrationBuilder.InsertData(
@@ -641,26 +661,17 @@ namespace Hawk.Repository.Migrations
                 columns: new[] { "Id", "DataEntrada", "EmpresaId", "Entrada", "ProdutoId", "Quantidade", "RegistroAtivo" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, true, 1, 2, true },
-                    { 2, new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, false, 2, 32, true }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Financas",
-                columns: new[] { "Id", "CompraId", "EmpresaId", "Lucro", "RegistroAtivo", "ValorCusto", "ValorVenda" },
-                values: new object[,]
-                {
-                    { 1, 1, 1, 198m, true, 2m, 200m },
-                    { 2, 2, 2, 300m, true, 3m, 303m }
+                    { 1, new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "entrada", 1, 2, true },
+                    { 2, new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, "saida", 2, 32, true }
                 });
 
             migrationBuilder.InsertData(
                 table: "ItensCompras",
-                columns: new[] { "Id", "CompraId", "ProdutoId", "RegistroAtivo", "ValorItem" },
+                columns: new[] { "Id", "ProdutoId", "RegistroAtivo" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, true, 2m },
-                    { 2, 2, 2, true, 1123m }
+                    { 1, 1, true },
+                    { 2, 2, true }
                 });
 
             migrationBuilder.InsertData(
@@ -671,6 +682,36 @@ namespace Hawk.Repository.Migrations
                     { 1, 1, 1, true },
                     { 2, 2, 2, true }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Carrinhos",
+                columns: new[] { "Id", "ItemCompraId", "Quantidade", "RegistroAtivo" },
+                values: new object[] { 1, 1, 2, true });
+
+            migrationBuilder.InsertData(
+                table: "Carrinhos",
+                columns: new[] { "Id", "ItemCompraId", "Quantidade", "RegistroAtivo" },
+                values: new object[] { 2, 1, 2, true });
+
+            migrationBuilder.InsertData(
+                table: "Compras",
+                columns: new[] { "Id", "CarrinhoId", "ClienteId", "Desconto", "RegistroAtivo", "ValorTotal" },
+                values: new object[] { 1, 1, 1, 0m, true, 12333m });
+
+            migrationBuilder.InsertData(
+                table: "Compras",
+                columns: new[] { "Id", "CarrinhoId", "ClienteId", "Desconto", "RegistroAtivo", "ValorTotal" },
+                values: new object[] { 2, 1, 2, 2m, true, 1433m });
+
+            migrationBuilder.InsertData(
+                table: "Financas",
+                columns: new[] { "Id", "CompraId", "EmpresaId", "Lucro", "Mes", "RegistroAtivo", "ValorCusto", "ValorVenda" },
+                values: new object[] { 1, 1, 1, 198m, null, true, 2m, 200m });
+
+            migrationBuilder.InsertData(
+                table: "Financas",
+                columns: new[] { "Id", "CompraId", "EmpresaId", "Lucro", "Mes", "RegistroAtivo", "ValorCusto", "ValorVenda" },
+                values: new object[] { 2, 2, 2, 300m, null, true, 3m, 303m });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -720,6 +761,11 @@ namespace Hawk.Repository.Migrations
                 column: "ProdutoId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Carrinhos_ItemCompraId",
+                table: "Carrinhos",
+                column: "ItemCompraId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Cartoes_ClienteId",
                 table: "Cartoes",
                 column: "ClienteId");
@@ -728,6 +774,11 @@ namespace Hawk.Repository.Migrations
                 name: "IX_Clientes_UsuarioId",
                 table: "Clientes",
                 column: "UsuarioId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Compras_CarrinhoId",
+                table: "Compras",
+                column: "CarrinhoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Compras_ClienteId",
@@ -768,11 +819,6 @@ namespace Hawk.Repository.Migrations
                 name: "IX_Financas_EmpresaId",
                 table: "Financas",
                 column: "EmpresaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ItensCompras_CompraId",
-                table: "ItensCompras",
-                column: "CompraId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ItensCompras_ProdutoId",
@@ -853,9 +899,6 @@ namespace Hawk.Repository.Migrations
                 name: "Financas");
 
             migrationBuilder.DropTable(
-                name: "ItensCompras");
-
-            migrationBuilder.DropTable(
                 name: "ProdutosFavoritos");
 
             migrationBuilder.DropTable(
@@ -865,10 +908,16 @@ namespace Hawk.Repository.Migrations
                 name: "Compras");
 
             migrationBuilder.DropTable(
-                name: "Produtos");
+                name: "Carrinhos");
 
             migrationBuilder.DropTable(
                 name: "Clientes");
+
+            migrationBuilder.DropTable(
+                name: "ItensCompras");
+
+            migrationBuilder.DropTable(
+                name: "Produtos");
 
             migrationBuilder.DropTable(
                 name: "Categorias");
