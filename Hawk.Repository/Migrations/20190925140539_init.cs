@@ -8,6 +8,24 @@ namespace Hawk.Repository.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "dbo");
+
+            migrationBuilder.CreateTable(
+                name: "AspNetRoles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(maxLength: 256, nullable: true),
+                    NormalizedName = table.Column<string>(maxLength: 256, nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetRoles", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Categorias",
                 columns: table => new
@@ -23,20 +41,156 @@ namespace Hawk.Repository.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Usuarios",
+                name: "AspNetUsers",
+                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    Senha = table.Column<string>(nullable: true),
-                    Administrador = table.Column<bool>(nullable: false),
-                    RegistroAtivo = table.Column<bool>(nullable: false)
+                    NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
+                    Email = table.Column<string>(maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(nullable: false),
+                    SecurityStamp = table.Column<string>(nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
+                    LockoutEnabled = table.Column<bool>(nullable: false),
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    nome = table.Column<string>(maxLength: 256, nullable: true),
+                    senha = table.Column<string>(nullable: true),
+                    registro_ativo = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Usuarios", x => x.Id);
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetRoleClaims",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    RoleId = table.Column<int>(nullable: false),
+                    ClaimType = table.Column<string>(nullable: true),
+                    ClaimValue = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetRoleClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserClaims",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    UserId = table.Column<int>(nullable: false),
+                    ClaimType = table.Column<string>(nullable: true),
+                    ClaimValue = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserClaims_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalSchema: "dbo",
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserLogins",
+                columns: table => new
+                {
+                    LoginProvider = table.Column<string>(nullable: false),
+                    ProviderKey = table.Column<string>(nullable: false),
+                    ProviderDisplayName = table.Column<string>(nullable: true),
+                    UserId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserLogins_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalSchema: "dbo",
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserRoles",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(nullable: false),
+                    RoleId = table.Column<int>(nullable: false),
+                    UserId1 = table.Column<int>(nullable: true),
+                    RoleId1 = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId1",
+                        column: x => x.RoleId1,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalSchema: "dbo",
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetUsers_UserId1",
+                        column: x => x.UserId1,
+                        principalSchema: "dbo",
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserTokens",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
+                    Value = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserTokens_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalSchema: "dbo",
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -56,9 +210,10 @@ namespace Hawk.Repository.Migrations
                 {
                     table.PrimaryKey("PK_Clientes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Clientes_Usuarios_UsuarioId",
+                        name: "FK_Clientes_AspNetUsers_UsuarioId",
                         column: x => x.UsuarioId,
-                        principalTable: "Usuarios",
+                        principalSchema: "dbo",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -73,6 +228,12 @@ namespace Hawk.Repository.Migrations
                     Cnpj = table.Column<string>(nullable: true),
                     Telefone = table.Column<string>(nullable: true),
                     Ramo = table.Column<string>(nullable: true),
+                    Estado = table.Column<string>(nullable: true),
+                    Cidade = table.Column<string>(nullable: true),
+                    Cep = table.Column<string>(nullable: true),
+                    Logradouro = table.Column<string>(nullable: true),
+                    Numero = table.Column<string>(nullable: true),
+                    Complemento = table.Column<string>(nullable: true),
                     RegistroAtivo = table.Column<bool>(nullable: false),
                     UsuarioId = table.Column<int>(nullable: false)
                 },
@@ -80,9 +241,10 @@ namespace Hawk.Repository.Migrations
                 {
                     table.PrimaryKey("PK_Empresas", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Empresas_Usuarios_UsuarioId",
+                        name: "FK_Empresas_AspNetUsers_UsuarioId",
                         column: x => x.UsuarioId,
-                        principalTable: "Usuarios",
+                        principalSchema: "dbo",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -413,12 +575,13 @@ namespace Hawk.Repository.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Usuarios",
-                columns: new[] { "Id", "Administrador", "Email", "Nome", "RegistroAtivo", "Senha" },
+                schema: "dbo",
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "senha", "PhoneNumber", "PhoneNumberConfirmed", "registro_ativo", "SecurityStamp", "TwoFactorEnabled", "nome" },
                 values: new object[,]
                 {
-                    { 1, false, "erickbaron@gmail.com", "Erick", true, "1234" },
-                    { 2, true, "Jozinho@gmail.com", "Joao", true, "4321" }
+                    { 1, 0, "88e29c94-c457-40b7-b077-6ac80b4bf237", "erick@gmail.com", false, false, null, "ERICK@GMAIL.COM", "Erick", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Erick" },
+                    { 2, 0, "6b6dfc46-2122-495f-8c27-35037d162673", "joao@gmail.com", false, false, null, "JOAO@GMAIL.COM", "Joao", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Joao" }
                 });
 
             migrationBuilder.InsertData(
@@ -427,16 +590,16 @@ namespace Hawk.Repository.Migrations
                 values: new object[,]
                 {
                     { 1, "59315617061", new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "irineu", true, "2036466360", 1 },
-                    { 2, "59315639061", new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "jose", true, "2012466360", 1 }
+                    { 2, "59315639061", new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "jose", true, "2012466360", 2 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Empresas",
-                columns: new[] { "Id", "Cnpj", "Nome", "Ramo", "RegistroAtivo", "Telefone", "UsuarioId" },
+                columns: new[] { "Id", "Cep", "Cidade", "Cnpj", "Complemento", "Estado", "Logradouro", "Nome", "Numero", "Ramo", "RegistroAtivo", "Telefone", "UsuarioId" },
                 values: new object[,]
                 {
-                    { 1, "81.197.017/0001-82", "WEG", "lojinha", true, "2036466360", 1 },
-                    { 2, "83.757.980/0001-07", "Hanes", "comida", true, "2036466370", 2 }
+                    { 1, "04180112", "Sao Paulo", "81.197.017/0001-82", "Casa", "Sao Paulo", "virando a esquina", "WEG", "1222", "lojinha", true, "2036466360", 1 },
+                    { 2, "04180112", "Terezina", "83.757.980/0001-07", "Apartamento", "Piaui", "Rua Piaui", "Mercosul", "1222", "óculos", true, "2036466370", 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -471,7 +634,7 @@ namespace Hawk.Repository.Migrations
                 columns: new[] { "Id", "Cep", "Cidade", "Complemento", "EmpresaId", "Estado", "Logradouro", "Numero", "RegistroAtivo" },
                 values: new object[,]
                 {
-                    { 1, "04180112", "Sao Paulo", " ", 1, "Sao Paulo", "virando a esquina", "1222", true },
+                    { 1, "04180112", "Sao Paulo", "Casa", 1, "Sao Paulo", "virando a esquina", "1222", true },
                     { 2, "04180113", "rio de janeiro", " ", 2, "Rio de janeiro", "Rua principal", "123", true }
                 });
 
@@ -549,6 +712,43 @@ namespace Hawk.Repository.Migrations
                 table: "Financas",
                 columns: new[] { "Id", "CompraId", "EmpresaId", "Lucro", "Mes", "RegistroAtivo", "ValorCusto", "ValorVenda" },
                 values: new object[] { 2, 2, 2, 300m, null, true, 3m, 303m });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetRoleClaims_RoleId",
+                table: "AspNetRoleClaims",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "RoleNameIndex",
+                table: "AspNetRoles",
+                column: "NormalizedName",
+                unique: true,
+                filter: "[NormalizedName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserClaims_UserId",
+                table: "AspNetUserClaims",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserLogins_UserId",
+                table: "AspNetUserLogins",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserRoles_RoleId",
+                table: "AspNetUserRoles",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserRoles_RoleId1",
+                table: "AspNetUserRoles",
+                column: "RoleId1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserRoles_UserId1",
+                table: "AspNetUserRoles",
+                column: "UserId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AvaliacoesEmpresas_EmpresaId",
@@ -644,10 +844,39 @@ namespace Hawk.Repository.Migrations
                 name: "IX_ProdutosFavoritos_ProdutoId",
                 table: "ProdutosFavoritos",
                 column: "ProdutoId");
+
+            migrationBuilder.CreateIndex(
+                name: "EmailIndex",
+                schema: "dbo",
+                table: "AspNetUsers",
+                column: "NormalizedEmail");
+
+            migrationBuilder.CreateIndex(
+                name: "UserNameIndex",
+                schema: "dbo",
+                table: "AspNetUsers",
+                column: "NormalizedUserName",
+                unique: true,
+                filter: "[NormalizedUserName] IS NOT NULL");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AspNetRoleClaims");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserClaims");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserLogins");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserRoles");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserTokens");
+
             migrationBuilder.DropTable(
                 name: "AvaliacoesEmpresas");
 
@@ -673,6 +902,9 @@ namespace Hawk.Repository.Migrations
                 name: "ProdutosFavoritos");
 
             migrationBuilder.DropTable(
+                name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
                 name: "Compras");
 
             migrationBuilder.DropTable(
@@ -694,7 +926,8 @@ namespace Hawk.Repository.Migrations
                 name: "Empresas");
 
             migrationBuilder.DropTable(
-                name: "Usuarios");
+                name: "AspNetUsers",
+                schema: "dbo");
         }
     }
 }

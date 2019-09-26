@@ -31,22 +31,26 @@ namespace Hawk.Repository
                 new Usuario()
                 {
                     Id = 1,
-                    Nome = "Erick",
-                    Email = "erickbaron@gmail.com",
-                    Senha = "1234",
-                    Administrador = false,
+                    UserName = "Erick",
+                    NormalizedUserName = "Erick",
+                    Email = "erick@gmail.com",
+                    NormalizedEmail = "erick@gmail.com".ToUpper(),
+                    PasswordHash = "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==",
                     RegistroAtivo = true
                 },
-                new  Usuario()
+                new Usuario()
                 {
                     Id = 2,
-                    Nome = "Joao",
-                    Email = "Jozinho@gmail.com",
-                    Senha = "4321",
-                    Administrador = true,
+                    UserName = "Joao",
+                    NormalizedUserName = "Joao",
+                    Email = "joao@gmail.com",
+                    NormalizedEmail = "joao@gmail.com".ToUpper(),
+                    PasswordHash = "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==",
+                    //Administrador = true,
                     RegistroAtivo = true
                 });
             #endregion
+
 
             #region empresa
             modelBuilder.Entity<Empresa>().HasData(
@@ -57,6 +61,12 @@ namespace Hawk.Repository
                     Cnpj = "81.197.017/0001-82",
                     Telefone = "2036466360",
                     Ramo = "lojinha",
+                    Estado = "Sao Paulo",
+                    Cidade = "Sao Paulo",
+                    Cep = "04180112",
+                    Logradouro = "virando a esquina",
+                    Numero = "1222",
+                    Complemento = "Casa",
                     RegistroAtivo = true,
 
                     UsuarioId = 1
@@ -64,10 +74,16 @@ namespace Hawk.Repository
                 new Empresa()
                 {
                     Id = 2,
-                    Nome = "Hanes",
+                    Nome = "Mercosul",
                     Cnpj = "83.757.980/0001-07",
                     Telefone = "2036466370",
-                    Ramo = "comida",
+                    Ramo = "óculos",
+                    Estado = "Piaui",
+                    Cidade = "Terezina",
+                    Cep = "04180112",
+                    Logradouro = "Rua Piaui",
+                    Numero = "1222",
+                    Complemento = "Apartamento",
                     RegistroAtivo = true,
 
                     UsuarioId = 2
@@ -79,14 +95,14 @@ namespace Hawk.Repository
                 new EnderecoEmpresa()
                 {
                     Id = 1,
-                    Estado ="Sao Paulo",
-                    Cidade ="Sao Paulo",
+                    Estado = "Sao Paulo",
+                    Cidade = "Sao Paulo",
                     Cep = "04180112",
-                    Logradouro ="virando a esquina",
+                    Logradouro = "virando a esquina",
                     Numero = "1222",
-                    Complemento = " ",
+                    Complemento = "Casa",
                     RegistroAtivo = true,
-                     
+
                     EmpresaId = 1
                 },
                 new EnderecoEmpresa()
@@ -143,7 +159,7 @@ namespace Hawk.Repository
                     Nota = 5,
                     RegistroAtivo = true,
 
-                   EmpresaId =1
+                    EmpresaId = 1
                 },
                 new AvaliacaoEmpresa()
                 {
@@ -208,6 +224,7 @@ namespace Hawk.Repository
                     Desconto = 0,
                     RegistroAtivo = true,
 
+
                     ClienteId= 1,
                     CarrinhoId= 1
                 },
@@ -230,6 +247,7 @@ namespace Hawk.Repository
                 {
                     Id = 1,
                     Quantidade = 2,
+
                     Entrada = "entrada",
                     DataEntrada =  new DateTime(2012, 10, 12),
 
@@ -238,7 +256,7 @@ namespace Hawk.Repository
                     RegistroAtivo = true
 
                 },
-                new Estoque ()
+                new Estoque()
                 {
                     Id = 2,
                     Quantidade = 32,
@@ -251,7 +269,7 @@ namespace Hawk.Repository
 
 
                 });
-                #endregion
+            #endregion
 
             #region finaças
             modelBuilder.Entity<Financa>().HasData(
@@ -265,7 +283,7 @@ namespace Hawk.Repository
 
                      CompraId = 1,
                      EmpresaId = 1
-                         
+
                  },
                  new Financa()
                  {
@@ -305,10 +323,10 @@ namespace Hawk.Repository
                 new ProdutoFavorito()
                 {
                     Id = 1,
-                    RegistroAtivo =true,
+                    RegistroAtivo = true,
 
                     ProdutoId = 1,
-                    ClienteId =1
+                    ClienteId = 1
                 },
                 new ProdutoFavorito()
                 {
@@ -347,13 +365,13 @@ namespace Hawk.Repository
                 new Cliente()
                 {
                     Id = 1,
-                   Nome = "irineu",
-                   Cpf = "59315617061",
-                   DataNascimento= new DateTime(2012, 10, 12),
-                   Telefone = "2036466360",
+                    Nome = "irineu",
+                    Cpf = "59315617061",
+                    DataNascimento = new DateTime(2012, 10, 12),
+                    Telefone = "2036466360",
 
-                   RegistroAtivo = true,
-                   UsuarioId = 1,
+                    RegistroAtivo = true,
+                    UsuarioId = 1,
 
                 },
                 new Cliente()
@@ -365,7 +383,7 @@ namespace Hawk.Repository
                     Telefone = "2012466360",
                     RegistroAtivo = true,
 
-                    UsuarioId = 1,
+                    UsuarioId = 2,
                 });
             #endregion
 
@@ -377,8 +395,8 @@ namespace Hawk.Repository
                     Comentario = "abfkjgadkfgakf",
                     Nota = 5,
                     RegistroAtivo = true,
-                     
-                    ProdutoId =1
+
+                    ProdutoId = 1
                 },
                 new AvaliacaoProduto()
                 {
@@ -396,15 +414,15 @@ namespace Hawk.Repository
                 new Cartao()
                 {
                     Id = 1,
-                    Numero= "123576123",
+                    Numero = "123576123",
                     NomeProprietario = "jose",
-                    DataVencimento = new DateTime (2010,12,12),
+                    DataVencimento = new DateTime(2010, 12, 12),
                     Cvc = "123",
-                    RegistroAtivo =true,
+                    RegistroAtivo = true,
 
                     ClienteId = 1
 
-                    
+
                 },
                 new Cartao()
                 {
@@ -418,9 +436,6 @@ namespace Hawk.Repository
                     ClienteId = 1
                 });
             #endregion
-
-
-
 
         }
     }

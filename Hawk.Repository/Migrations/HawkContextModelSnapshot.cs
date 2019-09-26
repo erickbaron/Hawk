@@ -253,7 +253,7 @@ namespace Hawk.Repository.Migrations
                             Nome = "jose",
                             RegistroAtivo = true,
                             Telefone = "2012466360",
-                            UsuarioId = 1
+                            UsuarioId = 2
                         });
                 });
 
@@ -310,9 +310,21 @@ namespace Hawk.Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Cep");
+
+                    b.Property<string>("Cidade");
+
                     b.Property<string>("Cnpj");
 
+                    b.Property<string>("Complemento");
+
+                    b.Property<string>("Estado");
+
+                    b.Property<string>("Logradouro");
+
                     b.Property<string>("Nome");
+
+                    b.Property<string>("Numero");
 
                     b.Property<string>("Ramo");
 
@@ -332,8 +344,14 @@ namespace Hawk.Repository.Migrations
                         new
                         {
                             Id = 1,
+                            Cep = "04180112",
+                            Cidade = "Sao Paulo",
                             Cnpj = "81.197.017/0001-82",
+                            Complemento = "Casa",
+                            Estado = "Sao Paulo",
+                            Logradouro = "virando a esquina",
                             Nome = "WEG",
+                            Numero = "1222",
                             Ramo = "lojinha",
                             RegistroAtivo = true,
                             Telefone = "2036466360",
@@ -342,9 +360,15 @@ namespace Hawk.Repository.Migrations
                         new
                         {
                             Id = 2,
+                            Cep = "04180112",
+                            Cidade = "Terezina",
                             Cnpj = "83.757.980/0001-07",
-                            Nome = "Hanes",
-                            Ramo = "comida",
+                            Complemento = "Apartamento",
+                            Estado = "Piaui",
+                            Logradouro = "Rua Piaui",
+                            Nome = "Mercosul",
+                            Numero = "1222",
+                            Ramo = "óculos",
                             RegistroAtivo = true,
                             Telefone = "2036466370",
                             UsuarioId = 2
@@ -440,7 +464,7 @@ namespace Hawk.Repository.Migrations
                             Id = 1,
                             Cep = "04180112",
                             Cidade = "Sao Paulo",
-                            Complemento = " ",
+                            Complemento = "Casa",
                             EmpresaId = 1,
                             Estado = "Sao Paulo",
                             Logradouro = "virando a esquina",
@@ -716,45 +740,211 @@ namespace Hawk.Repository.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Hawk.Domain.Entities.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken();
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles");
+                });
+
+            modelBuilder.Entity("Hawk.Domain.Entities.UserRole", b =>
+                {
+                    b.Property<int>("UserId");
+
+                    b.Property<int>("RoleId");
+
+                    b.Property<int?>("RoleId1");
+
+                    b.Property<int?>("UserId1");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.HasIndex("RoleId1");
+
+                    b.HasIndex("UserId1");
+
+                    b.ToTable("AspNetUserRoles");
+                });
+
             modelBuilder.Entity("Hawk.Domain.Entities.Usuario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("Administrador");
+                    b.Property<int>("AccessFailedCount");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken();
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Email")
+                        .HasMaxLength(256);
 
-                    b.Property<bool>("RegistroAtivo");
+                    b.Property<bool>("EmailConfirmed");
 
-                    b.Property<string>("Senha");
+                    b.Property<bool>("LockoutEnabled");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnName("senha");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<bool>("PhoneNumberConfirmed");
+
+                    b.Property<bool>("RegistroAtivo")
+                        .HasColumnName("registro_ativo");
+
+                    b.Property<string>("SecurityStamp");
+
+                    b.Property<bool>("TwoFactorEnabled");
+
+                    b.Property<string>("UserName")
+                        .HasColumnName("nome")
+                        .HasMaxLength(256);
 
                     b.HasKey("Id");
 
-                    b.ToTable("Usuarios");
+                    b.HasIndex("NormalizedEmail")
+                        .HasName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers","dbo");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Administrador = false,
-                            Email = "erickbaron@gmail.com",
-                            Nome = "Erick",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "88e29c94-c457-40b7-b077-6ac80b4bf237",
+                            Email = "erick@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ERICK@GMAIL.COM",
+                            NormalizedUserName = "Erick",
+                            PasswordHash = "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==",
+                            PhoneNumberConfirmed = false,
                             RegistroAtivo = true,
-                            Senha = "1234"
+                            TwoFactorEnabled = false,
+                            UserName = "Erick"
                         },
                         new
                         {
                             Id = 2,
-                            Administrador = true,
-                            Email = "Jozinho@gmail.com",
-                            Nome = "Joao",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "6b6dfc46-2122-495f-8c27-35037d162673",
+                            Email = "joao@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "JOAO@GMAIL.COM",
+                            NormalizedUserName = "Joao",
+                            PasswordHash = "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==",
+                            PhoneNumberConfirmed = false,
                             RegistroAtivo = true,
-                            Senha = "4321"
+                            TwoFactorEnabled = false,
+                            UserName = "Joao"
                         });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType");
+
+                    b.Property<string>("ClaimValue");
+
+                    b.Property<int>("RoleId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType");
+
+                    b.Property<string>("ClaimValue");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
+                {
+                    b.Property<string>("LoginProvider");
+
+                    b.Property<string>("ProviderKey");
+
+                    b.Property<string>("ProviderDisplayName");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
+                {
+                    b.Property<int>("UserId");
+
+                    b.Property<string>("LoginProvider");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Value");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens");
                 });
 
             modelBuilder.Entity("Hawk.Domain.Entities.AvaliacaoEmpresa", b =>
@@ -812,7 +1002,7 @@ namespace Hawk.Repository.Migrations
 
             modelBuilder.Entity("Hawk.Domain.Entities.Empresa", b =>
                 {
-                    b.HasOne("Hawk.Domain.Entities.Usuario", "Usuario")
+                    b.HasOne("Hawk.Domain.Entities.Usuario", "user")
                         .WithMany()
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -891,6 +1081,59 @@ namespace Hawk.Repository.Migrations
                     b.HasOne("Hawk.Domain.Entities.Produto", "Produto")
                         .WithMany()
                         .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("Hawk.Domain.Entities.UserRole", b =>
+                {
+                    b.HasOne("Hawk.Domain.Entities.Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Hawk.Domain.Entities.Role", "Role")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("RoleId1");
+
+                    b.HasOne("Hawk.Domain.Entities.Usuario")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Hawk.Domain.Entities.Usuario", "User")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserId1");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
+                {
+                    b.HasOne("Hawk.Domain.Entities.Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
+                {
+                    b.HasOne("Hawk.Domain.Entities.Usuario")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
+                {
+                    b.HasOne("Hawk.Domain.Entities.Usuario")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
+                {
+                    b.HasOne("Hawk.Domain.Entities.Usuario")
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
