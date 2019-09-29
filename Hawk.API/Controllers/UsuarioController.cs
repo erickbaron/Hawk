@@ -20,7 +20,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 namespace ProAgil.WebAPI.Controllers
 {
-    [Route("api/usuario")]
+    [Route("api/usuarios")]
     [ApiController]
     public class UsuarioController : ControllerBase
     {
