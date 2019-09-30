@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Hawk.Repository.Migrations
 {
-    public partial class init : Migration
+    public partial class INIT : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -340,11 +340,21 @@ namespace Hawk.Repository.Migrations
                     NomeArquivo = table.Column<string>(nullable: true),
                     NomeHash = table.Column<string>(nullable: true),
                     EmpresaId = table.Column<int>(nullable: false),
-                    CategoriaId = table.Column<int>(nullable: false)
+                    CategoriaId = table.Column<int>(nullable: false),
+                    Discriminator = table.Column<string>(nullable: false),
+                    UrlImagem = table.Column<string>(nullable: true),
+                    UrlImagemHash = table.Column<string>(nullable: true),
+                    ProdutoId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Produtos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Produtos_Produtos_ProdutoId",
+                        column: x => x.ProdutoId,
+                        principalTable: "Produtos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Produtos_Categorias_CategoriaId",
                         column: x => x.CategoriaId,
@@ -523,8 +533,8 @@ namespace Hawk.Repository.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "senha", "PhoneNumber", "PhoneNumberConfirmed", "registro_ativo", "SecurityStamp", "TwoFactorEnabled", "nome" },
                 values: new object[,]
                 {
-                    { 1, 0, "a5558ecd-881a-41d1-971c-fb9aa7faca96", "erick@gmail.com", false, false, null, "ERICK@GMAIL.COM", "Erick", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Erick" },
-                    { 2, 0, "e6368f63-dd49-4207-88d6-9ad339672c6d", "joao@gmail.com", false, false, null, "JOAO@GMAIL.COM", "Joao", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Joao" }
+                    { 1, 0, "8237223a-ef5d-4f81-a330-12e3bb2e3b50", "erick@gmail.com", false, false, null, "ERICK@GMAIL.COM", "Erick", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Erick" },
+                    { 2, 0, "9cc57a8e-b811-4775-8953-5c96f499f920", "joao@gmail.com", false, false, null, "JOAO@GMAIL.COM", "Joao", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Joao" }
                 });
 
             migrationBuilder.InsertData(
@@ -565,13 +575,13 @@ namespace Hawk.Repository.Migrations
 
             migrationBuilder.InsertData(
                 table: "Produtos",
-                columns: new[] { "Id", "Altura", "CategoriaId", "Comprimento", "Descricao", "EmpresaId", "Largura", "Nome", "NomeArquivo", "NomeHash", "Peso", "Promocao", "RegistroAtivo", "ValorCusto", "ValorVenda" },
+                columns: new[] { "Id", "Altura", "CategoriaId", "Comprimento", "Descricao", "Discriminator", "EmpresaId", "Largura", "Nome", "NomeArquivo", "NomeHash", "Peso", "Promocao", "RegistroAtivo", "ValorCusto", "ValorVenda" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, 3, "se derubar abre uma cratera", 1, 2, "nokia tijolao", "imagem2.jpg", "", 10m, false, true, 2m, 10m },
-                    { 3, 1, 1, 3, "dasdadatera", 1, 2, "asdsadasd asdasdasdasd", "imagem2.jpg", "", 10m, false, true, 2m, 10m },
-                    { 2, 2, 2, 2, "o kiko sempre quis uma ", 2, 2, "bola quadrada", "imagem.jpg", "", 10m, false, true, 3m, 100m },
-                    { 4, 2, 2, 2, "sdadaads ", 2, 2, "blablabla blabla", "imagem.jpg", "", 10m, false, true, 3m, 100m }
+                    { 1, 1, 1, 3, "se derubar abre uma cratera", "Produto", 1, 2, "nokia tijolao", "imagem2.jpg", "", 10m, false, true, 2m, 10m },
+                    { 3, 1, 1, 3, "dasdadatera", "Produto", 1, 2, "asdsadasd asdasdasdasd", "imagem2.jpg", "", 10m, false, true, 2m, 10m },
+                    { 2, 2, 2, 2, "o kiko sempre quis uma ", "Produto", 2, 2, "bola quadrada", "imagem.jpg", "", 10m, false, true, 3m, 100m },
+                    { 4, 2, 2, 2, "sdadaads ", "Produto", 2, 2, "blablabla blabla", "imagem.jpg", "", 10m, false, true, 3m, 100m }
                 });
 
             migrationBuilder.InsertData(
@@ -725,6 +735,11 @@ namespace Hawk.Repository.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_ItensCompras_ProdutoId",
                 table: "ItensCompras",
+                column: "ProdutoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Produtos_ProdutoId",
+                table: "Produtos",
                 column: "ProdutoId");
 
             migrationBuilder.CreateIndex(

@@ -498,6 +498,9 @@ namespace Hawk.Repository.Migrations
 
                     b.Property<string>("Descricao");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
+
                     b.Property<int>("EmpresaId");
 
                     b.Property<int>("Largura");
@@ -528,6 +531,8 @@ namespace Hawk.Repository.Migrations
                     b.HasIndex("EmpresaId");
 
                     b.ToTable("Produtos");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Produto");
 
                     b.HasData(
                         new
@@ -748,7 +753,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a5558ecd-881a-41d1-971c-fb9aa7faca96",
+                            ConcurrencyStamp = "8237223a-ef5d-4f81-a330-12e3bb2e3b50",
                             Email = "erick@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
@@ -764,7 +769,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e6368f63-dd49-4207-88d6-9ad339672c6d",
+                            ConcurrencyStamp = "9cc57a8e-b811-4775-8953-5c96f499f920",
                             Email = "joao@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
@@ -846,6 +851,21 @@ namespace Hawk.Repository.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Hawk.Domain.Entities.ImagemProduto", b =>
+                {
+                    b.HasBaseType("Hawk.Domain.Entities.Produto");
+
+                    b.Property<int>("ProdutoId");
+
+                    b.Property<string>("UrlImagem");
+
+                    b.Property<string>("UrlImagemHash");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.HasDiscriminator().HasValue("ImagemProduto");
                 });
 
             modelBuilder.Entity("Hawk.Domain.Entities.AvaliacaoEmpresa", b =>
@@ -1014,6 +1034,14 @@ namespace Hawk.Repository.Migrations
                     b.HasOne("Hawk.Domain.Entities.Usuario")
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("Hawk.Domain.Entities.ImagemProduto", b =>
+                {
+                    b.HasOne("Hawk.Domain.Entities.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618

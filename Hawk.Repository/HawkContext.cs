@@ -24,6 +24,7 @@ namespace Hawk.Repository
         public DbSet<EnderecoCliente> EnderecosClientes { get; set; }
         public DbSet<Estoque> Estoques { get; set; }
         public DbSet<ItemCompra> ItensCompras { get; set; }
+        public DbSet<ImagemProduto> ImagensProdutos { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<ProdutoFavorito> ProdutosFavoritos { get; set; }
 
