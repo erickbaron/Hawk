@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Hawk.Domain.Entities;
 using Hawk.Repository;
 using Microsoft.AspNetCore.Mvc;
@@ -9,11 +7,9 @@ using Microsoft.AspNetCore.Authorization;
 using Hawk.Validator;
 using Microsoft.AspNetCore.Http;
 using System.IO;
-using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Hosting;
 using System.Security.Cryptography;
 using System.Text;
-using Microsoft.AspNetCore.Authorization;
 
 
 namespace Hawk.API.Controllers
@@ -44,6 +40,11 @@ namespace Hawk.API.Controllers
 
         }
 
+        [HttpGet, Route("filtroprodutos")]
+        public JsonResult Filtro(int idCategoria)
+        {
+            return Json(repository.Filtro(idCategoria));
+        }
 
         [HttpGet, Route("obtertodos")]
         public JsonResult ObterTodos()

@@ -52,5 +52,14 @@ namespace Hawk.Repository.Repositories
         {
             return this.context.Produtos.FirstOrDefault(x => x.NomeHash == hash);
         }
+
+        public List<Produto> Filtro(int idCategoria)
+        {
+            return context
+                .Produtos
+                .Where(p => p.RegistroAtivo &&
+                p.CategoriaId == idCategoria)
+                .ToList();
+        }
     }
 }
