@@ -1,6 +1,6 @@
 ## Hawk 
 
-# Integrantes:
+### Integrantes:
 - Erick Baron
 - Igor Tschoeke
 - João Victor
