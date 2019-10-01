@@ -1,10 +1,10 @@
 
 <p align="center">
- # Hawk 
+<h5>Hawk</h5>
 
-### Integrantes:         Tecnologias utilizadas
-- Erick Baron            - Angular 8
-- Igor Tschoeke          
+### Integrantes:
+- Erick Baron
+- Igor Tschoeke
 - João Victor
 - Jonatas Adams
 - Luan Schmidt
