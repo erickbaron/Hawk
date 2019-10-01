@@ -17,7 +17,7 @@
  - Ter o AspNet.Core e o Visual Studio instalado;
  - Ja com o projeto aberto clique em 'Ferramentas' => "Gerenciador de pacotes NuGet" => "Console do Gerenciador de Pacotes", no PM> digite "update-database" e depois é so clicar "Ctrl + F5" ou no botão de executar e vai rodar o Back-End do projeto;
  
- - Hawk-ng = Na parte do Front-End abra o projeto no Visual Studio Code e abra um novo terminal, dentro do terminal digite "npm install" e depois da instalação digite "ng serve -o" e vai abrir a tela do cliente. Hawk-Admin-ng = Na Parte do Admin faça o mesmo processo anterior.
+ - Hawk-ng = Na parte do Front-End abra o projeto no Visual Studio Code e abra um novo terminal, outra forma é abrindo o projeto pelo cmd a fazendo o processo a seguir, dentro do terminal ou cmd digite "npm install" e depois da instalação digite "ng serve -o" e vai abrir a tela do cliente. Hawk-Admin-ng = Na Parte do Admin faça o mesmo processo anterior.
  
  
 
