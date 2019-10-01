@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Hawk.Repository.Repositories
 {
-    public class CarrinhoRepository : IHawkRepository<Carrinho>
+    public class CarrinhoRepository : ICarrinhoRepository
     {
         private readonly HawkContext context;
 
@@ -18,7 +18,6 @@ namespace Hawk.Repository.Repositories
         public int Add(Carrinho entity)
         {
             entity.RegistroAtivo = true;
-            entity.Quantidade = 1;
             context.Carrinhos.Add(entity);
             context.SaveChanges();
             return entity.Id;
@@ -30,6 +29,11 @@ namespace Hawk.Repository.Repositories
             carrinho.RegistroAtivo = false;
             context.Carrinhos.Update(carrinho);
             return context.SaveChanges() > 0;
+        }
+
+        public Carrinho ObterCarrinhoAbertoPeloIdUsuario(int idUsuario)
+        {
+            return context.Carrinhos.FirstOrDefault(t => t.RegistroAtivo && t.UsuarioId == idUsuario);
         }
 
         public Carrinho ObterPeloId(int id)

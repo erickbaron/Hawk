@@ -1,4 +1,5 @@
 ﻿using Hawk.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,9 @@ namespace Hawk.Repository.Repositories
 
         public List<ItemCompra> ObterTodos()
         {
-            return context.ItensCompras.Where(t => t.RegistroAtivo).ToList();
+            return context.ItensCompras
+                .Include(x => x.Produto)
+                .Where(t => t.RegistroAtivo).ToList();
         }
 
         public bool Update(ItemCompra entity)
