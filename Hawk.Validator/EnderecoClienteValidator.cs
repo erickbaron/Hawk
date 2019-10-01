@@ -13,7 +13,7 @@ namespace Hawk.Validator
             RuleFor(x => x.Cep)
                 .NotEmpty()
                 .WithMessage("Informe o CEP")
-                .Length(8)
+                .Length(9)
                 .WithMessage("O CEP deve ter entre 8 caracteres");
 
             RuleFor(x => x.Cidade)
