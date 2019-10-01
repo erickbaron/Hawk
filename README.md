@@ -1,6 +1,6 @@
 
-<p align="center">
-<h5>Hawk</h5>
+
+# Hawk
 
 ### Integrantes:
 - Erick Baron
@@ -9,7 +9,7 @@
 - Jonatas Adams
 - Luan Schmidt
 - Vitor Paulo
-
+<p align="center">
 ![CAPA](https://i.imgur.com/2xg73Xb.png)
 </p>
 
