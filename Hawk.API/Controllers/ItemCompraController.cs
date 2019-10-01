@@ -11,16 +11,22 @@ using Microsoft.AspNetCore.Authorization;
 
 
 namespace Hawk.API.Controllers
-{[Route("api/itenscompras")]
-[ApiController]
+{
+    [Route("api/itenscompras")]
+    [ApiController]
     [AllowAnonymous]
     public class ItemCompraController : Controller
     {
         private readonly IHawkRepository<ItemCompra> repository;
+        private readonly ICarrinhoRepository repositoryCarrinho;
 
-        public ItemCompraController(IHawkRepository<ItemCompra> repository)
+        public ItemCompraController(
+            IHawkRepository<ItemCompra> repository,
+            ICarrinhoRepository repositoryCarrinho
+            )
         {
             this.repository = repository;
+            this.repositoryCarrinho = repositoryCarrinho;
         }
 
         [HttpGet, Route("obtertodos")]
@@ -52,8 +58,26 @@ namespace Hawk.API.Controllers
                 }
                 return BadRequest(Json(errors));
             }
+            // TODO obter o Id Usuário
+            var x = User.Identity.Name;
+                int idUsuario = Convert.ToInt32(1);
+            var carrinho = repositoryCarrinho.ObterCarrinhoAbertoPeloIdUsuario(idUsuario);
 
-            return Json(new { id = repository.Add(itemCompra) });
+            if(carrinho == null)
+            {
+                carrinho = new Carrinho()
+                {
+                    UsuarioId = idUsuario,
+                    RegistroAtivo = true,
+                    ValorTotal = 0
+                };
+                repositoryCarrinho.Add(carrinho);
+            }
+
+            itemCompra.CompraId = carrinho.Id;
+            var id = repository.Add(itemCompra);
+
+            return Json(new { id = id });
         }
 
         [HttpPut, Route("update")]

@@ -15,6 +15,7 @@ namespace Hawk.Repository
         List<T> ObterTodos();
 
         T ObterPeloId(int id);
+
     }
 
 }

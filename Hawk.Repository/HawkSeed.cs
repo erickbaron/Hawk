@@ -51,7 +51,6 @@ namespace Hawk.Repository
                 });
             #endregion
 
-
             #region empresa
             modelBuilder.Entity<Empresa>().HasData(
                 new Empresa()
@@ -90,88 +89,6 @@ namespace Hawk.Repository
                 });
             #endregion
 
-            #region EndereçoEmpresa
-            modelBuilder.Entity<EnderecoEmpresa>().HasData(
-                new EnderecoEmpresa()
-                {
-                    Id = 1,
-                    Estado = "Sao Paulo",
-                    Cidade = "Sao Paulo",
-                    Cep = "04180112",
-                    Logradouro = "virando a esquina",
-                    Numero = "1222",
-                    Complemento = "Casa",
-                    RegistroAtivo = true,
-
-                    EmpresaId = 1
-                },
-                new EnderecoEmpresa()
-                {
-                    Id = 2,
-                    Estado = "Rio de janeiro",
-                    Cidade = "rio de janeiro",
-                    Cep = "04180113",
-                    Logradouro = "Rua principal",
-                    Numero = "123",
-                    Complemento = " ",
-                    RegistroAtivo = true,
-
-                    EmpresaId = 2
-                });
-            #endregion
-
-            #region EndereçoCliente
-            modelBuilder.Entity<EnderecoCliente>().HasData(
-                new EnderecoCliente()
-                {
-                    Id = 1,
-                    Estado = "Sao Paulo",
-                    Cidade = "Sao Paulo",
-                    Cep = "04180112",
-                    Logradouro = "virando a esquina",
-                    Numero = "1222",
-                    Complemento = " ",
-                    RegistroAtivo = true,
-
-                    ClienteId = 1
-                },
-                new EnderecoCliente()
-                {
-                    Id = 2,
-                    Estado = "Rio de janeiro",
-                    Cidade = "rio de janeiro",
-                    Cep = "04180113",
-                    Logradouro = "Rua principal",
-                    Numero = "123",
-                    Complemento = " ",
-                    RegistroAtivo = true,
-
-                    ClienteId = 2
-                });
-            #endregion
-
-            #region AvaliaçãoEmpresa
-            modelBuilder.Entity<AvaliacaoEmpresa>().HasData(
-                new AvaliacaoEmpresa()
-                {
-                    Id = 1,
-                    Comentario = "hfgghsdgfhsdgfjhgs",
-                    Nota = 5,
-                    RegistroAtivo = true,
-
-                    EmpresaId = 1
-                },
-                new AvaliacaoEmpresa()
-                {
-                    Id = 2,
-                    Comentario = "ehuehuehueheu",
-                    Nota = 4,
-                    RegistroAtivo = true,
-
-                    EmpresaId = 1
-                });
-            #endregion
-
             #region produto
             modelBuilder.Entity<Produto>().HasData(
                 new Produto()
@@ -186,7 +103,7 @@ namespace Hawk.Repository
                     Comprimento = 3,
                     Peso = 10,
                     Promocao = false,
-                    NomeArquivo = "imagem.jpg",
+                    NomeArquivo = "imagem2.jpg",
                     NomeHash = "",
                     RegistroAtivo = true,
 
@@ -212,7 +129,127 @@ namespace Hawk.Repository
 
                     EmpresaId = 2,
                     CategoriaId = 2,
-                });
+                },
+                new Produto()
+                {
+                    Id = 3,
+                    Nome = "asdsadasd asdasdasdasd",
+                    Descricao = "dasdadatera",
+                    ValorCusto = 2,
+                    ValorVenda = 10,
+                    Altura = 1,
+                    Largura = 2,
+                    Comprimento = 3,
+                    Peso = 10,
+                    Promocao = false,
+                    NomeArquivo = "imagem2.jpg",
+                    NomeHash = "",
+                    RegistroAtivo = true,
+
+                    EmpresaId = 1,
+                    CategoriaId = 1,
+                },
+                new Produto()
+                {
+                    Id = 4,
+                    Nome = "blablabla blabla",
+                    Descricao = "sdadaads ",
+                    ValorCusto = 3,
+                    ValorVenda = 100,
+                    Altura = 2,
+                    Largura = 2,
+                    Comprimento = 2,
+                    Peso = 10,
+                    Promocao = false,
+                    NomeArquivo = "imagem.jpg",
+                    NomeHash = "",
+
+                    RegistroAtivo = true,
+
+                    EmpresaId = 2,
+                    CategoriaId = 2,
+                },
+                new Produto()
+                {
+                    Id = 5,
+                    Nome = "blablabla blabla",
+                    Descricao = "sdadaads ",
+                    ValorCusto = 3,
+                    ValorVenda = 100,
+                    Altura = 2,
+                    Largura = 2,
+                    Comprimento = 2,
+                    Peso = 10,
+                    Promocao = false,
+                    NomeArquivo = "imagem.jpg",
+                    NomeHash = "",
+
+                    RegistroAtivo = true,
+
+                    EmpresaId = 2,
+                    CategoriaId = 2,
+                },
+                new Produto()
+                {
+                    Id = 6,
+                    Nome = "blablabla blabla",
+                    Descricao = "sdadaads ",
+                    ValorCusto = 3,
+                    ValorVenda = 100,
+                    Altura = 2,
+                    Largura = 2,
+                    Comprimento = 2,
+                    Peso = 10,
+                    Promocao = false,
+                    NomeArquivo = "imagem.jpg",
+                    NomeHash = "",
+
+                    RegistroAtivo = true,
+
+                    EmpresaId = 2,
+                    CategoriaId = 2,
+                },
+                new Produto()
+                {
+                    Id = 7,
+                    Nome = "blablabla blabla",
+                    Descricao = "sdadaads ",
+                    ValorCusto = 3,
+                    ValorVenda = 100,
+                    Altura = 2,
+                    Largura = 2,
+                    Comprimento = 2,
+                    Peso = 10,
+                    Promocao = false,
+                    NomeArquivo = "imagem.jpg",
+                    NomeHash = "",
+
+                    RegistroAtivo = true,
+
+                    EmpresaId = 2,
+                    CategoriaId = 2,
+                },
+                new Produto()
+                {
+                    Id = 8,
+                    Nome = "blablabla blabla",
+                    Descricao = "sdadaads ",
+                    ValorCusto = 3,
+                    ValorVenda = 100,
+                    Altura = 2,
+                    Largura = 2,
+                    Comprimento = 2,
+                    Peso = 10,
+                    Promocao = false,
+                    NomeArquivo = "imagem.jpg",
+                    NomeHash = "",
+
+                    RegistroAtivo = true,
+
+                    EmpresaId = 2,
+                    CategoriaId = 2,
+                }
+                );
             #endregion
 
             #region compra 
@@ -225,8 +262,8 @@ namespace Hawk.Repository
                     RegistroAtivo = true,
 
 
-                    ClienteId= 1,
-                    CarrinhoId= 1
+                    ClienteId = 1,
+                    CarrinhoId = 1
                 },
                 new Compra()
                 {
@@ -249,7 +286,7 @@ namespace Hawk.Repository
                     Quantidade = 2,
 
                     Entrada = "entrada",
-                    DataEntrada =  new DateTime(2012, 10, 12),
+                    DataEntrada = new DateTime(2012, 10, 12),
 
                     EmpresaId = 1,
                     ProdutoId = 1,
@@ -271,32 +308,23 @@ namespace Hawk.Repository
                 });
             #endregion
 
-            #region finaças
-            modelBuilder.Entity<Financa>().HasData(
-                 new Financa()
-                 {
-                     Id = 1,
-                     ValorCusto = 2,
-                     ValorVenda = 200,
-                     Lucro = 198,
-                     RegistroAtivo = true,
+            #region Carrinho
+            modelBuilder.Entity<Carrinho>().HasData(
+                new Carrinho()
+                {
+                    Id = 1,
+                    RegistroAtivo = true,
+                    UsuarioId = 1,
+                    ValorTotal = 0
+                },
+                new Carrinho()
+                {
+                    Id = 2,
+                    RegistroAtivo = true,
+                    UsuarioId = 2,
+                    ValorTotal = 0
 
-                     CompraId = 1,
-                     EmpresaId = 1
-
-                 },
-                 new Financa()
-                 {
-                     Id = 2,
-                     ValorCusto = 3,
-                     ValorVenda = 303,
-                     Lucro = 300,
-                     RegistroAtivo = true,
-
-                     CompraId = 2,
-                     EmpresaId = 2
-
-                 });
+                });
             #endregion
 
             #region itemCompra 
@@ -304,61 +332,22 @@ namespace Hawk.Repository
                 new ItemCompra()
                 {
                     Id = 1,
-                    RegistroAtivo = true,
-
+                    CompraId = 1,
                     ProdutoId = 1,
-                     
+                    RegistroAtivo = true
+
                 },
                 new ItemCompra()
                 {
                     Id = 2,
-                    RegistroAtivo = true,
-
+                    CompraId = 1,
                     ProdutoId = 2,
-                });
-            #endregion
-
-            #region produtoFavorito
-            modelBuilder.Entity<ProdutoFavorito>().HasData(
-                new ProdutoFavorito()
-                {
-                    Id = 1,
                     RegistroAtivo = true,
 
-                    ProdutoId = 1,
-                    ClienteId = 1
-                },
-                new ProdutoFavorito()
-                {
-                    Id = 2,
-                    RegistroAtivo = true,
-
-                    ProdutoId = 2,
-                    ClienteId = 2
                 });
             #endregion
 
 
-            #region Carrinho
-            modelBuilder.Entity<Carrinho>().HasData(
-                new Carrinho()
-                {
-                    Id = 1,
-                    RegistroAtivo = true,
-
-                    Quantidade = 2,
-                    ItemCompraId = 1,
-                },
-                new Carrinho()
-                {
-                    Id = 2,
-                    RegistroAtivo = true,
-
-                    Quantidade = 2,
-                    ItemCompraId = 1,
-                     
-                });
-            #endregion
 
             #region cliente 
             modelBuilder.Entity<Cliente>().HasData(
@@ -384,28 +373,6 @@ namespace Hawk.Repository
                     RegistroAtivo = true,
 
                     UsuarioId = 2,
-                });
-            #endregion
-
-            #region valiliaçãoProduto
-            modelBuilder.Entity<AvaliacaoProduto>().HasData(
-                new AvaliacaoProduto()
-                {
-                    Id = 1,
-                    Comentario = "abfkjgadkfgakf",
-                    Nota = 5,
-                    RegistroAtivo = true,
-
-                    ProdutoId = 1
-                },
-                new AvaliacaoProduto()
-                {
-                    Id = 2,
-                    Comentario = "fçaksdçmakd",
-                    Nota = 5,
-                    RegistroAtivo = true,
-
-                    ProdutoId = 1
                 });
             #endregion
 
