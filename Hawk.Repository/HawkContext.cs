@@ -28,6 +28,7 @@ namespace Hawk.Repository
         public DbSet<ItemCompra> ItensCompras { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<ProdutoFavorito> ProdutosFavoritos { get; set; }
+        public DbSet<imagem> imagens{ get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
