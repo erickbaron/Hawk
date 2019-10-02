@@ -20,5 +20,12 @@
  - Hawk-ng = Na parte do Front-End abra o projeto no Visual Studio Code e abra um novo terminal, outra forma é abrindo o projeto pelo cmd a fazendo o processo a seguir, dentro do terminal ou cmd digite "npm install" e depois da instalação digite "ng serve -o" e vai abrir a tela do cliente. Hawk-Admin-ng = Na Parte do Admin faça o mesmo processo anterior.
  
  
+ 
+ <img src="<p align="center">
+ <img src="https://i.imgur.com/2xg73Xb.png">
+</p>">
+</p>
+ 
+ 
 
 
