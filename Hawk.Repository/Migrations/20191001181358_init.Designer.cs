@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hawk.Repository.Migrations
 {
     [DbContext(typeof(HawkContext))]
-    [Migration("20191001130501_init")]
+    [Migration("20191001181358_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -728,7 +728,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "574d694f-e080-4fb6-ae28-b3814e4bfc1d",
+                            ConcurrencyStamp = "3d1f8664-4fe5-4e95-af54-0e3f207a26f6",
                             Email = "erick@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
@@ -744,7 +744,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b08db789-4dfa-4c2a-94be-68ac7a580518",
+                            ConcurrencyStamp = "af947664-8e4d-4064-9903-6d63c0724088",
                             Email = "joao@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
