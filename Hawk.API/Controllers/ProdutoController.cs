@@ -75,21 +75,6 @@ namespace Hawk.API.Controllers
                 return BadRequest(Json(errors));
             }
 
-            var nomeArquivo = arquivo.FileName;
-            var nomeHash = ObterHashDoNomeDoArquivo(nomeArquivo);
-
-            var caminhoArquivo = Path.Combine(this.caminho, nomeHash);
-            using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
-            {
-                arquivo.CopyTo(stream);
-                this.repository.Add(new Produto()
-                {
-                    NomeArquivo = nomeArquivo,
-                    NomeHash = nomeHash
-                });
-            }
-
-
             return Json(new { id = repository.Add(produto) });
         }
         

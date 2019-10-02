@@ -73,7 +73,7 @@ namespace Hawk.API.Controllers
                 return BadRequest(Json(errors));
             }
 
-            return Json(new { id = repository.Update(cartao) });
+            return Json(new { id = repository.Update(cartao)});
         }
 
         [HttpDelete, Route("delete")]

@@ -69,7 +69,7 @@ namespace Hawk.API.Controllers
                 {
                     UsuarioId = idUsuario,
                     RegistroAtivo = true,
-                    ValorTotal = 0
+                    ValorTotal = itemCompra.Valor
                 };
                 repositoryCarrinho.Add(carrinho);
             }

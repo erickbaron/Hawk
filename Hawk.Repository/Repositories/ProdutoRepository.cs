@@ -17,6 +17,8 @@ namespace Hawk.Repository.Repositories
 
         public int Add(Produto entity)
         {
+            entity.Promocao = false;
+            entity.NomeHash = "";
             entity.RegistroAtivo = true;
             context.Produtos.Add(entity);
             context.SaveChanges();

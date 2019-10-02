@@ -29,7 +29,8 @@ namespace Hawk.Repository.Migrations
 
                     b.Property<int>("UsuarioId");
 
-                    b.Property<decimal>("ValorTotal");
+                    b.Property<decimal>("ValorTotal")
+                        .HasColumnType("decimal(8,2)");
 
                     b.HasKey("Id");
 
@@ -430,7 +431,7 @@ namespace Hawk.Repository.Migrations
 
                     b.Property<int>("Altura");
 
-                    b.Property<int>("CategoriaId");
+                    b.Property<int?>("CategoriaId");
 
                     b.Property<int>("Comprimento");
 
@@ -439,7 +440,7 @@ namespace Hawk.Repository.Migrations
                     b.Property<string>("Discriminator")
                         .IsRequired();
 
-                    b.Property<int>("EmpresaId");
+                    b.Property<int?>("EmpresaId");
 
                     b.Property<int>("Largura");
 
@@ -726,7 +727,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "574d694f-e080-4fb6-ae28-b3814e4bfc1d",
+                            ConcurrencyStamp = "53db4f68-e72f-40bf-92f8-f08ccb96f13a",
                             Email = "erick@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
@@ -742,7 +743,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b08db789-4dfa-4c2a-94be-68ac7a580518",
+                            ConcurrencyStamp = "8000d87f-b704-4796-8982-089a589bc1bc",
                             Email = "joao@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
@@ -928,13 +929,11 @@ namespace Hawk.Repository.Migrations
                 {
                     b.HasOne("Hawk.Domain.Entities.Categoria", "Categoria")
                         .WithMany()
-                        .HasForeignKey("CategoriaId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("CategoriaId");
 
                     b.HasOne("Hawk.Domain.Entities.Empresa", "Empresa")
                         .WithMany()
-                        .HasForeignKey("EmpresaId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("EmpresaId");
                 });
 
             modelBuilder.Entity("Hawk.Domain.Entities.UserRole", b =>

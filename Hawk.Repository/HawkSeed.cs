@@ -21,7 +21,7 @@ namespace Hawk.Repository
                 new Categoria()
                 {
                     Id = 2,
-                    Nome = "Calabresa",
+                    Nome = "Periféricos",
                     RegistroAtivo = true
                 });
             #endregion

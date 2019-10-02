@@ -200,7 +200,7 @@ namespace Hawk.Repository.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     UsuarioId = table.Column<int>(nullable: false),
-                    ValorTotal = table.Column<decimal>(nullable: false),
+                    ValorTotal = table.Column<decimal>(type: "decimal(8,2)", nullable: false),
                     RegistroAtivo = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -368,8 +368,8 @@ namespace Hawk.Repository.Migrations
                     RegistroAtivo = table.Column<bool>(nullable: false),
                     NomeArquivo = table.Column<string>(nullable: true),
                     NomeHash = table.Column<string>(nullable: true),
-                    EmpresaId = table.Column<int>(nullable: false),
-                    CategoriaId = table.Column<int>(nullable: false),
+                    EmpresaId = table.Column<int>(nullable: true),
+                    CategoriaId = table.Column<int>(nullable: true),
                     Discriminator = table.Column<string>(nullable: false),
                     UrlImagem = table.Column<string>(nullable: true),
                     UrlImagemHash = table.Column<string>(nullable: true),
@@ -479,8 +479,8 @@ namespace Hawk.Repository.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "senha", "PhoneNumber", "PhoneNumberConfirmed", "registro_ativo", "SecurityStamp", "TwoFactorEnabled", "nome" },
                 values: new object[,]
                 {
-                    { 1, 0, "574d694f-e080-4fb6-ae28-b3814e4bfc1d", "erick@gmail.com", false, false, null, "ERICK@GMAIL.COM", "Erick", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Erick" },
-                    { 2, 0, "b08db789-4dfa-4c2a-94be-68ac7a580518", "joao@gmail.com", false, false, null, "JOAO@GMAIL.COM", "Joao", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Joao" }
+                    { 1, 0, "53db4f68-e72f-40bf-92f8-f08ccb96f13a", "erick@gmail.com", false, false, null, "ERICK@GMAIL.COM", "Erick", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Erick" },
+                    { 2, 0, "8000d87f-b704-4796-8982-089a589bc1bc", "joao@gmail.com", false, false, null, "JOAO@GMAIL.COM", "Joao", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Joao" }
                 });
 
             migrationBuilder.InsertData(
