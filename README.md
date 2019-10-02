@@ -21,9 +21,8 @@
  
  
  
- <img src="<p align="center">
- <img src="https://i.imgur.com/2xg73Xb.png">
-</p>">
+<p align="center">
+ <img src="https://i.imgur.com/xLoGwnd.jpg">
 </p>
  
  
