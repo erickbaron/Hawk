@@ -126,7 +126,7 @@ namespace Hawk.Repository.Migrations
                         new
                         {
                             Id = 2,
-                            Nome = "Calabresa",
+                            Nome = "Periféricos",
                             RegistroAtivo = true
                         });
                 });
@@ -477,74 +477,74 @@ namespace Hawk.Repository.Migrations
                         new
                         {
                             Id = 1,
-                            Altura = 1,
+                            Altura = 2,
                             CategoriaId = 1,
-                            Comprimento = 3,
-                            Descricao = "se derubar abre uma cratera",
+                            Comprimento = 26,
+                            Descricao = "Notebook Intel Core i7 8550U 15,6' 8GB HD 1 TB GeForce MX150 Windows 10",
                             EmpresaId = 1,
-                            Largura = 2,
-                            Nome = "nokia tijolao",
-                            NomeArquivo = "imagem2.jpg",
+                            Largura = 38,
+                            Nome = "Notebook Lenovo IdeaPad 330",
+                            NomeArquivo = "imagem-1.jpg",
                             NomeHash = "",
-                            Peso = 10m,
+                            Peso = 2m,
                             Promocao = false,
                             RegistroAtivo = true,
-                            ValorCusto = 2m,
-                            ValorVenda = 10m
+                            ValorCusto = 2100m,
+                            ValorVenda = 2915m
                         },
                         new
                         {
                             Id = 2,
-                            Altura = 2,
+                            Altura = 14,
                             CategoriaId = 2,
-                            Comprimento = 2,
-                            Descricao = "o kiko sempre quis uma ",
+                            Comprimento = 1,
+                            Descricao = "Smartphone Samsung Galaxy S9 SM-G9600 128GB",
                             EmpresaId = 2,
-                            Largura = 2,
-                            Nome = "bola quadrada",
-                            NomeArquivo = "imagem.jpg",
+                            Largura = 7,
+                            Nome = "Smartphone Samsung Galaxy S9",
+                            NomeArquivo = "imagem-2.jpg",
                             NomeHash = "",
-                            Peso = 10m,
+                            Peso = 163m,
                             Promocao = false,
                             RegistroAtivo = true,
-                            ValorCusto = 3m,
-                            ValorVenda = 100m
+                            ValorCusto = 1300m,
+                            ValorVenda = 1889m
                         },
                         new
                         {
                             Id = 3,
-                            Altura = 1,
+                            Altura = 136,
                             CategoriaId = 1,
-                            Comprimento = 3,
-                            Descricao = "dasdadatera",
+                            Comprimento = 132,
+                            Descricao = "Caixa de Som Xtreme 2 JBL Preta 40W RMS",
                             EmpresaId = 1,
-                            Largura = 2,
-                            Nome = "asdsadasd asdasdasdasd",
-                            NomeArquivo = "imagem2.jpg",
+                            Largura = 288,
+                            Nome = "Caixa de Som Xtreme 2 JBL",
+                            NomeArquivo = "imagem3.jpg",
                             NomeHash = "",
-                            Peso = 10m,
+                            Peso = 3m,
                             Promocao = false,
                             RegistroAtivo = true,
-                            ValorCusto = 2m,
-                            ValorVenda = 10m
+                            ValorCusto = 500m,
+                            ValorVenda = 949m
                         },
                         new
                         {
                             Id = 4,
-                            Altura = 2,
+                            Altura = 10,
                             CategoriaId = 2,
-                            Comprimento = 2,
-                            Descricao = "sdadaads ",
+                            Comprimento = 5,
+                            Descricao = "Headphone Bluetooth com Microfone JBL Tune 500BT",
                             EmpresaId = 2,
-                            Largura = 2,
-                            Nome = "blablabla blabla",
-                            NomeArquivo = "imagem.jpg",
+                            Largura = 5,
+                            Nome = "Headphone JBL",
+                            NomeArquivo = "imagem4.jpg",
                             NomeHash = "",
-                            Peso = 10m,
+                            Peso = 100m,
                             Promocao = false,
                             RegistroAtivo = true,
-                            ValorCusto = 3m,
-                            ValorVenda = 100m
+                            ValorCusto = 98m,
+                            ValorVenda = 198m
                         },
                         new
                         {
@@ -552,71 +552,17 @@ namespace Hawk.Repository.Migrations
                             Altura = 2,
                             CategoriaId = 2,
                             Comprimento = 2,
-                            Descricao = "sdadaads ",
+                            Descricao = "God of War é um jogo eletrônico de ação-aventura desenvolvido pela Santa Monica Studio e publicado pela Sony Interactive Entertainment.",
                             EmpresaId = 2,
                             Largura = 2,
-                            Nome = "blablabla blabla",
-                            NomeArquivo = "imagem.jpg",
+                            Nome = "Game God Of War - PS4",
+                            NomeArquivo = "imagem-5.jpg",
                             NomeHash = "",
                             Peso = 10m,
                             Promocao = false,
                             RegistroAtivo = true,
                             ValorCusto = 3m,
-                            ValorVenda = 100m
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Altura = 2,
-                            CategoriaId = 2,
-                            Comprimento = 2,
-                            Descricao = "sdadaads ",
-                            EmpresaId = 2,
-                            Largura = 2,
-                            Nome = "blablabla blabla",
-                            NomeArquivo = "imagem.jpg",
-                            NomeHash = "",
-                            Peso = 10m,
-                            Promocao = false,
-                            RegistroAtivo = true,
-                            ValorCusto = 3m,
-                            ValorVenda = 100m
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Altura = 2,
-                            CategoriaId = 2,
-                            Comprimento = 2,
-                            Descricao = "sdadaads ",
-                            EmpresaId = 2,
-                            Largura = 2,
-                            Nome = "blablabla blabla",
-                            NomeArquivo = "imagem.jpg",
-                            NomeHash = "",
-                            Peso = 10m,
-                            Promocao = false,
-                            RegistroAtivo = true,
-                            ValorCusto = 3m,
-                            ValorVenda = 100m
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Altura = 2,
-                            CategoriaId = 2,
-                            Comprimento = 2,
-                            Descricao = "sdadaads ",
-                            EmpresaId = 2,
-                            Largura = 2,
-                            Nome = "blablabla blabla",
-                            NomeArquivo = "imagem.jpg",
-                            NomeHash = "",
-                            Peso = 10m,
-                            Promocao = false,
-                            RegistroAtivo = true,
-                            ValorCusto = 3m,
-                            ValorVenda = 100m
+                            ValorVenda = 80m
                         });
                 });
 
@@ -727,7 +673,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "53db4f68-e72f-40bf-92f8-f08ccb96f13a",
+                            ConcurrencyStamp = "cbb33d6f-6e83-451a-bb91-ddac0a5158dc",
                             Email = "erick@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
@@ -743,7 +689,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8000d87f-b704-4796-8982-089a589bc1bc",
+                            ConcurrencyStamp = "a630b835-e9c5-4b6b-8424-740c2041d299",
                             Email = "joao@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
