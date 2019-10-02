@@ -51,7 +51,6 @@ namespace Hawk.Repository
                 });
             #endregion
 
-
             #region empresa
             modelBuilder.Entity<Empresa>().HasData(
                 new Empresa()
@@ -90,65 +89,6 @@ namespace Hawk.Repository
                 });
             #endregion
 
-            #region EndereçoEmpresa
-            modelBuilder.Entity<EnderecoEmpresa>().HasData(
-                new EnderecoEmpresa()
-                {
-                    Id = 1,
-                    Estado = "Sao Paulo",
-                    Cidade = "Sao Paulo",
-                    Cep = "04180112",
-                    Logradouro = "virando a esquina",
-                    Numero = "1222",
-                    Complemento = "Casa",
-                    RegistroAtivo = true,
-
-                    EmpresaId = 1
-                },
-                new EnderecoEmpresa()
-                {
-                    Id = 2,
-                    Estado = "Rio de janeiro",
-                    Cidade = "rio de janeiro",
-                    Cep = "04180113",
-                    Logradouro = "Rua principal",
-                    Numero = "123",
-                    Complemento = " ",
-                    RegistroAtivo = true,
-
-                    EmpresaId = 2
-                });
-            #endregion
-
-            #region EndereçoCliente
-            modelBuilder.Entity<EnderecoCliente>().HasData(
-                new EnderecoCliente()
-                {
-                    Id = 1,
-                    Estado = "Sao Paulo",
-                    Cidade = "Sao Paulo",
-                    Cep = "04180112",
-                    Logradouro = "virando a esquina",
-                    Numero = "1222",
-                    Complemento = " ",
-                    RegistroAtivo = true,
-
-                    ClienteId = 1
-                },
-                new EnderecoCliente()
-                {
-                    Id = 2,
-                    Estado = "Rio de janeiro",
-                    Cidade = "rio de janeiro",
-                    Cep = "04180113",
-                    Logradouro = "Rua principal",
-                    Numero = "123",
-                    Complemento = " ",
-                    RegistroAtivo = true,
-
-                    ClienteId = 2
-                });
-            #endregion
 
             #region AvaliaçãoEmpresa
             modelBuilder.Entity<AvaliacaoEmpresa>().HasData(
@@ -186,7 +126,7 @@ namespace Hawk.Repository
                     Comprimento = 3,
                     Peso = 10,
                     Promocao = false,
-                    NomeArquivo = "imagem.jpg",
+                    NomeArquivo = "imagem2.jpg",
                     NomeHash = "",
                     RegistroAtivo = true,
 
@@ -212,7 +152,47 @@ namespace Hawk.Repository
 
                     EmpresaId = 2,
                     CategoriaId = 2,
-                });
+                },
+                new Produto()
+                {
+                    Id = 3,
+                    Nome = "asdsadasd asdasdasdasd",
+                    Descricao = "dasdadatera",
+                    ValorCusto = 2,
+                    ValorVenda = 10,
+                    Altura = 1,
+                    Largura = 2,
+                    Comprimento = 3,
+                    Peso = 10,
+                    Promocao = false,
+                    NomeArquivo = "imagem2.jpg",
+                    NomeHash = "",
+                    RegistroAtivo = true,
+
+                    EmpresaId = 1,
+                    CategoriaId = 1,
+                },
+                new Produto()
+                {
+                    Id = 4,
+                    Nome = "blablabla blabla",
+                    Descricao = "sdadaads ",
+                    ValorCusto = 3,
+                    ValorVenda = 100,
+                    Altura = 2,
+                    Largura = 2,
+                    Comprimento = 2,
+                    Peso = 10,
+                    Promocao = false,
+                    NomeArquivo = "imagem.jpg",
+                    NomeHash = "",
+
+                    RegistroAtivo = true,
+
+                    EmpresaId = 2,
+                    CategoriaId = 2,
+                }
+                );
             #endregion
 
             #region compra 
@@ -271,34 +251,6 @@ namespace Hawk.Repository
                 });
             #endregion
 
-            #region finaças
-            modelBuilder.Entity<Financa>().HasData(
-                 new Financa()
-                 {
-                     Id = 1,
-                     ValorCusto = 2,
-                     ValorVenda = 200,
-                     Lucro = 198,
-                     RegistroAtivo = true,
-
-                     CompraId = 1,
-                     EmpresaId = 1
-
-                 },
-                 new Financa()
-                 {
-                     Id = 2,
-                     ValorCusto = 3,
-                     ValorVenda = 303,
-                     Lucro = 300,
-                     RegistroAtivo = true,
-
-                     CompraId = 2,
-                     EmpresaId = 2
-
-                 });
-            #endregion
-
             #region itemCompra 
             modelBuilder.Entity<ItemCompra>().HasData(
                 new ItemCompra()
@@ -337,7 +289,6 @@ namespace Hawk.Repository
                     ClienteId = 2
                 });
             #endregion
-
 
             #region Carrinho
             modelBuilder.Entity<Carrinho>().HasData(

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hawk.Repository.Migrations
 {
     [DbContext(typeof(HawkContext))]
-    [Migration("20190925140539_init")]
+    [Migration("20190929161701_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -404,87 +404,6 @@ namespace Hawk.Repository.Migrations
                     b.HasIndex("ClienteId");
 
                     b.ToTable("EnderecosClientes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Cep = "04180112",
-                            Cidade = "Sao Paulo",
-                            ClienteId = 1,
-                            Complemento = " ",
-                            Estado = "Sao Paulo",
-                            Logradouro = "virando a esquina",
-                            Numero = "1222",
-                            RegistroAtivo = true
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Cep = "04180113",
-                            Cidade = "rio de janeiro",
-                            ClienteId = 2,
-                            Complemento = " ",
-                            Estado = "Rio de janeiro",
-                            Logradouro = "Rua principal",
-                            Numero = "123",
-                            RegistroAtivo = true
-                        });
-                });
-
-            modelBuilder.Entity("Hawk.Domain.Entities.EnderecoEmpresa", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Cep");
-
-                    b.Property<string>("Cidade");
-
-                    b.Property<string>("Complemento");
-
-                    b.Property<int>("EmpresaId");
-
-                    b.Property<string>("Estado");
-
-                    b.Property<string>("Logradouro");
-
-                    b.Property<string>("Numero");
-
-                    b.Property<bool>("RegistroAtivo");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EmpresaId");
-
-                    b.ToTable("EnderecosEmpresas");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Cep = "04180112",
-                            Cidade = "Sao Paulo",
-                            Complemento = "Casa",
-                            EmpresaId = 1,
-                            Estado = "Sao Paulo",
-                            Logradouro = "virando a esquina",
-                            Numero = "1222",
-                            RegistroAtivo = true
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Cep = "04180113",
-                            Cidade = "rio de janeiro",
-                            Complemento = " ",
-                            EmpresaId = 2,
-                            Estado = "Rio de janeiro",
-                            Logradouro = "Rua principal",
-                            Numero = "123",
-                            RegistroAtivo = true
-                        });
                 });
 
             modelBuilder.Entity("Hawk.Domain.Entities.Estoque", b =>
@@ -533,60 +452,6 @@ namespace Hawk.Repository.Migrations
                             ProdutoId = 2,
                             Quantidade = 32,
                             RegistroAtivo = true
-                        });
-                });
-
-            modelBuilder.Entity("Hawk.Domain.Entities.Financa", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CompraId");
-
-                    b.Property<int>("EmpresaId");
-
-                    b.Property<decimal>("Lucro")
-                        .HasColumnType("decimal(8,2)");
-
-                    b.Property<string>("Mes");
-
-                    b.Property<bool>("RegistroAtivo");
-
-                    b.Property<decimal>("ValorCusto")
-                        .HasColumnType("decimal(8,2)");
-
-                    b.Property<decimal>("ValorVenda")
-                        .HasColumnType("decimal(8,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CompraId");
-
-                    b.HasIndex("EmpresaId");
-
-                    b.ToTable("Financas");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CompraId = 1,
-                            EmpresaId = 1,
-                            Lucro = 198m,
-                            RegistroAtivo = true,
-                            ValorCusto = 2m,
-                            ValorVenda = 200m
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CompraId = 2,
-                            EmpresaId = 2,
-                            Lucro = 300m,
-                            RegistroAtivo = true,
-                            ValorCusto = 3m,
-                            ValorVenda = 303m
                         });
                 });
 
@@ -677,7 +542,7 @@ namespace Hawk.Repository.Migrations
                             EmpresaId = 1,
                             Largura = 2,
                             Nome = "nokia tijolao",
-                            NomeArquivo = "imagem.jpg",
+                            NomeArquivo = "imagem2.jpg",
                             NomeHash = "",
                             Peso = 10m,
                             Promocao = false,
@@ -695,6 +560,42 @@ namespace Hawk.Repository.Migrations
                             EmpresaId = 2,
                             Largura = 2,
                             Nome = "bola quadrada",
+                            NomeArquivo = "imagem.jpg",
+                            NomeHash = "",
+                            Peso = 10m,
+                            Promocao = false,
+                            RegistroAtivo = true,
+                            ValorCusto = 3m,
+                            ValorVenda = 100m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Altura = 1,
+                            CategoriaId = 1,
+                            Comprimento = 3,
+                            Descricao = "dasdadatera",
+                            EmpresaId = 1,
+                            Largura = 2,
+                            Nome = "asdsadasd asdasdasdasd",
+                            NomeArquivo = "imagem2.jpg",
+                            NomeHash = "",
+                            Peso = 10m,
+                            Promocao = false,
+                            RegistroAtivo = true,
+                            ValorCusto = 2m,
+                            ValorVenda = 10m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Altura = 2,
+                            CategoriaId = 2,
+                            Comprimento = 2,
+                            Descricao = "sdadaads ",
+                            EmpresaId = 2,
+                            Largura = 2,
+                            Nome = "blablabla blabla",
                             NomeArquivo = "imagem.jpg",
                             NomeHash = "",
                             Peso = 10m,
@@ -849,7 +750,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "88e29c94-c457-40b7-b077-6ac80b4bf237",
+                            ConcurrencyStamp = "a5558ecd-881a-41d1-971c-fb9aa7faca96",
                             Email = "erick@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
@@ -865,7 +766,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6b6dfc46-2122-495f-8c27-35037d162673",
+                            ConcurrencyStamp = "e6368f63-dd49-4207-88d6-9ad339672c6d",
                             Email = "joao@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
@@ -1018,14 +919,6 @@ namespace Hawk.Repository.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("Hawk.Domain.Entities.EnderecoEmpresa", b =>
-                {
-                    b.HasOne("Hawk.Domain.Entities.Empresa", "Empresa")
-                        .WithMany()
-                        .HasForeignKey("EmpresaId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
             modelBuilder.Entity("Hawk.Domain.Entities.Estoque", b =>
                 {
                     b.HasOne("Hawk.Domain.Entities.Empresa", "Empresa")
@@ -1036,19 +929,6 @@ namespace Hawk.Repository.Migrations
                     b.HasOne("Hawk.Domain.Entities.Produto", "Produto")
                         .WithMany()
                         .HasForeignKey("ProdutoId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("Hawk.Domain.Entities.Financa", b =>
-                {
-                    b.HasOne("Hawk.Domain.Entities.Compra", "Compra")
-                        .WithMany()
-                        .HasForeignKey("CompraId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Hawk.Domain.Entities.Empresa", "Empresa")
-                        .WithMany()
-                        .HasForeignKey("EmpresaId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
