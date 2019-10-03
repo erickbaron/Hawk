@@ -111,11 +111,9 @@ namespace Hawk.API
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddScoped(typeof(IHawkRepository<AvaliacaoEmpresa>), typeof(AvaliacaoEmpresaRepository));
-            services.AddScoped(typeof(IHawkRepository<AvaliacaoProduto>), typeof(AvaliacaoProdutoRepository));
             services.AddScoped(typeof(IHawkRepository<Carrinho>), typeof(CarrinhoRepository));
             services.AddScoped(typeof(IHawkRepository<Cartao>), typeof(CartaoRepository));
-            services.AddScoped(typeof(IHawkRepository<Carrinho>), typeof(CarrinhoRepository));
+            services.AddScoped(typeof(ICarrinhoRepository), typeof(CarrinhoRepository));
             services.AddScoped(typeof(IHawkRepository<Categoria>), typeof(CategoriaRepository));
             services.AddScoped(typeof(IHawkRepository<Cliente>), typeof(ClienteRepository));
             services.AddScoped(typeof(IHawkRepository<Compra>), typeof(CompraRepository));
@@ -123,7 +121,6 @@ namespace Hawk.API
             services.AddScoped(typeof(IHawkRepository<EnderecoCliente>), typeof(EnderecoClienteRepository));
             services.AddScoped(typeof(IHawkRepository<Estoque>), typeof(EstoqueRepository));
             services.AddScoped(typeof(IHawkRepository<ItemCompra>), typeof(ItemCompraRepository));
-            services.AddScoped(typeof(IHawkRepository<ProdutoFavorito>), typeof(ProdutoFavoritoRepository));
             services.AddScoped(typeof(IHawkRepository<Produto>), typeof(ProdutoRepository));
             services.AddScoped(typeof(IHawkRepository<Usuario>), typeof(UsuarioRepository));
 

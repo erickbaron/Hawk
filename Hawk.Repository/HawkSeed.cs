@@ -21,7 +21,7 @@ namespace Hawk.Repository
                 new Categoria()
                 {
                     Id = 2,
-                    Nome = "Calabresa",
+                    Nome = "Periféricos",
                     RegistroAtivo = true
                 });
             #endregion
@@ -89,44 +89,21 @@ namespace Hawk.Repository
                 });
             #endregion
 
-
-            #region AvaliaçãoEmpresa
-            modelBuilder.Entity<AvaliacaoEmpresa>().HasData(
-                new AvaliacaoEmpresa()
-                {
-                    Id = 1,
-                    Comentario = "hfgghsdgfhsdgfjhgs",
-                    Nota = 5,
-                    RegistroAtivo = true,
-
-                    EmpresaId = 1
-                },
-                new AvaliacaoEmpresa()
-                {
-                    Id = 2,
-                    Comentario = "ehuehuehueheu",
-                    Nota = 4,
-                    RegistroAtivo = true,
-
-                    EmpresaId = 1
-                });
-            #endregion
-
             #region produto
             modelBuilder.Entity<Produto>().HasData(
                 new Produto()
                 {
                     Id = 1,
-                    Nome = "nokia tijolao",
-                    Descricao = "se derubar abre uma cratera",
-                    ValorCusto = 2,
-                    ValorVenda = 10,
-                    Altura = 1,
-                    Largura = 2,
-                    Comprimento = 3,
-                    Peso = 10,
+                    Nome = "Notebook Lenovo IdeaPad 330",
+                    Descricao = "Notebook Intel Core i7 8550U 15,6' 8GB HD 1 TB GeForce MX150 Windows 10",
+                    ValorCusto = 2100,
+                    ValorVenda = 2915,
+                    Altura = 2,
+                    Largura = 38,
+                    Comprimento = 26,
+                    Peso = 2,
                     Promocao = false,
-                    NomeArquivo = "imagem2.jpg",
+                    NomeArquivo = "imagem-1.jpg",
                     NomeHash = "",
                     RegistroAtivo = true,
 
@@ -136,16 +113,16 @@ namespace Hawk.Repository
                 new Produto()
                 {
                     Id = 2,
-                    Nome = "bola quadrada",
-                    Descricao = "o kiko sempre quis uma ",
-                    ValorCusto = 3,
-                    ValorVenda = 100,
-                    Altura = 2,
-                    Largura = 2,
-                    Comprimento = 2,
-                    Peso = 10,
+                    Nome = "Smartphone Samsung Galaxy S9",
+                    Descricao = "Smartphone Samsung Galaxy S9 SM-G9600 128GB",
+                    ValorCusto = 1300,
+                    ValorVenda = 1889,
+                    Altura = 14,
+                    Largura = 7,
+                    Comprimento = 1,
+                    Peso = 163,
                     Promocao = false,
-                    NomeArquivo = "imagem.jpg",
+                    NomeArquivo = "imagem-2.jpg",
                     NomeHash = "",
 
                     RegistroAtivo = true,
@@ -156,16 +133,16 @@ namespace Hawk.Repository
                 new Produto()
                 {
                     Id = 3,
-                    Nome = "asdsadasd asdasdasdasd",
-                    Descricao = "dasdadatera",
-                    ValorCusto = 2,
-                    ValorVenda = 10,
-                    Altura = 1,
-                    Largura = 2,
-                    Comprimento = 3,
-                    Peso = 10,
+                    Nome = "Caixa de Som Xtreme 2 JBL",
+                    Descricao = "Caixa de Som Xtreme 2 JBL Preta 40W RMS",
+                    ValorCusto = 500,
+                    ValorVenda = 949,
+                    Altura = 136,
+                    Largura = 288,
+                    Comprimento = 132,
+                    Peso = 3,
                     Promocao = false,
-                    NomeArquivo = "imagem2.jpg",
+                    NomeArquivo = "imagem3.jpg",
                     NomeHash = "",
                     RegistroAtivo = true,
 
@@ -175,16 +152,36 @@ namespace Hawk.Repository
                 new Produto()
                 {
                     Id = 4,
-                    Nome = "blablabla blabla",
-                    Descricao = "sdadaads ",
+                    Nome = "Headphone JBL",
+                    Descricao = "Headphone Bluetooth com Microfone JBL Tune 500BT",
+                    ValorCusto = 98,
+                    ValorVenda = 198,
+                    Altura = 10,
+                    Largura = 5,
+                    Comprimento = 5,
+                    Peso = 100,
+                    Promocao = false,
+                    NomeArquivo = "imagem4.jpg",
+                    NomeHash = "",
+
+                    RegistroAtivo = true,
+
+                    EmpresaId = 2,
+                    CategoriaId = 2,
+                },                
+                new Produto()
+                {
+                    Id = 5,
+                    Nome = "Game God Of War - PS4",
+                    Descricao = "God of War é um jogo eletrônico de ação-aventura desenvolvido pela Santa Monica Studio e publicado pela Sony Interactive Entertainment.",
                     ValorCusto = 3,
-                    ValorVenda = 100,
+                    ValorVenda = 80,
                     Altura = 2,
                     Largura = 2,
                     Comprimento = 2,
                     Peso = 10,
                     Promocao = false,
-                    NomeArquivo = "imagem.jpg",
+                    NomeArquivo = "imagem-5.jpg",
                     NomeHash = "",
 
                     RegistroAtivo = true,
@@ -205,8 +202,8 @@ namespace Hawk.Repository
                     RegistroAtivo = true,
 
 
-                    ClienteId= 1,
-                    CarrinhoId= 1
+                    ClienteId = 1,
+                    CarrinhoId = 1
                 },
                 new Compra()
                 {
@@ -229,7 +226,7 @@ namespace Hawk.Repository
                     Quantidade = 2,
 
                     Entrada = "entrada",
-                    DataEntrada =  new DateTime(2012, 10, 12),
+                    DataEntrada = new DateTime(2012, 10, 12),
 
                     EmpresaId = 1,
                     ProdutoId = 1,
@@ -251,65 +248,48 @@ namespace Hawk.Repository
                 });
             #endregion
 
-            #region itemCompra 
-            modelBuilder.Entity<ItemCompra>().HasData(
-                new ItemCompra()
-                {
-                    Id = 1,
-                    RegistroAtivo = true,
-
-                    ProdutoId = 1,
-                     
-                },
-                new ItemCompra()
-                {
-                    Id = 2,
-                    RegistroAtivo = true,
-
-                    ProdutoId = 2,
-                });
-            #endregion
-
-            #region produtoFavorito
-            modelBuilder.Entity<ProdutoFavorito>().HasData(
-                new ProdutoFavorito()
-                {
-                    Id = 1,
-                    RegistroAtivo = true,
-
-                    ProdutoId = 1,
-                    ClienteId = 1
-                },
-                new ProdutoFavorito()
-                {
-                    Id = 2,
-                    RegistroAtivo = true,
-
-                    ProdutoId = 2,
-                    ClienteId = 2
-                });
-            #endregion
-
             #region Carrinho
             modelBuilder.Entity<Carrinho>().HasData(
                 new Carrinho()
                 {
                     Id = 1,
                     RegistroAtivo = true,
-
-                    Quantidade = 2,
-                    ItemCompraId = 1,
+                    UsuarioId = 1,
+                    ValorTotal = 0
                 },
                 new Carrinho()
                 {
                     Id = 2,
                     RegistroAtivo = true,
+                    UsuarioId = 2,
+                    ValorTotal = 0
 
-                    Quantidade = 2,
-                    ItemCompraId = 1,
-                     
                 });
             #endregion
+
+            #region itemCompra 
+            modelBuilder.Entity<ItemCompra>().HasData(
+                new ItemCompra()
+                {
+                    Id = 1,
+                    CompraId = 1,
+                    ProdutoId = 1,
+                    Quantidade = 1,
+                    RegistroAtivo = true
+
+                },
+                new ItemCompra()
+                {
+                    Id = 2,
+                    CompraId = 1,
+                    ProdutoId = 2,
+                    Quantidade = 3,
+                    RegistroAtivo = true,
+
+                });
+            #endregion
+
+
 
             #region cliente 
             modelBuilder.Entity<Cliente>().HasData(
@@ -335,28 +315,6 @@ namespace Hawk.Repository
                     RegistroAtivo = true,
 
                     UsuarioId = 2,
-                });
-            #endregion
-
-            #region valiliaçãoProduto
-            modelBuilder.Entity<AvaliacaoProduto>().HasData(
-                new AvaliacaoProduto()
-                {
-                    Id = 1,
-                    Comentario = "abfkjgadkfgakf",
-                    Nota = 5,
-                    RegistroAtivo = true,
-
-                    ProdutoId = 1
-                },
-                new AvaliacaoProduto()
-                {
-                    Id = 2,
-                    Comentario = "fçaksdçmakd",
-                    Nota = 5,
-                    RegistroAtivo = true,
-
-                    ProdutoId = 1
                 });
             #endregion
 

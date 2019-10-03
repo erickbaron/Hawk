@@ -13,8 +13,6 @@ namespace Hawk.Repository
         public HawkContext(DbContextOptions<HawkContext> options) : base(options) { }
 
         public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<AvaliacaoEmpresa> AvaliacoesEmpresas { get; set; }
-        public DbSet<AvaliacaoProduto> AvaliacoesProdutos { get; set; }
         public DbSet<Carrinho> Carrinhos { get; set; }
         public DbSet<Cartao> Cartoes { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
@@ -24,9 +22,11 @@ namespace Hawk.Repository
         public DbSet<EnderecoCliente> EnderecosClientes { get; set; }
         public DbSet<Estoque> Estoques { get; set; }
         public DbSet<ItemCompra> ItensCompras { get; set; }
+        public DbSet<ImagemProduto> ImagensProdutos { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<ProdutoFavorito> ProdutosFavoritos { get; set; }
-        public DbSet<imagem> imagens{ get; set; }
+        public DbSet<Imagem> imagens{ get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

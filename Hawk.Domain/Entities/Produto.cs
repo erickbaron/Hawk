@@ -25,9 +25,9 @@ namespace Hawk.Domain.Entities
         public string NomeHash { get; set; }
 
         public Empresa Empresa { get; set; }
-        public int EmpresaId { get; set; }
+        public int? EmpresaId { get; set; }
 
         public Categoria Categoria{ get; set; }
-        public int CategoriaId { get; set; }
+        public int? CategoriaId { get; set; }
     }
 }

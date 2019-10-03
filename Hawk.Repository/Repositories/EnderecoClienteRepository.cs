@@ -17,6 +17,7 @@ namespace Hawk.Repository.Repositories
 
         public int Add(EnderecoCliente entity)
         {
+            entity.ClienteId = 1;
             entity.RegistroAtivo = true;
             context.EnderecosClientes.Add(entity);
             context.SaveChanges();
