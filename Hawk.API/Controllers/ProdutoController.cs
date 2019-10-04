@@ -58,7 +58,7 @@ namespace Hawk.API.Controllers
         }
 
         [HttpPost, Route("add")]
-        public ActionResult Adicionar(Produto produto, IFormFile arquivo)
+        public ActionResult Adicionar(Produto produto)
         {
             ProdutoValidator validator = new ProdutoValidator();
             var result = validator.Validate(produto);
@@ -75,24 +75,41 @@ namespace Hawk.API.Controllers
                 return BadRequest(Json(errors));
             }
 
-            var nomeArquivo = arquivo.FileName;
-            var nomeHash = ObterHashDoNomeDoArquivo(nomeArquivo);
-
-            var caminhoArquivo = Path.Combine(this.caminho, nomeHash);
-            using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
-            {
-                arquivo.CopyTo(stream);
-                this.repository.Add(new Produto()
-                {
-                    NomeArquivo = nomeArquivo,
-                    NomeHash = nomeHash
-                });
-            }
-
-
             return Json(new { id = repository.Add(produto) });
         }
-        
+
+
+        [HttpPost("upload")]
+        public IActionResult Upload()
+        {
+            try
+            {
+                Produto produto = new Produto();
+                var file = Request.Form.Files[0];
+                var folderName = Path.Combine("Resources", "Images");
+                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+
+                if (file.Length > 0)
+                {
+                    var filename = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName;
+                    var fullPath = Path.Combine(pathToSave, filename.Replace("\"", " ").Trim());
+
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        produto.NomeArquivo = file.FileName;
+                        file.CopyTo(stream);
+                    }
+                }
+
+                return Ok();    
+            }
+            catch (System.Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Falha no upload");
+            }
+        }
+
+
         [HttpPut, Route("update")]
         public ActionResult Update(Produto produto)
         {
@@ -121,25 +138,7 @@ namespace Hawk.API.Controllers
             return Json(new { status = apagou });
         }
 
-        [HttpPost, Route("upload")]
-        public ActionResult Upload(IFormFile arquivo)
-        {
-
-            var nomeArquivo = arquivo.FileName;
-            var nomeHash = ObterHashDoNomeDoArquivo(nomeArquivo);
-
-            var caminhoArquivo = Path.Combine(this.caminho, nomeHash);
-            using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
-            {
-                arquivo.CopyTo(stream);
-                this.repository.Add(new Produto()
-                {
-                    NomeArquivo = nomeArquivo,
-                    NomeHash = nomeHash
-                });
-            }
-            return RedirectToAction("Index");
-        }
+        
 
         public static string ObterHashDoNomeDoArquivo(string nome)
         {

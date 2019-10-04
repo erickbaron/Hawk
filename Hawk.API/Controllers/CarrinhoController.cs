@@ -17,9 +17,9 @@ namespace Hawk.API.Controllers
     [AllowAnonymous]
     public class CarrinhoController : Controller
     {
-        private IHawkRepository<Carrinho> repository;
+        private ICarrinhoRepository repository;
 
-        public CarrinhoController(IHawkRepository<Carrinho> repository)
+        public CarrinhoController(ICarrinhoRepository repository)
         {
             this.repository = repository;
         }

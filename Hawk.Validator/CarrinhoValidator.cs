@@ -10,9 +10,7 @@ namespace Hawk.Validator
     {
         public CarrinhoValidator()
         {
-            RuleFor(x => x.Quantidade)
-                .NotEmpty()
-                .WithMessage("Informe a quantidade ");
+
 
         }
     }

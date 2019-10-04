@@ -19,7 +19,6 @@ namespace Hawk.Repository.Repositories
         public int Add(Estoque entity)
         {
             entity.RegistroAtivo = true;
-            entity.Entrada = "Entrada"; 
             entity.DataEntrada = DateTime.Now;
             context.Estoques.Add(entity);
             context.SaveChanges();
@@ -46,6 +45,7 @@ namespace Hawk.Repository.Repositories
 
         public bool Update(Estoque entity)
         {
+            entity.DataEntrada = DateTime.Now;
             entity.RegistroAtivo = true;
             context.Estoques.Update(entity);
             return context.SaveChanges() > 0;
