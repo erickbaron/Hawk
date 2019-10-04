@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hawk.Repository.Migrations
 {
     [DbContext(typeof(HawkContext))]
-    [Migration("20191004110215_init")]
+    [Migration("20191004134552_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -85,21 +85,21 @@ namespace Hawk.Repository.Migrations
                         new
                         {
                             Id = 1,
-                            ClienteId = 1,
-                            Cvc = "123",
+                            ClienteId = 2,
+                            Cvc = "568",
                             DataVencimento = new DateTime(2010, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NomeProprietario = "jose",
-                            Numero = "123576123",
+                            NomeProprietario = "João Victor",
+                            Numero = "5152158596235746",
                             RegistroAtivo = true
                         },
                         new
                         {
                             Id = 2,
                             ClienteId = 1,
-                            Cvc = "123",
+                            Cvc = "846",
                             DataVencimento = new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NomeProprietario = "joao",
-                            Numero = "12357343",
+                            NomeProprietario = "Erick",
+                            Numero = "2745805245830765",
                             RegistroAtivo = true
                         });
                 });
@@ -163,7 +163,7 @@ namespace Hawk.Repository.Migrations
                             Id = 1,
                             Cpf = "59315617061",
                             DataNascimento = new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Nome = "irineu",
+                            Nome = "Erick",
                             RegistroAtivo = true,
                             Telefone = "2036466360",
                             UsuarioId = 1
@@ -173,7 +173,7 @@ namespace Hawk.Repository.Migrations
                             Id = 2,
                             Cpf = "59315639061",
                             DataNascimento = new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Nome = "jose",
+                            Nome = "João",
                             RegistroAtivo = true,
                             Telefone = "2012466360",
                             UsuarioId = 2
@@ -268,14 +268,14 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 1,
                             Cep = "04180112",
-                            Cidade = "Sao Paulo",
+                            Cidade = "São Paulo",
                             Cnpj = "81.197.017/0001-82",
-                            Complemento = "Casa",
-                            Estado = "Sao Paulo",
-                            Logradouro = "virando a esquina",
-                            Nome = "WEG",
-                            Numero = "1222",
-                            Ramo = "lojinha",
+                            Complemento = "",
+                            Estado = "São Paulo",
+                            Logradouro = "Rua Dos Atiradores",
+                            Nome = "Ding Ltda",
+                            Numero = "5222",
+                            Ramo = "Eletrônicos",
                             RegistroAtivo = true,
                             Telefone = "2036466360",
                             UsuarioId = 1
@@ -286,12 +286,12 @@ namespace Hawk.Repository.Migrations
                             Cep = "04180112",
                             Cidade = "Terezina",
                             Cnpj = "83.757.980/0001-07",
-                            Complemento = "Apartamento",
+                            Complemento = "",
                             Estado = "Piaui",
-                            Logradouro = "Rua Piaui",
-                            Nome = "Mercosul",
-                            Numero = "1222",
-                            Ramo = "óculos",
+                            Logradouro = "Avenida Frei Serafim",
+                            Nome = "Dong Ltda",
+                            Numero = "8222",
+                            Ramo = "Eletrônicos",
                             RegistroAtivo = true,
                             Telefone = "2036466370",
                             UsuarioId = 2
@@ -670,7 +670,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f5a767a8-f72f-4de5-bc29-fec3b7efa622",
+                            ConcurrencyStamp = "686f05f3-c088-4764-a3f3-19b94153dd2b",
                             Email = "erick@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
@@ -686,7 +686,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cf2d2ce0-7b15-4a01-beda-141aab5699c1",
+                            ConcurrencyStamp = "aafd85e5-387b-4f33-96d3-025ebb490ce9",
                             Email = "joao@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,

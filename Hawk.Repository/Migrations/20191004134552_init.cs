@@ -469,8 +469,8 @@ namespace Hawk.Repository.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "senha", "PhoneNumber", "PhoneNumberConfirmed", "registro_ativo", "SecurityStamp", "TwoFactorEnabled", "nome" },
                 values: new object[,]
                 {
-                    { 1, 0, "f5a767a8-f72f-4de5-bc29-fec3b7efa622", "erick@gmail.com", false, false, null, "ERICK@GMAIL.COM", "Erick", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Erick" },
-                    { 2, 0, "cf2d2ce0-7b15-4a01-beda-141aab5699c1", "joao@gmail.com", false, false, null, "JOAO@GMAIL.COM", "Joao", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Joao" }
+                    { 1, 0, "686f05f3-c088-4764-a3f3-19b94153dd2b", "erick@gmail.com", false, false, null, "ERICK@GMAIL.COM", "Erick", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Erick" },
+                    { 2, 0, "aafd85e5-387b-4f33-96d3-025ebb490ce9", "joao@gmail.com", false, false, null, "JOAO@GMAIL.COM", "Joao", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Joao" }
                 });
 
             migrationBuilder.InsertData(
@@ -487,8 +487,8 @@ namespace Hawk.Repository.Migrations
                 columns: new[] { "Id", "Cpf", "DataNascimento", "Nome", "RegistroAtivo", "Telefone", "UsuarioId" },
                 values: new object[,]
                 {
-                    { 1, "59315617061", new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "irineu", true, "2036466360", 1 },
-                    { 2, "59315639061", new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "jose", true, "2012466360", 2 }
+                    { 1, "59315617061", new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "Erick", true, "2036466360", 1 },
+                    { 2, "59315639061", new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "João", true, "2012466360", 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -496,8 +496,8 @@ namespace Hawk.Repository.Migrations
                 columns: new[] { "Id", "Cep", "Cidade", "Cnpj", "Complemento", "Estado", "Logradouro", "Nome", "Numero", "Ramo", "RegistroAtivo", "Telefone", "UsuarioId" },
                 values: new object[,]
                 {
-                    { 1, "04180112", "Sao Paulo", "81.197.017/0001-82", "Casa", "Sao Paulo", "virando a esquina", "WEG", "1222", "lojinha", true, "2036466360", 1 },
-                    { 2, "04180112", "Terezina", "83.757.980/0001-07", "Apartamento", "Piaui", "Rua Piaui", "Mercosul", "1222", "óculos", true, "2036466370", 2 }
+                    { 1, "04180112", "São Paulo", "81.197.017/0001-82", "", "São Paulo", "Rua Dos Atiradores", "Ding Ltda", "5222", "Eletrônicos", true, "2036466360", 1 },
+                    { 2, "04180112", "Terezina", "83.757.980/0001-07", "", "Piaui", "Avenida Frei Serafim", "Dong Ltda", "8222", "Eletrônicos", true, "2036466370", 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -505,8 +505,8 @@ namespace Hawk.Repository.Migrations
                 columns: new[] { "Id", "ClienteId", "Cvc", "DataVencimento", "NomeProprietario", "Numero", "RegistroAtivo" },
                 values: new object[,]
                 {
-                    { 1, 1, "123", new DateTime(2010, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "jose", "123576123", true },
-                    { 2, 1, "123", new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "joao", "12357343", true }
+                    { 2, 1, "846", new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "Erick", "2745805245830765", true },
+                    { 1, 2, "568", new DateTime(2010, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "João Victor", "5152158596235746", true }
                 });
 
             migrationBuilder.InsertData(

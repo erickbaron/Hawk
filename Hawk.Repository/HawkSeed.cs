@@ -56,16 +56,16 @@ namespace Hawk.Repository
                 new Empresa()
                 {
                     Id = 1,
-                    Nome = "WEG",
+                    Nome = "Ding Ltda",
                     Cnpj = "81.197.017/0001-82",
                     Telefone = "2036466360",
-                    Ramo = "lojinha",
-                    Estado = "Sao Paulo",
-                    Cidade = "Sao Paulo",
+                    Ramo = "Eletrônicos",
+                    Estado = "São Paulo",
+                    Cidade = "São Paulo",
                     Cep = "04180112",
-                    Logradouro = "virando a esquina",
-                    Numero = "1222",
-                    Complemento = "Casa",
+                    Logradouro = "Rua Dos Atiradores",
+                    Numero = "5222",
+                    Complemento = "",
                     RegistroAtivo = true,
 
                     UsuarioId = 1
@@ -73,16 +73,16 @@ namespace Hawk.Repository
                 new Empresa()
                 {
                     Id = 2,
-                    Nome = "Mercosul",
+                    Nome = "Dong Ltda",
                     Cnpj = "83.757.980/0001-07",
                     Telefone = "2036466370",
-                    Ramo = "óculos",
+                    Ramo = "Eletrônicos",
                     Estado = "Piaui",
                     Cidade = "Terezina",
                     Cep = "04180112",
-                    Logradouro = "Rua Piaui",
-                    Numero = "1222",
-                    Complemento = "Apartamento",
+                    Logradouro = "Avenida Frei Serafim",
+                    Numero = "8222",
+                    Complemento = "",
                     RegistroAtivo = true,
 
                     UsuarioId = 2
@@ -296,7 +296,7 @@ namespace Hawk.Repository
                 new Cliente()
                 {
                     Id = 1,
-                    Nome = "irineu",
+                    Nome = "Erick",
                     Cpf = "59315617061",
                     DataNascimento = new DateTime(2012, 10, 12),
                     Telefone = "2036466360",
@@ -308,7 +308,7 @@ namespace Hawk.Repository
                 new Cliente()
                 {
                     Id = 2,
-                    Nome = "jose",
+                    Nome = "João",
                     Cpf = "59315639061",
                     DataNascimento = new DateTime(2012, 10, 12),
                     Telefone = "2012466360",
@@ -323,23 +323,23 @@ namespace Hawk.Repository
                 new Cartao()
                 {
                     Id = 1,
-                    Numero = "123576123",
-                    NomeProprietario = "jose",
+                    Numero = "5152158596235746",
+                    NomeProprietario = "João Victor",
                     DataVencimento = new DateTime(2010, 12, 12),
-                    Cvc = "123",
+                    Cvc = "568",
                     RegistroAtivo = true,
 
-                    ClienteId = 1
+                    ClienteId = 2
 
 
                 },
                 new Cartao()
                 {
                     Id = 2,
-                    Numero = "12357343",
-                    NomeProprietario = "joao",
+                    Numero = "2745805245830765",
+                    NomeProprietario = "Erick",
                     DataVencimento = new DateTime(2012, 10, 12),
-                    Cvc = "123",
+                    Cvc = "846",
                     RegistroAtivo = true,
 
                     ClienteId = 1
