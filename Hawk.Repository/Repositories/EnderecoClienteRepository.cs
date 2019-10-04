@@ -44,6 +44,7 @@ namespace Hawk.Repository.Repositories
 
         public bool Update(EnderecoCliente entity)
         {
+            entity.ClienteId = 1;
             entity.RegistroAtivo = true;
             context.EnderecosClientes.Update(entity);
             return context.SaveChanges() > 0;
