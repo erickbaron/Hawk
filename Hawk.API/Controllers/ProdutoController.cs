@@ -44,7 +44,6 @@ namespace Hawk.API.Controllers
 
         }
 
-
         [HttpGet, Route("obtertodos")]
         public JsonResult ObterTodos()
         {
