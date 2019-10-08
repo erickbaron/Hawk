@@ -24,6 +24,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Http;
 
 namespace Hawk.API
 {
@@ -136,10 +137,11 @@ namespace Hawk.API
             }
             app.UseAuthentication();
             app.UseCors("AllowAllHeaders");
+            app.UseStaticFiles();
             app.UseStaticFiles(new StaticFileOptions
             {
-                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Resources")),
-                RequestPath = "/Resources"
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot", @"Resources")),
+                RequestPath = new PathString("/Resources")
             });
             app.UseHttpsRedirection();
             app.UseMvc();
