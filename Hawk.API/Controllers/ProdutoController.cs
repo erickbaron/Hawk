@@ -13,7 +13,6 @@ using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Hosting;
 using System.Security.Cryptography;
 using System.Text;
-using Microsoft.AspNetCore.Authorization;
 
 
 namespace Hawk.API.Controllers
@@ -102,7 +101,7 @@ namespace Hawk.API.Controllers
 
                 return Ok();    
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Falha no upload");
             }
