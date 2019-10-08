@@ -357,7 +357,7 @@ namespace Hawk.Repository.Migrations
                             Id = 1,
                             DataEntrada = new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmpresaId = 1,
-                            Entrada = "entrada",
+                            Entrada = "Entrada",
                             ProdutoId = 1,
                             Quantidade = 2,
                             RegistroAtivo = true
@@ -367,7 +367,7 @@ namespace Hawk.Repository.Migrations
                             Id = 2,
                             DataEntrada = new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmpresaId = 2,
-                            Entrada = "saida",
+                            Entrada = "Saida",
                             ProdutoId = 2,
                             Quantidade = 32,
                             RegistroAtivo = true
@@ -390,7 +390,8 @@ namespace Hawk.Repository.Migrations
 
                     b.Property<bool>("RegistroAtivo");
 
-                    b.Property<decimal>("Valor");
+                    b.Property<decimal>("Valor")
+                        .HasColumnType("decimal(8,2)");
 
                     b.HasKey("Id");
 
@@ -668,7 +669,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "686f05f3-c088-4764-a3f3-19b94153dd2b",
+                            ConcurrencyStamp = "7fea61e4-de7b-444b-9db9-cc0b36b43b51",
                             Email = "erick@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
@@ -684,7 +685,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "aafd85e5-387b-4f33-96d3-025ebb490ce9",
+                            ConcurrencyStamp = "0370f852-450a-4802-a339-efe397468624",
                             Email = "joao@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,

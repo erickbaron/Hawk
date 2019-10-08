@@ -9,6 +9,7 @@ namespace Hawk.Domain.Entities
         public int Id { get; set; }
         public bool RegistroAtivo { get; set; }
         public int Quantidade { get; set; }
+        [Column(TypeName = "decimal(8,2)")]
         public decimal Valor { get; set; }
 
         public Produto Produto { get; set; }
