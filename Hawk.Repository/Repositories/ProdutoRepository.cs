@@ -41,8 +41,9 @@ namespace Hawk.Repository.Repositories
 
         public List<Produto> ObterTodos()
         {
-            return context.Produtos.Where(t => t.RegistroAtivo)
+            return context.Produtos
                 .Include(x => x.Categoria)
+                .Where(t => t.RegistroAtivo)
                 .ToList();
         }
 
