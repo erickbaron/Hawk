@@ -128,6 +128,18 @@ namespace Hawk.Repository.Migrations
                             Id = 2,
                             Nome = "Periféricos",
                             RegistroAtivo = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nome = "Games",
+                            RegistroAtivo = true
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Nome = "Outros",
+                            RegistroAtivo = true
                         });
                 });
 
@@ -357,7 +369,7 @@ namespace Hawk.Repository.Migrations
                             Id = 1,
                             DataEntrada = new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmpresaId = 1,
-                            Entrada = "entrada",
+                            Entrada = "Entrada",
                             ProdutoId = 1,
                             Quantidade = 2,
                             RegistroAtivo = true
@@ -367,7 +379,7 @@ namespace Hawk.Repository.Migrations
                             Id = 2,
                             DataEntrada = new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmpresaId = 2,
-                            Entrada = "saida",
+                            Entrada = "Saida",
                             ProdutoId = 2,
                             Quantidade = 32,
                             RegistroAtivo = true
@@ -476,7 +488,7 @@ namespace Hawk.Repository.Migrations
                             CategoriaId = 1,
                             Comprimento = 26,
                             Descricao = "Notebook Intel Core i7 8550U 15,6' 8GB HD 1 TB GeForce MX150 Windows 10",
-                            EmpresaId = 1,
+                            EmpresaId = 2,
                             Largura = 38,
                             Nome = "Notebook Lenovo IdeaPad 330",
                             NomeArquivo = "imagem-1.jpg",
@@ -491,7 +503,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 2,
                             Altura = 14,
-                            CategoriaId = 2,
+                            CategoriaId = 1,
                             Comprimento = 1,
                             Descricao = "Smartphone Samsung Galaxy S9 SM-G9600 128GB",
                             EmpresaId = 2,
@@ -512,7 +524,7 @@ namespace Hawk.Repository.Migrations
                             CategoriaId = 1,
                             Comprimento = 132,
                             Descricao = "Caixa de Som Xtreme 2 JBL Preta 40W RMS",
-                            EmpresaId = 1,
+                            EmpresaId = 2,
                             Largura = 288,
                             Nome = "Caixa de Som Xtreme 2 JBL",
                             NomeArquivo = "imagem3.jpg",
@@ -545,7 +557,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 5,
                             Altura = 2,
-                            CategoriaId = 2,
+                            CategoriaId = 3,
                             Comprimento = 2,
                             Descricao = "God of War é um jogo eletrônico de ação-aventura desenvolvido pela Santa Monica Studio e publicado pela Sony Interactive Entertainment.",
                             EmpresaId = 2,
@@ -668,7 +680,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "686f05f3-c088-4764-a3f3-19b94153dd2b",
+                            ConcurrencyStamp = "d152a18a-19e9-4c02-8af9-d81287023789",
                             Email = "erick@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
@@ -684,7 +696,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "aafd85e5-387b-4f33-96d3-025ebb490ce9",
+                            ConcurrencyStamp = "406f0fea-8f68-4aee-b8a9-8ed14208b36a",
                             Email = "joao@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,

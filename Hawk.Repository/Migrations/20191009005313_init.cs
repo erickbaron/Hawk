@@ -460,7 +460,9 @@ namespace Hawk.Repository.Migrations
                 values: new object[,]
                 {
                     { 1, "Eletronicos", true },
-                    { 2, "Periféricos", true }
+                    { 2, "Periféricos", true },
+                    { 3, "Games", true },
+                    { 4, "Outros", true }
                 });
 
             migrationBuilder.InsertData(
@@ -469,8 +471,8 @@ namespace Hawk.Repository.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "senha", "PhoneNumber", "PhoneNumberConfirmed", "registro_ativo", "SecurityStamp", "TwoFactorEnabled", "nome" },
                 values: new object[,]
                 {
-                    { 1, 0, "686f05f3-c088-4764-a3f3-19b94153dd2b", "erick@gmail.com", false, false, null, "ERICK@GMAIL.COM", "Erick", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Erick" },
-                    { 2, 0, "aafd85e5-387b-4f33-96d3-025ebb490ce9", "joao@gmail.com", false, false, null, "JOAO@GMAIL.COM", "Joao", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Joao" }
+                    { 1, 0, "d152a18a-19e9-4c02-8af9-d81287023789", "erick@gmail.com", false, false, null, "ERICK@GMAIL.COM", "Erick", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Erick" },
+                    { 2, 0, "406f0fea-8f68-4aee-b8a9-8ed14208b36a", "joao@gmail.com", false, false, null, "JOAO@GMAIL.COM", "Joao", "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==", null, false, true, null, false, "Joao" }
                 });
 
             migrationBuilder.InsertData(
@@ -523,11 +525,11 @@ namespace Hawk.Repository.Migrations
                 columns: new[] { "Id", "Altura", "CategoriaId", "Comprimento", "Descricao", "EmpresaId", "Largura", "Nome", "NomeArquivo", "NomeHash", "Peso", "Promocao", "RegistroAtivo", "ValorCusto", "ValorVenda" },
                 values: new object[,]
                 {
-                    { 1, 2, 1, 26, "Notebook Intel Core i7 8550U 15,6' 8GB HD 1 TB GeForce MX150 Windows 10", 1, 38, "Notebook Lenovo IdeaPad 330", "imagem-1.jpg", "", 2m, false, true, 2100m, 2915m },
-                    { 3, 136, 1, 132, "Caixa de Som Xtreme 2 JBL Preta 40W RMS", 1, 288, "Caixa de Som Xtreme 2 JBL", "imagem3.jpg", "", 3m, false, true, 500m, 949m },
-                    { 2, 14, 2, 1, "Smartphone Samsung Galaxy S9 SM-G9600 128GB", 2, 7, "Smartphone Samsung Galaxy S9", "imagem-2.jpg", "", 163m, false, true, 1300m, 1889m },
+                    { 1, 2, 1, 26, "Notebook Intel Core i7 8550U 15,6' 8GB HD 1 TB GeForce MX150 Windows 10", 2, 38, "Notebook Lenovo IdeaPad 330", "imagem-1.jpg", "", 2m, false, true, 2100m, 2915m },
+                    { 2, 14, 1, 1, "Smartphone Samsung Galaxy S9 SM-G9600 128GB", 2, 7, "Smartphone Samsung Galaxy S9", "imagem-2.jpg", "", 163m, false, true, 1300m, 1889m },
+                    { 3, 136, 1, 132, "Caixa de Som Xtreme 2 JBL Preta 40W RMS", 2, 288, "Caixa de Som Xtreme 2 JBL", "imagem3.jpg", "", 3m, false, true, 500m, 949m },
                     { 4, 10, 2, 5, "Headphone Bluetooth com Microfone JBL Tune 500BT", 2, 5, "Headphone JBL", "imagem4.jpg", "", 100m, false, true, 98m, 198m },
-                    { 5, 2, 2, 2, "God of War é um jogo eletrônico de ação-aventura desenvolvido pela Santa Monica Studio e publicado pela Sony Interactive Entertainment.", 2, 2, "Game God Of War - PS4", "imagem-5.jpg", "", 10m, false, true, 3m, 80m }
+                    { 5, 2, 3, 2, "God of War é um jogo eletrônico de ação-aventura desenvolvido pela Santa Monica Studio e publicado pela Sony Interactive Entertainment.", 2, 2, "Game God Of War - PS4", "imagem-5.jpg", "", 10m, false, true, 3m, 80m }
                 });
 
             migrationBuilder.InsertData(
@@ -535,8 +537,8 @@ namespace Hawk.Repository.Migrations
                 columns: new[] { "Id", "DataEntrada", "EmpresaId", "Entrada", "ProdutoId", "Quantidade", "RegistroAtivo" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "entrada", 1, 2, true },
-                    { 2, new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, "saida", 2, 32, true }
+                    { 1, new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "Entrada", 1, 2, true },
+                    { 2, new DateTime(2012, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, "Saida", 2, 32, true }
                 });
 
             migrationBuilder.InsertData(

@@ -23,6 +23,18 @@ namespace Hawk.Repository
                     Id = 2,
                     Nome = "Periféricos",
                     RegistroAtivo = true
+                },
+                new Categoria()
+                {
+                    Id = 3,
+                    Nome = "Games",
+                    RegistroAtivo = true
+                },
+                new Categoria()
+                {
+                    Id = 4,
+                    Nome = "Outros",
+                    RegistroAtivo = true
                 });
             #endregion
 
@@ -107,7 +119,7 @@ namespace Hawk.Repository
                     NomeHash = "",
                     RegistroAtivo = true,
 
-                    EmpresaId = 1,
+                    EmpresaId = 2,
                     CategoriaId = 1,
                 },
                 new Produto()
@@ -128,7 +140,7 @@ namespace Hawk.Repository
                     RegistroAtivo = true,
 
                     EmpresaId = 2,
-                    CategoriaId = 2,
+                    CategoriaId = 1,
                 },
                 new Produto()
                 {
@@ -146,7 +158,7 @@ namespace Hawk.Repository
                     NomeHash = "",
                     RegistroAtivo = true,
 
-                    EmpresaId = 1,
+                    EmpresaId = 2,
                     CategoriaId = 1,
                 },
                 new Produto()
@@ -187,7 +199,7 @@ namespace Hawk.Repository
                     RegistroAtivo = true,
 
                     EmpresaId = 2,
-                    CategoriaId = 2,
+                    CategoriaId = 3,
                 }
                 );
             #endregion
