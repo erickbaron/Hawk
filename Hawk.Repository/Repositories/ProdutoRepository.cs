@@ -17,6 +17,8 @@ namespace Hawk.Repository.Repositories
 
         public int Add(Produto entity)
         {
+            entity.Promocao = false;
+            entity.NomeHash = "";
             entity.RegistroAtivo = true;
             context.Produtos.Add(entity);
             context.SaveChanges();
@@ -46,6 +48,11 @@ namespace Hawk.Repository.Repositories
             entity.RegistroAtivo = true;
             context.Produtos.Update(entity);
             return context.SaveChanges() > 0;
+        }
+
+        public Produto ObterPeloNomeHash(string hash)
+        {
+            return this.context.Produtos.FirstOrDefault(x => x.NomeHash == hash);
         }
     }
 }

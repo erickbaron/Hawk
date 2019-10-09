@@ -21,7 +21,7 @@ namespace Hawk.Repository
                 new Categoria()
                 {
                     Id = 2,
-                    Nome = "Calabresa",
+                    Nome = "Periféricos",
                     RegistroAtivo = true
                 });
             #endregion
@@ -31,19 +31,22 @@ namespace Hawk.Repository
                 new Usuario()
                 {
                     Id = 1,
-                    Nome = "Erick",
-                    Email = "erickbaron@gmail.com",
-                    Senha = "1234",
-                    Administrador = false,
+                    UserName = "Erick",
+                    NormalizedUserName = "Erick",
+                    Email = "erick@gmail.com",
+                    NormalizedEmail = "erick@gmail.com".ToUpper(),
+                    PasswordHash = "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==",
                     RegistroAtivo = true
                 },
-                new  Usuario()
+                new Usuario()
                 {
                     Id = 2,
-                    Nome = "Joao",
-                    Email = "Jozinho@gmail.com",
-                    Senha = "4321",
-                    Administrador = true,
+                    UserName = "Joao",
+                    NormalizedUserName = "Joao",
+                    Email = "joao@gmail.com",
+                    NormalizedEmail = "joao@gmail.com".ToUpper(),
+                    PasswordHash = "AQAAAAEAACcQAAAAELDMbLMCmZrqbqcxF5vpVa7kBAFmQLv9eOZZ6xZ1nuMJLq1JBOEzS+vFfMZH2d0zcw==",
+                    //Administrador = true,
                     RegistroAtivo = true
                 });
             #endregion
@@ -53,10 +56,16 @@ namespace Hawk.Repository
                 new Empresa()
                 {
                     Id = 1,
-                    Nome = "WEG",
+                    Nome = "Ding Ltda",
                     Cnpj = "81.197.017/0001-82",
                     Telefone = "2036466360",
-                    Ramo = "lojinha",
+                    Ramo = "Eletrônicos",
+                    Estado = "São Paulo",
+                    Cidade = "São Paulo",
+                    Cep = "04180112",
+                    Logradouro = "Rua Dos Atiradores",
+                    Numero = "5222",
+                    Complemento = "",
                     RegistroAtivo = true,
 
                     UsuarioId = 1
@@ -64,95 +73,19 @@ namespace Hawk.Repository
                 new Empresa()
                 {
                     Id = 2,
-                    Nome = "Hanes",
+                    Nome = "Dong Ltda",
                     Cnpj = "83.757.980/0001-07",
                     Telefone = "2036466370",
-                    Ramo = "comida",
+                    Ramo = "Eletrônicos",
+                    Estado = "Piaui",
+                    Cidade = "Terezina",
+                    Cep = "04180112",
+                    Logradouro = "Avenida Frei Serafim",
+                    Numero = "8222",
+                    Complemento = "",
                     RegistroAtivo = true,
 
                     UsuarioId = 2
-                });
-            #endregion
-
-            #region EndereçoEmpresa
-            modelBuilder.Entity<EnderecoEmpresa>().HasData(
-                new EnderecoEmpresa()
-                {
-                    Id = 1,
-                    Estado ="Sao Paulo",
-                    Cidade ="Sao Paulo",
-                    Cep = "04180112",
-                    Logradouro ="virando a esquina",
-                    Numero = "1222",
-                    Complemento = " ",
-                    RegistroAtivo = true,
-                     
-                    EmpresaId = 1
-                },
-                new EnderecoEmpresa()
-                {
-                    Id = 2,
-                    Estado = "Rio de janeiro",
-                    Cidade = "rio de janeiro",
-                    Cep = "04180113",
-                    Logradouro = "Rua principal",
-                    Numero = "123",
-                    Complemento = " ",
-                    RegistroAtivo = true,
-
-                    EmpresaId = 2
-                });
-            #endregion
-
-            #region EndereçoCliente
-            modelBuilder.Entity<EnderecoCliente>().HasData(
-                new EnderecoCliente()
-                {
-                    Id = 1,
-                    Estado = "Sao Paulo",
-                    Cidade = "Sao Paulo",
-                    Cep = "04180112",
-                    Logradouro = "virando a esquina",
-                    Numero = "1222",
-                    Complemento = " ",
-                    RegistroAtivo = true,
-
-                    ClienteId = 1
-                },
-                new EnderecoCliente()
-                {
-                    Id = 2,
-                    Estado = "Rio de janeiro",
-                    Cidade = "rio de janeiro",
-                    Cep = "04180113",
-                    Logradouro = "Rua principal",
-                    Numero = "123",
-                    Complemento = " ",
-                    RegistroAtivo = true,
-
-                    ClienteId = 2
-                });
-            #endregion
-
-            #region AvaliaçãoEmpresa
-            modelBuilder.Entity<AvaliacaoEmpresa>().HasData(
-                new AvaliacaoEmpresa()
-                {
-                    Id = 1,
-                    Comentario = "hfgghsdgfhsdgfjhgs",
-                    Nota = 5,
-                    RegistroAtivo = true,
-
-                   EmpresaId =1
-                },
-                new AvaliacaoEmpresa()
-                {
-                    Id = 2,
-                    Comentario = "ehuehuehueheu",
-                    Nota = 4,
-                    RegistroAtivo = true,
-
-                    EmpresaId = 1
                 });
             #endregion
 
@@ -161,15 +94,17 @@ namespace Hawk.Repository
                 new Produto()
                 {
                     Id = 1,
-                    Nome = "nokia tijolao",
-                    Descricao = "se derubar abre uma cratera",
-                    ValorCusto = 2,
-                    ValorVenda = 10,
-                    Altura = 1,
-                    Largura = 2,
-                    Comprimento = 3,
-                    Peso = 10,
+                    Nome = "Notebook Lenovo IdeaPad 330",
+                    Descricao = "Notebook Intel Core i7 8550U 15,6' 8GB HD 1 TB GeForce MX150 Windows 10",
+                    ValorCusto = 2100,
+                    ValorVenda = 2915,
+                    Altura = 2,
+                    Largura = 38,
+                    Comprimento = 26,
+                    Peso = 2,
                     Promocao = false,
+                    NomeArquivo = "imagem-1.jpg",
+                    NomeHash = "",
                     RegistroAtivo = true,
 
                     EmpresaId = 1,
@@ -178,20 +113,83 @@ namespace Hawk.Repository
                 new Produto()
                 {
                     Id = 2,
-                    Nome = "bola quadrada",
-                    Descricao = "o kiko sempre quis uma ",
+                    Nome = "Smartphone Samsung Galaxy S9",
+                    Descricao = "Smartphone Samsung Galaxy S9 SM-G9600 128GB",
+                    ValorCusto = 1300,
+                    ValorVenda = 1889,
+                    Altura = 14,
+                    Largura = 7,
+                    Comprimento = 1,
+                    Peso = 163,
+                    Promocao = false,
+                    NomeArquivo = "imagem-2.jpg",
+                    NomeHash = "",
+
+                    RegistroAtivo = true,
+
+                    EmpresaId = 2,
+                    CategoriaId = 2,
+                },
+                new Produto()
+                {
+                    Id = 3,
+                    Nome = "Caixa de Som Xtreme 2 JBL",
+                    Descricao = "Caixa de Som Xtreme 2 JBL Preta 40W RMS",
+                    ValorCusto = 500,
+                    ValorVenda = 949,
+                    Altura = 136,
+                    Largura = 288,
+                    Comprimento = 132,
+                    Peso = 3,
+                    Promocao = false,
+                    NomeArquivo = "imagem3.jpg",
+                    NomeHash = "",
+                    RegistroAtivo = true,
+
+                    EmpresaId = 1,
+                    CategoriaId = 1,
+                },
+                new Produto()
+                {
+                    Id = 4,
+                    Nome = "Headphone JBL",
+                    Descricao = "Headphone Bluetooth com Microfone JBL Tune 500BT",
+                    ValorCusto = 98,
+                    ValorVenda = 198,
+                    Altura = 10,
+                    Largura = 5,
+                    Comprimento = 5,
+                    Peso = 100,
+                    Promocao = false,
+                    NomeArquivo = "imagem4.jpg",
+                    NomeHash = "",
+
+                    RegistroAtivo = true,
+
+                    EmpresaId = 2,
+                    CategoriaId = 2,
+                },                
+                new Produto()
+                {
+                    Id = 5,
+                    Nome = "Game God Of War - PS4",
+                    Descricao = "God of War é um jogo eletrônico de ação-aventura desenvolvido pela Santa Monica Studio e publicado pela Sony Interactive Entertainment.",
                     ValorCusto = 3,
-                    ValorVenda = 100,
+                    ValorVenda = 80,
                     Altura = 2,
                     Largura = 2,
                     Comprimento = 2,
                     Peso = 10,
                     Promocao = false,
+                    NomeArquivo = "imagem-5.jpg",
+                    NomeHash = "",
+
                     RegistroAtivo = true,
 
                     EmpresaId = 2,
                     CategoriaId = 2,
-                });
+                }
+                );
             #endregion
 
             #region compra 
@@ -203,8 +201,9 @@ namespace Hawk.Repository
                     Desconto = 0,
                     RegistroAtivo = true,
 
-                    ClienteId= 1,
-                    CarrinhoId= 1
+
+                    ClienteId = 1,
+                    CarrinhoId = 1
                 },
                 new Compra()
                 {
@@ -225,19 +224,20 @@ namespace Hawk.Repository
                 {
                     Id = 1,
                     Quantidade = 2,
-                    Entrada = "entrada",
-                    DataEntrada =  new DateTime(2012, 10, 12),
+
+                    Entrada = "Entrada",
+                    DataEntrada = new DateTime(2012, 10, 12),
 
                     EmpresaId = 1,
                     ProdutoId = 1,
                     RegistroAtivo = true
-                    
+
                 },
-                new Estoque ()
+                new Estoque()
                 {
                     Id = 2,
                     Quantidade = 32,
-                    Entrada = "saida",
+                    Entrada = "Saida",
                     DataEntrada = new DateTime(2012, 10, 12),
 
                     EmpresaId = 2,
@@ -246,75 +246,7 @@ namespace Hawk.Repository
 
 
                 });
-                #endregion
-
-            #region finaças
-            modelBuilder.Entity<Financa>().HasData(
-                 new Financa()
-                 {
-                     Id = 1,
-                     ValorCusto = 2,
-                     ValorVenda = 200,
-                     Lucro = 198,
-                     RegistroAtivo = true,
-
-                     CompraId = 1,
-                     EmpresaId = 1
-                         
-                 },
-                 new Financa()
-                 {
-                     Id = 2,
-                     ValorCusto = 3,
-                     ValorVenda = 303,
-                     Lucro = 300,
-                     RegistroAtivo = true,
-
-                     CompraId = 2,
-                     EmpresaId = 2
-
-                 });
             #endregion
-
-            #region itemCompra 
-            modelBuilder.Entity<ItemCompra>().HasData(
-                new ItemCompra()
-                {
-                    Id = 1,
-                    RegistroAtivo = true,
-
-                    ProdutoId = 1,
-                     
-                },
-                new ItemCompra()
-                {
-                    Id = 2,
-                    RegistroAtivo = true,
-
-                    ProdutoId = 2,
-                });
-            #endregion
-
-            #region produtoFavorito
-            modelBuilder.Entity<ProdutoFavorito>().HasData(
-                new ProdutoFavorito()
-                {
-                    Id = 1,
-                    RegistroAtivo =true,
-
-                    ProdutoId = 1,
-                    ClienteId =1
-                },
-                new ProdutoFavorito()
-                {
-                    Id = 2,
-                    RegistroAtivo = true,
-
-                    ProdutoId = 2,
-                    ClienteId = 2
-                });
-            #endregion
-
 
             #region Carrinho
             modelBuilder.Entity<Carrinho>().HasData(
@@ -322,65 +254,67 @@ namespace Hawk.Repository
                 {
                     Id = 1,
                     RegistroAtivo = true,
-                    Quantidade = 1,
-                    ItemCompraId = 1,
+                    UsuarioId = 1,
+                    ValorTotal = 0
                 },
                 new Carrinho()
                 {
                     Id = 2,
                     RegistroAtivo = true,
-                    Quantidade = 1, 
-                    ItemCompraId = 2,
-                     
+                    UsuarioId = 2,
+                    ValorTotal = 0
+
                 });
             #endregion
+
+            #region itemCompra 
+            modelBuilder.Entity<ItemCompra>().HasData(
+                new ItemCompra()
+                {
+                    Id = 1,
+                    CompraId = 1,
+                    ProdutoId = 1,
+                    Quantidade = 1,
+                    RegistroAtivo = true
+
+                },
+                new ItemCompra()
+                {
+                    Id = 2,
+                    CompraId = 1,
+                    ProdutoId = 2,
+                    Quantidade = 3,
+                    RegistroAtivo = true,
+
+                });
+            #endregion
+
+
 
             #region cliente 
             modelBuilder.Entity<Cliente>().HasData(
                 new Cliente()
                 {
                     Id = 1,
-                   Nome = "irineu",
-                   Cpf = "59315617061",
-                   DataNascimento= new DateTime(2012, 10, 12),
-                   Telefone = "2036466360",
-                   RegistroAtivo = true,
+                    Nome = "Erick",
+                    Cpf = "59315617061",
+                    DataNascimento = new DateTime(2012, 10, 12),
+                    Telefone = "2036466360",
 
-                   UsuarioId = 1,
+                    RegistroAtivo = true,
+                    UsuarioId = 1,
 
                 },
                 new Cliente()
                 {
                     Id = 2,
-                    Nome = "jose",
+                    Nome = "João",
                     Cpf = "59315639061",
                     DataNascimento = new DateTime(2012, 10, 12),
                     Telefone = "2012466360",
                     RegistroAtivo = true,
 
-                    UsuarioId = 1,
-                });
-            #endregion
-
-            #region valiliaçãoProduto
-            modelBuilder.Entity<AvaliacaoProduto>().HasData(
-                new AvaliacaoProduto()
-                {
-                    Id = 1,
-                    Comentario = "abfkjgadkfgakf",
-                    Nota = 5,
-                    RegistroAtivo = true,
-                     
-                    ProdutoId =1
-                },
-                new AvaliacaoProduto()
-                {
-                    Id = 2,
-                    Comentario = "fçaksdçmakd",
-                    Nota = 5,
-                    RegistroAtivo = true,
-
-                    ProdutoId = 1
+                    UsuarioId = 2,
                 });
             #endregion
 
@@ -389,31 +323,28 @@ namespace Hawk.Repository
                 new Cartao()
                 {
                     Id = 1,
-                    Numero= "123576123",
-                    NomeProprietario = "jose",
-                    DataVencimento = new DateTime (2010,12,12),
-                    Cvc = "123",
-                    RegistroAtivo =true,
+                    Numero = "5152158596235746",
+                    NomeProprietario = "João Victor",
+                    DataVencimento = new DateTime(2010, 12, 12),
+                    Cvc = "568",
+                    RegistroAtivo = true,
 
-                    ClienteId = 1
+                    ClienteId = 2
 
-                    
+
                 },
                 new Cartao()
                 {
                     Id = 2,
-                    Numero = "12357343",
-                    NomeProprietario = "joao",
+                    Numero = "2745805245830765",
+                    NomeProprietario = "Erick",
                     DataVencimento = new DateTime(2012, 10, 12),
-                    Cvc = "123",
+                    Cvc = "846",
                     RegistroAtivo = true,
 
                     ClienteId = 1
                 });
             #endregion
-
-
-
 
         }
     }

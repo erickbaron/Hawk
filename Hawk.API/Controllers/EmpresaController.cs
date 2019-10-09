@@ -5,12 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Hawk.Validator;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace Hawk.API.Controllers
 {
     [Route("api/empresas")]
     [ApiController]
+    [AllowAnonymous]
     public class EmpresaController : Controller
     {
         private IHawkRepository<Empresa> repository;
@@ -70,8 +74,8 @@ namespace Hawk.API.Controllers
                 }
                 return BadRequest(Json(errors));
             }
-
-            return Json(new { id = repository.Add(empresa) });
+            var id = repository.Update(empresa);
+            return Json(new { id = id });
         }
 
         [HttpDelete, Route("delete")]

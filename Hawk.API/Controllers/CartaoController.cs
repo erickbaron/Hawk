@@ -6,11 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Hawk.Validator;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Hawk.API.Controllers
 {
     [Route("api/cartoes")]
     [ApiController]
+    [AllowAnonymous]
     public class CartaoController : Controller
     {
         private IHawkRepository<Cartao> repository;
@@ -71,7 +73,7 @@ namespace Hawk.API.Controllers
                 return BadRequest(Json(errors));
             }
 
-            return Json(new { id = repository.Update(cartao) });
+            return Json(new { id = repository.Update(cartao)});
         }
 
         [HttpDelete, Route("delete")]

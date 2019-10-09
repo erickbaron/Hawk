@@ -1,18 +1,20 @@
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
+
 namespace Hawk.Domain.Entities
 {
-    public class Usuario
+    public class Usuario : IdentityUser<int>
     {
-         
-        public int Id { get; set; }
+        public List<UserRole> UserRoles { get; set; }
 
-        public string Nome { get; set; }
+        [Column("nome")]
+        public override string UserName { get => base.UserName; set => base.UserName = value; }
 
-        public string Email { get; set; }
+        [Column("senha")]
+        public override string PasswordHash { get => base.PasswordHash; set => base.PasswordHash = value; }
 
-        public string Senha { get; set; }
-
-        public bool Administrador { get; set; }
-
+        [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }
     }
 }

@@ -6,12 +6,19 @@ using Hawk.Domain.Entities;
 using Hawk.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Hawk.Validator;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Hawk.API.Controllers
 {
+    [Route("api/compras")]
+    [ApiController]
+    [AllowAnonymous]
+
+
     public class CompraController : Controller
     {
-        private IHawkRepository<Compra> repository;
+        private readonly IHawkRepository<Compra> repository;
+
 
         public CompraController(IHawkRepository<Compra> repository)
         {
@@ -71,6 +78,7 @@ namespace Hawk.API.Controllers
             }
 
             return Json(new { id = repository.Update(compra) });
+
         }
 
         [HttpDelete, Route("delete")]
@@ -81,3 +89,4 @@ namespace Hawk.API.Controllers
         }
     }
 }
+

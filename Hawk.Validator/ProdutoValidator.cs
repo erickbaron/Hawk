@@ -20,23 +20,23 @@ namespace Hawk.Validator
                 .NotEmpty()
                 .WithMessage("Informe a Descrição ")
                 .Length(10, 1000)
-                .WithMessage("Informe uma descrição válida");
+                .WithMessage("Descrição deve ter entre 10 e 1000 caracteres");
 
             RuleFor(x => x.Altura)
                 .NotEmpty()
-                .WithMessage("Informe uma Altura");
+                .WithMessage("Informe a altura do produto");
 
             RuleFor(x => x.Largura)
                 .NotEmpty()
-                .WithMessage("Informe uma Largura");
+                .WithMessage("Informe a largura do produto");
 
             RuleFor(x => x.Comprimento)
                 .NotEmpty()
-                .WithMessage("Informe uma Comprimento");
+                .WithMessage("Informe o comprimento do produto");
 
             RuleFor(x => x.Peso)
                 .NotEmpty()
-                .WithMessage("Informe uma Peso");
+                .WithMessage("Informe o peso do produto");
 
             RuleFor(x => x.ValorCusto)
                 .NotEmpty()

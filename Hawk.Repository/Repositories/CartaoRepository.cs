@@ -15,6 +15,8 @@ namespace Hawk.Repository.Repositories
 
         public int Add(Cartao entity)
         {
+
+            entity.ClienteId = 1;
             entity.RegistroAtivo = true;
             context.Cartoes.Add(entity);
             context.SaveChanges();
@@ -41,6 +43,7 @@ namespace Hawk.Repository.Repositories
 
         public bool Update(Cartao entity)
         {
+            entity.ClienteId = 1;
             entity.RegistroAtivo = true;
             context.Cartoes.Update(entity);
             return context.SaveChanges() > 0;

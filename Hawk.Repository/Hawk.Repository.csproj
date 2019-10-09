@@ -5,10 +5,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20191001130501_init.cs" />
+    <Compile Remove="Migrations\20191002012324_INIT.cs" />
+    <Compile Remove="Migrations\20191002060205_init.cs" />
+    <Compile Remove="Migrations\20191002062200_init.cs" />
+    <Compile Remove="Migrations\20191002074642_init.cs" />
+    <Compile Remove="Migrations\20191004110215_init.cs" />
+    <Compile Remove="Migrations\20191004110215_init.Designer.cs" />
+    <Compile Remove="Migrations\20191004133116_init.cs" />
+    <Compile Remove="Migrations\20191004133116_init.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+
     <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="2.2.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Logging" Version="5.5.0" />
+
   </ItemGroup>
 
   <ItemGroup>
