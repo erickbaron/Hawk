@@ -24,12 +24,10 @@
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="wwwroot\Resources\Images\20190410_101937_0000.png" />
     <None Include="wwwroot\Resources\Images\imagem-1.jpg" />
     <None Include="wwwroot\Resources\Images\imagem-2.jpg" />
     <None Include="wwwroot\Resources\Images\imagem-5.jpg" />
     <None Include="wwwroot\Resources\Images\imagem3.jpg" />
     <None Include="wwwroot\Resources\Images\imagem4.jpg" />
-    <None Include="wwwroot\Resources\Images\IMG_1526866724048.jpg" />
   </ItemGroup>
 </Project>
