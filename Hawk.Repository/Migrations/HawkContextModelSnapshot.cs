@@ -128,6 +128,18 @@ namespace Hawk.Repository.Migrations
                             Id = 2,
                             Nome = "Periféricos",
                             RegistroAtivo = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nome = "Games",
+                            RegistroAtivo = true
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Nome = "Outros",
+                            RegistroAtivo = true
                         });
                 });
 
@@ -477,7 +489,7 @@ namespace Hawk.Repository.Migrations
                             CategoriaId = 1,
                             Comprimento = 26,
                             Descricao = "Notebook Intel Core i7 8550U 15,6' 8GB HD 1 TB GeForce MX150 Windows 10",
-                            EmpresaId = 1,
+                            EmpresaId = 2,
                             Largura = 38,
                             Nome = "Notebook Lenovo IdeaPad 330",
                             NomeArquivo = "imagem-1.jpg",
@@ -492,7 +504,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 2,
                             Altura = 14,
-                            CategoriaId = 2,
+                            CategoriaId = 1,
                             Comprimento = 1,
                             Descricao = "Smartphone Samsung Galaxy S9 SM-G9600 128GB",
                             EmpresaId = 2,
@@ -513,7 +525,7 @@ namespace Hawk.Repository.Migrations
                             CategoriaId = 1,
                             Comprimento = 132,
                             Descricao = "Caixa de Som Xtreme 2 JBL Preta 40W RMS",
-                            EmpresaId = 1,
+                            EmpresaId = 2,
                             Largura = 288,
                             Nome = "Caixa de Som Xtreme 2 JBL",
                             NomeArquivo = "imagem3.jpg",
@@ -546,7 +558,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 5,
                             Altura = 2,
-                            CategoriaId = 2,
+                            CategoriaId = 3,
                             Comprimento = 2,
                             Descricao = "God of War é um jogo eletrônico de ação-aventura desenvolvido pela Santa Monica Studio e publicado pela Sony Interactive Entertainment.",
                             EmpresaId = 2,
@@ -669,7 +681,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7fea61e4-de7b-444b-9db9-cc0b36b43b51",
+                            ConcurrencyStamp = "27a4d908-0518-4efc-878b-154c61d7146f",
                             Email = "erick@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
@@ -685,7 +697,7 @@ namespace Hawk.Repository.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0370f852-450a-4802-a339-efe397468624",
+                            ConcurrencyStamp = "bb524c57-0200-4e34-803d-457032d58069",
                             Email = "joao@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,

@@ -26,13 +26,15 @@ namespace Hawk.API.Controllers
         private IHawkRepository<Produto> repository;
         private readonly string nomePasta;
         private readonly string caminho;
+        private readonly string wwwroot;
 
         public ProdutoController(IHawkRepository<Produto> repository, IHostingEnvironment env)
         {
             this.repository = repository;
 
             string wwwroot = env.WebRootPath;
-            this.nomePasta = "StaticFiles";
+            this.wwwroot = wwwroot;
+            this.nomePasta = "Resources";
             this.caminho = Path.Combine(wwwroot, this.nomePasta);
 
             if (!Directory.Exists(this.caminho))
@@ -84,7 +86,7 @@ namespace Hawk.API.Controllers
             {
                 Produto produto = new Produto();
                 var file = Request.Form.Files[0];
-                var folderName = Path.Combine("Resources", "Images");
+                var folderName = Path.Combine(this.wwwroot, "Resources", "Images");
                 var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
                 if (file.Length > 0)
