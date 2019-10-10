@@ -7,7 +7,6 @@ using Hawk.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Hawk.Validator;
-using Microsoft.AspNetCore.Authorization;
 
 
 namespace Hawk.API.Controllers

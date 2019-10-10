@@ -7,7 +7,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Hawk.Validator;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Authorization;
 
 
 namespace Hawk.API.Controllers
